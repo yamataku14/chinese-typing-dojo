@@ -69,12 +69,20 @@
         </div>
       </div>
       <div class="group" id="diffGroup">
-        <span class="label">難易度</span>
-        <div class="seg" data-key="difficulty">
-          <button type="button" data-v="beginner">初級</button>
-          <button type="button" data-v="intermediate">中級</button>
-          <button type="button" data-v="advanced">上級</button>
-          <button type="button" data-v="expert">超級</button>
+        <span class="label">例文の難易度</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <div class="seg" data-key="textBasis">
+            <button type="button" data-v="difficulty">4段階</button>
+            <button type="button" data-v="hsk">HSK級</button>
+            <button type="button" data-v="tbcl">TBCL級</button>
+          </div>
+          <div class="seg" data-key="difficulty" id="diffSeg">
+            <button type="button" data-v="beginner">初級</button>
+            <button type="button" data-v="intermediate">中級</button>
+            <button type="button" data-v="advanced">上級</button>
+            <button type="button" data-v="expert">超級</button>
+          </div>
+          <select id="textLevelSel" aria-label="例文の級"></select>
         </div>
       </div>
       <div class="group">
@@ -93,11 +101,14 @@
       <div id="play">
         <div style="display:flex; flex-direction:column; gap:16px">
           <div class="desk-top">
-            <div class="progress"><span id="count">–</span><span class="bar"><i id="barFill"></i></span><span class="tag" id="courseTag"></span></div>
+            <div class="progress"><span id="count">–</span><span class="bar"><i id="barFill"></i></span><span class="tag" id="courseTag"></span><span class="tag" id="itemLevel" hidden></span></div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <button type="button" class="pill-btn" id="reportBtn">誤りを報告</button>
             <button type="button" class="pill-btn" id="speakBtn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
               発音を聞く
             </button>
+            </div>
           </div>
           <div class="stage" id="stage"><div class="line" id="line"><p class="loading">読み込み中…</p></div></div>
           <p class="meaning" id="meaning"></p>
@@ -107,6 +118,7 @@
         </div>
       </div>
       <div id="result" class="result" hidden></div>
+      <div id="report" class="report" hidden></div>
     </section>
 
     <div class="stats">
@@ -130,7 +142,7 @@
       <h3>注音入力</h3>
       <p>台湾で標準的な「大千式」配列を使います。ㄅ=<kbd>1</kbd>、ㄆ=<kbd>q</kbd>、ㄇ=<kbd>a</kbd>、ㄈ=<kbd>z</kbd>…のように、キーに注音符号が割り当てられています。各音節の最後に声調キーを押します。一声は <kbd>Space</kbd>、二声 <kbd>6</kbd>、三声 <kbd>3</kbd>、四声 <kbd>4</kbd>、軽声 <kbd>7</kbd> です。「キー配列」をオンにすると、次に押すキーが光ります。</p>
       <h3>単語の級と例文の難易度</h3>
-      <p>単語は旧HSK（1〜6級）と、台湾の「臺灣華語文能力基準（TBCL）」の詞語表 第1〜7級から出題します。TBCLは台湾の中国語検定 TOCFL（華語文能力測驗）が2021年から基準にしている語彙表で、基礎（1〜3級）・進階（4〜5級）・精熟（6〜7級）の3等7級に分かれています。TOCFLの試験の級（入門級〜精通級）とは一対一には対応しません。一文・長文は初級・中級・上級・超級の4段階で、超級は公文書・契約書・論文・古典の言い回しなど硬い書面語です。</p>
+      <p>単語は旧HSK（1〜6級）と、台湾の「臺灣華語文能力基準（TBCL）」の詞語表 第1〜7級から出題します。TBCLは台湾の中国語検定 TOCFL（華語文能力測驗）が2021年から基準にしている語彙表で、基礎（1〜3級）・進階（4〜5級）・精熟（6〜7級）の3等7級に分かれています。TOCFLの試験の級（入門級〜精通級）とは一対一には対応しません。一文・長文は初級・中級・上級・超級の4段階で選べるほか、HSK・TBCLの級でも選べます。例文の級は、使われている語の9割がその級までの語彙表に入っているかで自動判定しています（例:「HSK 3級相当」）。超級は公文書・契約書・論文・古典の言い回しなど硬い書面語です。</p>
       <h3>読みの表記</h3>
       <p>簡体字では中国大陸の標準音、繁體字では台湾の標準音で読みを表示します（例: 星期 xīngqī／xīngqí、垃圾 lājī／lèsè）。「一」「不」は変調前の本来の声調で表示し、入力も本来の声調で行います（例: 不客气 → bu4ke4qi5）。読みの誤りに気づいたら「誤りを報告」から知らせてください。</p>
     </article>

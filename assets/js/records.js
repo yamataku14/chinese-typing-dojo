@@ -33,7 +33,8 @@ let data = load();
 
 // 設定の組み合わせを表すキー（自己ベストの比較単位）
 export function settingKey(s) {
-  return [s.script, s.input, s.length, s.length === "word" ? `${s.source}${s.level}` : s.difficulty].join("|");
+  const text = !s.textBasis || s.textBasis === "difficulty" ? s.difficulty : `${s.textBasis}${s.textLevel}`;
+  return [s.script, s.input, s.length, s.length === "word" ? `${s.source}${s.level}` : text].join("|");
 }
 
 export const Records = {

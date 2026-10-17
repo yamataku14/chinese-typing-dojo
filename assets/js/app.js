@@ -1,7 +1,8 @@
-import { splitSyllable, toneMarkLetters, zhuyinParts, zhuyinKeys, KEYBOARD_ROWS, KEY_TO_ZHUYIN } from "./phonetics.js";
+import { splitSyllable, toneMarkLetters, zhuyinParts, zhuyinKeys, zhuyinText, KEYBOARD_ROWS, KEY_TO_ZHUYIN } from "./phonetics.js";
 import { Records, settingKey } from "./records.js";
 import { renderRecords } from "./records-view.js";
-import { LEVELS, describe, fmtTime } from "./labels.js";
+import { LEVELS, TEXT_LEVEL_MAX, describe, fmtTime, textLevelName } from "./labels.js";
+import { renderReport } from "./report.js";
 
 const HAN = /[㐀-鿿]/;
 const ROUND = { word: 20, sentence: 5, passage: 1 };
@@ -10,6 +11,7 @@ const $ = id => document.getElementById(id);
 const SETTINGS_KEY = "ctd:settings:v1";
 const DEFAULTS = {
   script: "simp", input: "pinyin", length: "word", source: "hsk", level: 1, difficulty: "beginner",
+  textBasis: "difficulty", textLevel: 1,
   showReading: true, showMeaning: true, autoSpeak: false, showKeyboard: true,
 };
 const S = (() => {
@@ -23,10 +25,18 @@ async function fetchJSON(path) {
   if (!cache.has(path)) cache.set(path, fetch(path).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }));
   return cache.get(path);
 }
+const loadTexts = () => fetchJSON("data/texts/all.json");
+
+// 例文は {s, t, p, ja, tw, d: 難易度, l: 長さ, hsk, tbcl}。単語と同じ配列の形にそろえる
+function textMatches(o) {
+  if (o.l !== S.length) return false;
+  if (S.textBasis === "difficulty") return o.d === S.difficulty;
+  return o[S.textBasis] === S.textLevel;
+}
 async function loadPool() {
   if (S.length === "word") return fetchJSON(`data/words/${S.source}-${S.level}.json`);
-  const d = await fetchJSON(`data/texts/${S.difficulty}.json`);
-  return d[S.length];
+  const all = await loadTexts();
+  return all.filter(textMatches).map(o => Object.assign([o.s, o.t, o.p, o.ja, o.tw], { hsk: o.hsk, tbcl: o.tbcl }));
 }
 
 function sample(arr, n) {
@@ -36,7 +46,8 @@ function sample(arr, n) {
 }
 
 // データの1件: [簡体字, 繁体字, 大陸の読み, 意味, 台湾の読み（大陸と違うときだけ）]
-function buildItem([simp, trad, cn, meaning, tw]) {
+function buildItem(row) {
+  const [simp, trad, cn, meaning, tw] = row;
   const text = S.script === "simp" ? simp : trad;
   const syls = (S.script === "trad" && tw ? tw : cn).split(" ");
   let k = 0;
@@ -47,7 +58,8 @@ function buildItem([simp, trad, cn, meaning, tw]) {
     const target = S.input === "zhuyin" ? zhuyinKeys(base, tone) : S.input === "tone" ? base + tone : base;
     return { ch, base, tone, letters: toneMarkLetters(base, tone), zy, target };
   });
-  return { text, meaning, cells };
+  const level = row.hsk ? `${textLevelName("hsk", row.hsk)}・${textLevelName("tbcl", row.tbcl)}` : "";
+  return { text, meaning, cells, level };
 }
 
 // ---------- ラウンド ----------
@@ -56,6 +68,7 @@ let roundToken = 0;
 
 async function newRound() {
   const token = ++roundToken;
+  $("report").hidden = true;
   $("result").hidden = true;
   $("play").hidden = false;
   $("line").className = "line";
@@ -68,7 +81,15 @@ async function newRound() {
     return;
   }
   if (token !== roundToken) return;
-  const settings = { script: S.script, input: S.input, length: S.length, source: S.source, level: S.level, difficulty: S.difficulty };
+  const settings = {
+    script: S.script, input: S.input, length: S.length, source: S.source, level: S.level,
+    difficulty: S.difficulty, textBasis: S.textBasis, textLevel: S.textLevel,
+  };
+  if (!pool.length) {
+    $("line").innerHTML = '<p class="loading">この条件の例文はまだありません。別の級を選んでください。</p>';
+    R = null;
+    return;
+  }
   R = {
     settings, items: sample(pool, ROUND[S.length]).map(buildItem),
     qi: 0, ci: 0, pos: 0, keys: 0, misses: 0, chars: 0, start: null, end: null, weak: {},
@@ -102,6 +123,8 @@ function loadItem() {
   }
   $("stage").scrollTop = 0;
   $("meaning").textContent = it.meaning;
+  $("itemLevel").textContent = it.level;
+  $("itemLevel").hidden = !it.level;
   $("meaning").hidden = !S.showMeaning;
   const nx = R.items[R.qi + 1];
   $("next").innerHTML = "";
@@ -234,13 +257,40 @@ function finish() {
     <div class="actions">
       <button type="button" class="primary" id="again">もう一度（Enter）</button>
       <button type="button" class="secondary" id="toRecords">記録を見る</button>
+      <button type="button" class="secondary" id="reportFromResult">誤りを報告</button>
     </div>
     ${Records.available() ? "" : '<p class="note">このブラウザでは記録を保存できない設定になっています（プライベートモードなど）。</p>'}`;
   $("again").addEventListener("click", newRound);
   $("toRecords").addEventListener("click", () => { location.hash = "records"; });
+  $("reportFromResult").addEventListener("click", openReport);
   $("again").focus();
   void entry;
 }
+
+// ---------- 誤りの報告 ----------
+function readingOf(it) {
+  const han = it.cells.filter(c => !c.punct);
+  const py = han.map(c => c.letters.join("")).join(" ");
+  const zy = han.map(c => zhuyinText(c.base, c.tone)).join(" ");
+  return `${py} ／ ${zy}`;
+}
+
+function openReport() {
+  if (!R) return;
+  const entries = R.items.map(it => ({
+    label: it.text.length > 24 ? it.text.slice(0, 24) + "…" : it.text,
+    item: it.meaning ? `${it.text}（${it.meaning}）` : it.text,
+    reading: readingOf(it),
+  }));
+  renderReport($("report"), {
+    entries,
+    index: R.end ? 0 : R.qi,
+    settings: describe(R.settings),
+    onClose: focusInput,
+  });
+  $("report").scrollIntoView({ block: "nearest" });
+}
+$("reportBtn").addEventListener("click", openReport);
 
 // ---------- 注音キーボード ----------
 function buildKeyboard() {
@@ -287,7 +337,7 @@ function speak(text) {
 
 // ---------- 入力 ----------
 function focusInput() {
-  if (!R || R.end || !$("recordsView").hidden) return;
+  if (!R || R.end || !$("recordsView").hidden || !$("report").hidden) return;
   $("typer").focus({ preventScroll: true });
 }
 function setHint() {
@@ -315,11 +365,11 @@ typer.addEventListener("compositionend", () => { typer.value = ""; });
 typer.addEventListener("focus", setHint);
 typer.addEventListener("blur", setHint);
 
-$("desk").addEventListener("click", e => { if (!e.target.closest("button")) focusInput(); });
+$("desk").addEventListener("click", e => { if (!e.target.closest("button, a, .report")) focusInput(); });
 $("speakBtn").addEventListener("click", () => { if (R) speak(item().text); focusInput(); });
 
 document.addEventListener("keydown", e => {
-  if (!$("recordsView").hidden) return;
+  if (!$("recordsView").hidden || e.target.closest?.(".report")) return;
   if (e.key === "Escape") { e.preventDefault(); newRound(); }
   else if (e.key === "Enter" && R && R.end && document.activeElement?.id !== "toRecords") { e.preventDefault(); newRound(); }
 });
@@ -335,6 +385,9 @@ function syncControls() {
   sel.value = String(S.level);
   $("wordGroup").hidden = S.length !== "word";
   $("diffGroup").hidden = S.length === "word";
+  $("diffSeg").hidden = S.textBasis !== "difficulty";
+  $("textLevelSel").hidden = S.textBasis === "difficulty";
+  if (S.textBasis !== "difficulty") fillTextLevels();
   $("kbdToggle").hidden = S.input !== "zhuyin";
   for (const k of ["showReading", "showMeaning", "autoSpeak", "showKeyboard"]) $(k).checked = S[k];
   setHint();
@@ -347,6 +400,23 @@ document.querySelectorAll(".seg[data-key]").forEach(seg => seg.addEventListener(
   saveSettings(); syncControls(); newRound();
 }));
 $("levelSel").addEventListener("change", e => { S.level = +e.target.value; saveSettings(); newRound(); });
+$("textLevelSel").addEventListener("change", e => { S.textLevel = +e.target.value; saveSettings(); newRound(); });
+
+// HSK級・TBCL級の選択肢に、その級の例文の数を添える
+async function fillTextLevels() {
+  const all = await loadTexts().catch(() => []);
+  const basis = S.textBasis, max = TEXT_LEVEL_MAX[basis] + 1;
+  const counts = {};
+  for (const o of all) if (o.l === S.length) counts[o[basis]] = (counts[o[basis]] || 0) + 1;
+  const sel = $("textLevelSel");
+  sel.innerHTML = Array.from({ length: max }, (_, i) => i + 1)
+    .map(lv => `<option value="${lv}" ${counts[lv] ? "" : "disabled"}>${textLevelName(basis, lv)}（${counts[lv] || 0}件）</option>`).join("");
+  if (!counts[S.textLevel]) {
+    const first = Object.keys(counts).map(Number).sort((a, b) => a - b)[0];
+    if (first && first !== S.textLevel) { S.textLevel = first; saveSettings(); sel.value = String(first); return newRound(); }
+  }
+  sel.value = String(S.textLevel);
+}
 for (const k of ["showReading", "showMeaning", "autoSpeak", "showKeyboard"]) {
   $(k).addEventListener("change", e => {
     S[k] = e.target.checked; saveSettings();

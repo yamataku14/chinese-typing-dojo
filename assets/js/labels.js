@@ -11,10 +11,17 @@ export const NAMES = {
   difficulty: { beginner: "初級", intermediate: "中級", advanced: "上級", expert: "超級" },
   source: { hsk: "HSK", tocfl: "TBCL" },
 };
+// 例文の級の表示（判定値が最大級を超えると「〜級超」）
+export const TEXT_LEVEL_MAX = { hsk: 6, tbcl: 7 };
+export function textLevelName(basis, lv) {
+  const name = NAMES.source[basis === "tbcl" ? "tocfl" : "hsk"];
+  return lv > TEXT_LEVEL_MAX[basis] ? `${name} ${TEXT_LEVEL_MAX[basis]}級超` : `${name} ${lv}級相当`;
+}
+
 export function describe(s) {
   const what = s.length === "word"
     ? `${NAMES.source[s.source]} ${(LEVELS[s.source].find(l => l[0] === s.level) || [0, ""])[1]}`
-    : `${NAMES.length[s.length]}・${NAMES.difficulty[s.difficulty]}`;
+    : `${NAMES.length[s.length]}・${!s.textBasis || s.textBasis === "difficulty" ? NAMES.difficulty[s.difficulty] : textLevelName(s.textBasis, s.textLevel)}`;
   return `${what}・${NAMES.script[s.script]}・${NAMES.input[s.input]}`;
 }
 

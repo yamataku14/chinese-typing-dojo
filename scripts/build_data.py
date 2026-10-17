@@ -429,6 +429,51 @@ def build_texts(rd, char_rs, char_s, readings):
     return out, errors, warnings
 
 
+# ---------- 例文の級の自動判定 ----------
+COVERAGE = 0.9   # 語の9割がその級までの語彙で書けていれば「その級相当」とする
+NUMERALS = set("零一二三四五六七八九十百千萬万兩两")
+# 固有名詞は級の判定に数えない（1級扱い）
+PROPER_NOUNS = {"台灣", "台湾", "臺灣", "臺北", "台北", "東京", "东京", "田中", "王明", "臺北市", "台北市"}
+
+
+def vocab_levels(items_by_level, key):
+    """{語: いちばん低い級} と {字: その字を含む語のいちばん低い級}"""
+    words, chars = {}, {}
+    for lv, items in sorted(items_by_level.items()):
+        for it in items:
+            words.setdefault(it[key], lv)
+            for ch in it[key]:
+                chars.setdefault(ch, lv)
+    for w in PROPER_NOUNS:
+        words[w] = 1
+    return words, chars
+
+
+def grade(text, vocab, beyond):
+    """本文を最長一致で語に分け、語の COVERAGE 割をカバーする最小の級を返す。
+    語彙表にない1字は、その字を含む語のいちばん低い級で数え、それもなければ beyond（級外）。
+    数字は1級扱い。"""
+    vocab, chars = vocab
+    levels = []
+    for run in re.findall(r"[㐀-鿿]+", text):
+        i = 0
+        while i < len(run):
+            for n in range(min(6, len(run) - i), 0, -1):
+                w = run[i:i + n]
+                if w in vocab:
+                    levels.append(vocab[w])
+                    break
+                if n == 1:
+                    levels.append(1 if w in NUMERALS else chars.get(w, beyond))
+            i += n
+    if not levels:
+        return 1
+    for lv in range(1, beyond + 1):
+        if sum(x <= lv for x in levels) >= COVERAGE * len(levels):
+            return lv
+    return beyond
+
+
 def t2s_text(trad, syls, char_rs, char_s):
     out, k = [], 0
     for ch in trad:
@@ -478,9 +523,25 @@ def main():
         manifest["tocfl"][lv] = len(items)
 
     texts, errors, warnings = build_texts(rd, char_rs, char_s, readings)
-    for lv, d in texts.items():
-        write(OUT / f"texts/{lv}.json", d)
-        manifest["texts"][lv] = {k: len(v) for k, v in d.items()}
+    hsk_vocab = vocab_levels({lv: build for lv, build in ((lv, [[r[0]] for r in rows]) for lv, rows in hsk.items())}, 0)
+    tbcl_vocab = vocab_levels({lv: [[t] for t, _ in rows] for lv, rows in tbcl.items()}, 0)
+    all_texts = []
+    for diff, d in texts.items():
+        for length, items in d.items():
+            for it in items:
+                obj = {"s": it[0], "t": it[1], "p": it[2], "ja": it[3], "d": diff, "l": length,
+                       "hsk": grade(it[0], hsk_vocab, 7), "tbcl": grade(it[1], tbcl_vocab, 8)}
+                if len(it) > 4:
+                    obj["tw"] = it[4]
+                all_texts.append(obj)
+        manifest["texts"][diff] = {k: len(v) for k, v in d.items()}
+    write(OUT / "texts/all.json", all_texts)
+    for old in (OUT / "texts").glob("*.json"):
+        if old.name != "all.json":
+            old.unlink()
+    from collections import Counter
+    grid = Counter((o["l"], o["d"], o["hsk"], o["tbcl"]) for o in all_texts)
+    print("例文の級（長さ, 難易度, HSK, TBCL）:", sorted(grid.items()))
     write(OUT / "manifest.json", manifest)
 
     print(json.dumps(manifest, ensure_ascii=False))

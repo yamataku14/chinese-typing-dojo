@@ -187,6 +187,21 @@ select {
 .secondary:hover { border-color: var(--jade); }
 .danger { color: var(--seal); }
 
+/* 誤りの報告 */
+.report {
+  border-top: 1px dashed var(--line); padding-top: 16px; display: flex; flex-direction: column; gap: 12px; cursor: auto;
+}
+.report-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.report h3 { margin: 0; font-size: 15px; }
+.field { display: flex; flex-direction: column; gap: 6px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.field legend { padding: 0; margin-bottom: 6px; }
+.report select { max-width: 100%; }
+.report textarea {
+  font: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--paper); color: var(--ink); resize: vertical; width: 100%;
+}
+a.primary { text-decoration: none; display: inline-block; }
+
 /* 記録 */
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .panel h2 { font-size: 16px; margin: 0; }

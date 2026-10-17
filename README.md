@@ -34,6 +34,20 @@ python3 scripts/build_data.py # data/ を生成。例文の読みの数が合わ
 
 例文を足すときは `content/texts.txt` に `繁体字 | 数字ピンイン | 日本語訳` の形で1行追加して、`build_data.py` を実行する。
 
+## 読みの誤りを直す
+
+利用者は練習画面の「誤りを報告」から報告できる。報告先は `assets/js/config.js` の `REPORT` で決まり、
+Google フォームの設定が空なら GitHub の Issue 作成画面が開く。
+
+報告を受けて単語の読みを直すときは、`content/corrections.tsv` に `繁体語<TAB>大陸の読み<TAB>台湾の読み` を1行足して
+`python3 scripts/build_data.py` を実行する。例文の読みは `content/texts.txt` を直接直す。
+
+読みの方針: 簡体字は大陸の標準音、繁體字は台湾の標準音。「一」「不」は変調前の本来の声調。
+
+## 例文の級
+
+`build_data.py` が例文を語に分け、語の9割がその級までの語彙表（旧HSK・TBCL）に入る最小の級を「〜級相当」として付ける。
+
 ## 公開（GitHub Pages）
 
 1. GitHub でリポジトリを作り、このフォルダを push する。
