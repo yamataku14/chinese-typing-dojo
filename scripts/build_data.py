@@ -8,7 +8,7 @@
   単語の意味は content/glossary-ja.tsv に日本語訳があればそれを、なければ CC-CEDICT の英語を使う。
   data/words/hsk-1.json … hsk-6.json     旧HSK 1〜6級
   data/words/tocfl-1.json … tocfl-7.json TBCL 詞語表 第1〜7級（TOCFLの基準。内部名は tocfl のまま）
-  data/texts/{beginner,intermediate,advanced,expert}.json  一文・長文
+  data/texts/all.json  一文・長文（content/texts.txt と、時事の例文 content/news.txt）
 """
 import json
 import re
@@ -388,16 +388,29 @@ LEVELS = {"初級": "beginner", "中級": "intermediate", "上級": "advanced", 
 LENGTHS = {"一文": "sentence", "長文": "passage"}
 
 
+TEXT_FILES = ["content/texts.txt", "content/news.txt"]
+
+
+def text_lines():
+    """(ファイル名:行番号, 行) を順に返す。news.txt はなくてもよい。"""
+    for name in TEXT_FILES:
+        path = ROOT / name
+        if path.exists():
+            for n, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                yield f"{path.name}:{n}", raw
+
+
 def build_texts(rd, char_rs, char_s, readings):
-    """content/texts.txt を読む。書式:
+    """content/texts.txt と content/news.txt を読む。書式:
         ## 初級 一文
-        繁体字の本文 | 数字ピンイン（大陸の読み。漢字1字に1音節） | 日本語訳
-    台湾の読みは語の単位で自動で付ける。
+        繁体字の本文 | 数字ピンイン（大陸の読み。漢字1字に1音節） | 日本語訳 [| 出典 URL]
+    台湾の読みは語の単位で自動で付ける。4列目の出典（時事の例文）は src として出力する。
+    返す例文は (配列, 出典) の組。
     """
     out = {v: {"sentence": [], "passage": []} for v in LEVELS.values()}
     level = length = None
     errors, warnings = [], []
-    for n, raw in enumerate((ROOT / "content/texts.txt").read_text(encoding="utf-8").splitlines(), 1):
+    for n, raw in text_lines():
         line = raw.strip()
         if not line or line.startswith("#") and not line.startswith("##"):
             continue
@@ -405,7 +418,15 @@ def build_texts(rd, char_rs, char_s, readings):
             lv, ln = line[2:].split()
             level, length = LEVELS[lv], LENGTHS[ln]
             continue
-        trad, py, ja = [x.strip() for x in line.split("|")]
+        cols = [x.strip() for x in line.split("|")]
+        if len(cols) not in (3, 4):
+            errors.append(f"{n}: 列の数が {len(cols)}（3 か 4 にする）")
+            continue
+        trad, py, ja = cols[:3]
+        src = cols[3] if len(cols) == 4 else None
+        if src is not None and not re.fullmatch(r"https?://\S+", src):
+            errors.append(f"{n}: 出典は http(s) の URL にする  {src}")
+            continue
         han = HAN.findall(trad)
         try:
             syls = [norm_syl(x) for x in py.split()]
@@ -425,7 +446,7 @@ def build_texts(rd, char_rs, char_s, readings):
         tw = rd.text_tw(trad, syls)
         if tw != syls:
             item.append(" ".join(tw))
-        out[level][length].append(item)
+        out[level][length].append((item, src))
     return out, errors, warnings
 
 
@@ -528,11 +549,13 @@ def main():
     all_texts = []
     for diff, d in texts.items():
         for length, items in d.items():
-            for it in items:
+            for it, src in items:
                 obj = {"s": it[0], "t": it[1], "p": it[2], "ja": it[3], "d": diff, "l": length,
                        "hsk": grade(it[0], hsk_vocab, 7), "tbcl": grade(it[1], tbcl_vocab, 8)}
                 if len(it) > 4:
                     obj["tw"] = it[4]
+                if src:
+                    obj["src"] = src
                 all_texts.append(obj)
         manifest["texts"][diff] = {k: len(v) for k, v in d.items()}
     write(OUT / "texts/all.json", all_texts)

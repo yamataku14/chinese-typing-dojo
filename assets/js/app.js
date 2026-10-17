@@ -27,7 +27,7 @@ async function fetchJSON(path) {
 }
 const loadTexts = () => fetchJSON("data/texts/all.json");
 
-// 例文は {s, t, p, ja, tw, d: 難易度, l: 長さ, hsk, tbcl}。単語と同じ配列の形にそろえる
+// 例文は {s, t, p, ja, tw, d: 難易度, l: 長さ, hsk, tbcl, src: 時事の例文の出典}。単語と同じ配列の形にそろえる
 function textMatches(o) {
   if (o.l !== S.length) return false;
   if (S.textBasis === "difficulty") return o.d === S.difficulty;
@@ -36,7 +36,7 @@ function textMatches(o) {
 async function loadPool() {
   if (S.length === "word") return fetchJSON(`data/words/${S.source}-${S.level}.json`);
   const all = await loadTexts();
-  return all.filter(textMatches).map(o => Object.assign([o.s, o.t, o.p, o.ja, o.tw], { hsk: o.hsk, tbcl: o.tbcl }));
+  return all.filter(textMatches).map(o => Object.assign([o.s, o.t, o.p, o.ja, o.tw], { hsk: o.hsk, tbcl: o.tbcl, src: o.src }));
 }
 
 function sample(arr, n) {
@@ -59,7 +59,7 @@ function buildItem(row) {
     return { ch, base, tone, letters: toneMarkLetters(base, tone), zy, target };
   });
   const level = row.hsk ? `${textLevelName("hsk", row.hsk)}・${textLevelName("tbcl", row.tbcl)}` : "";
-  return { text, meaning, cells, level };
+  return { text, meaning, cells, level, src: row.src };
 }
 
 // ---------- ラウンド ----------
@@ -102,6 +102,16 @@ async function newRound() {
 
 const item = () => R.items[R.qi];
 
+// 時事の例文は、話題にした記事へのリンクを出す
+function showSource(src) {
+  const el = $("itemSrc");
+  el.hidden = !src;
+  if (!src) return;
+  const a = el.querySelector("a");
+  a.href = src;
+  try { a.textContent = new URL(src).hostname; } catch { a.textContent = src; }
+}
+
 function skipPunct() {
   const cells = item().cells;
   while (R.ci < cells.length && cells[R.ci].punct) R.ci++;
@@ -126,6 +136,7 @@ function loadItem() {
   $("itemLevel").textContent = it.level;
   $("itemLevel").hidden = !it.level;
   $("meaning").hidden = !S.showMeaning;
+  showSource(it.src);
   const nx = R.items[R.qi + 1];
   $("next").innerHTML = "";
   if (nx) { $("next").append("次: "); const b = document.createElement("b"); b.textContent = nx.text.length > 16 ? nx.text.slice(0, 16) + "…" : nx.text; $("next").append(b); }

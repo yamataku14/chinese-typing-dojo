@@ -136,6 +136,8 @@ select {
 @keyframes shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
 
 .meaning { text-align: center; color: var(--muted); font-size: 14px; margin: 0; max-width: 70ch; margin-inline: auto; }
+.source { text-align: center; color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+.source a { color: inherit; }
 .hint { text-align: center; font-size: 12px; color: var(--muted); margin: 0; min-height: 1.6em; }
 .hint.warn { color: var(--seal); font-weight: 500; }
 .next { text-align: center; font-size: 12px; color: var(--muted); margin: 0; }

@@ -1,0 +1,70 @@
+# ニュースの話題から例文を作り、確認用の Pull Request を出す（main には直接 push しない）。
+# 事前に Secrets に ANTHROPIC_API_KEY を登録する。手順は README の「時事の例文」を参照。
+name: 時事の例文
+
+on:
+  schedule:
+    - cron: "0 21 * * *"   # 毎日 6:00（日本時間）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: news-texts
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # 確認待ちの PR があるうちは作らない（data/ が衝突するため。マージか閉じれば次の回から再開）
+      - name: 確認待ちの PR があるか
+        id: pending
+        run: |
+          n=$(gh pr list --state open --json headRefName --jq '[.[] | select(.headRefName | startswith("news/"))] | length')
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+          [ "$n" = 0 ] || echo "確認待ちの PR が $n 件あるので今回は作らない"
+
+      - uses: actions/setup-python@v5
+        if: steps.pending.outputs.count == '0'
+        with:
+          python-version: "3.12"
+
+      - name: 準備
+        if: steps.pending.outputs.count == '0'
+        run: |
+          pip install "anthropic>=1.15,<2"
+          sh scripts/fetch_sources.sh
+
+      - name: 例文を作る
+        if: steps.pending.outputs.count == '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_news.py --report "$RUNNER_TEMP/report.md"
+
+      - name: data/ を作り直す
+        if: steps.pending.outputs.count == '0'
+        run: python scripts/build_data.py
+
+      - name: Pull Request を作る
+        if: steps.pending.outputs.count == '0'
+        run: |
+          if git diff --quiet -- content/news.txt; then
+            echo "追加する例文がなかった"
+            exit 0
+          fi
+          branch="news/$(date -u +%Y%m%d-%H%M)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add content/news.txt data/
+          git commit -m "時事の例文を追加（$(date -u +%Y-%m-%d)・要確認）"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "時事の例文 $(date -u +%Y-%m-%d)（要確認）" \
+            --body-file "$RUNNER_TEMP/report.md"

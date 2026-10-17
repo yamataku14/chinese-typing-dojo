@@ -14,8 +14,10 @@
 | `assets/js/records.js` | 練習記録（今は localStorage。アカウント対応時はここを差し替える） |
 | `assets/js/config.js` | AdSense の設定 |
 | `content/texts.txt` | 一文・長文の例文（繁体字で書く） |
+| `content/news.txt` | 時事の例文（ニュースの話題から自動生成し、PR で確認して入れる） |
 | `scripts/` | 公開データの取得と `data/` の生成 |
 | `data/` | サイトが読む単語・例文データ（生成物） |
+| `.github/workflows/news-texts.yml` | 時事の例文を毎日作って PR を出す |
 
 ## ローカルで確認
 
@@ -47,6 +49,50 @@ Google フォームの設定が空なら GitHub の Issue 作成画面が開く�
 ## 例文の級
 
 `build_data.py` が例文を語に分け、語の9割がその級までの語彙表（旧HSK・TBCL）に入る最小の級を「〜級相当」として付ける。
+
+## 時事の例文（ニュースの話題から自動で作る）
+
+`.github/workflows/news-texts.yml` が毎日 6:00（日本時間）に `scripts/generate_news.py` を動かし、
+確認用の Pull Request を作る。main には直接 push しないので、**マージするまでサイトには出ない**。
+
+1. `generate_news.py` の `FEEDS` にある RSS から、見出しと概要だけを取る（本文は取らない）。
+2. 政治・両岸関係・事件・事故・災害・病気などの語（`BLOCK`）を含む記事と、使用済みの記事を除く。
+3. Claude（`claude-sonnet-5-5`）が、記事の文を写さずに事実だけを使ったオリジナルの一文（繁体字）と日本語訳を、
+   初級・中級・上級で1〜2件ずつ書く。安全上の理由で断られたときはサーバー側の推奨モデルに切り替える（`fallbacks: "default"`）。
+4. 読みは CC-CEDICT と語の単位で照合する。辞書で読みが1つに決まる語は辞書の読みにそろえ、決まらないのに食い違うものは
+   `content/news.txt` に `# 要確認:` の行を残す。漢字と音節の数が合わないもの・数字やローマ字を含むものは捨てる。
+5. `content/news.txt` に `繁体字 | 数字ピンイン | 日本語訳 | 出典URL` の形で追記し、`build_data.py` で `data/` を作り直す。
+   出典は練習画面に「話題の出典」として表示される。
+
+### 最初の設定（1回だけ）
+
+1. [Anthropic Console](https://console.anthropic.com/) で API キーを作る。
+2. GitHub のリポジトリで Settings → Secrets and variables → Actions → New repository secret を開き、
+   Name に `ANTHROPIC_API_KEY`、Secret にキーを入れて保存する。
+3. Settings → Actions → General → Workflow permissions で
+   「Allow GitHub Actions to create and approve pull requests」にチェックを入れて保存する（PR を作るのに必要）。
+4. Actions タブ →「時事の例文」→ Run workflow で手動実行して、PR ができるか確かめる。
+
+### PR の確認
+
+- PR の本文に、例文・読み・訳・出典の記事と「⚠️」の付いた要確認点が並ぶ。中国語の自然さ、話題が適切か、元記事の文章に似すぎていないかを見る。
+- 直すときは PR のブランチで `content/news.txt` を編集し、`python3 scripts/build_data.py` を実行して `data/` もコミットする。
+  `# 要確認:` の行は確認したら消してよい。使わない例文は行ごと消す。
+- 確認待ちの PR があるあいだは新しい PR を作らない（`data/` が衝突するため）。マージするか閉じると次の回から再開する。
+- PR の `data/` には、その日に取り直した HSK・TBCL・CC-CEDICT の更新が混ざることがある。
+
+### ローカルで試す
+
+Anthropic の SDK（1.x）は Python 3.10 以上が必要。
+
+```sh
+pip3 install anthropic
+ANTHROPIC_API_KEY=... python3 scripts/generate_news.py   # content/news.txt に追記される
+python3 scripts/build_data.py
+```
+
+API を呼ばずに流れだけ試すときは、Claude の応答の形の JSON を用意して `--sample 応答.json` を付ける。
+フィードを足すときは `FEEDS` に追加する。各社の RSS の利用規約を確認すること。
 
 ## 公開（GitHub Pages）
 
