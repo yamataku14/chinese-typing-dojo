@@ -417,7 +417,7 @@ document.querySelectorAll(".seg[data-key]").forEach(seg => seg.addEventListener(
 $("levelSel").addEventListener("change", e => { S.level = +e.target.value; saveSettings(); newRound(); });
 $("textLevelSel").addEventListener("change", e => { S.textLevel = +e.target.value; saveSettings(); newRound(); });
 
-// HSK級・TBCL級の選択肢に、その級の例文の数を添える
+// HSK級・TOCFL級の選択肢に、その級の例文の数を添える
 async function fillTextLevels() {
   const all = await loadTexts().catch(() => []);
   const basis = S.textBasis, max = TEXT_LEVEL_MAX[basis] + 1;

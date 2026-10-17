@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>中文打字道場 | 中国語タイピング練習（ピンイン・注音）</title>
-<meta name="description" content="中国語のタイピングを無料で練習できるサイト。簡体字・繁体字、ピンイン・注音入力に対応。HSK1〜6級と台湾のTBCL（TOCFLの基準）1〜7級の単語、初級〜超級の例文で、入力速度と正確さを記録しながら練習できます。">
+<meta name="description" content="中国語のタイピングを無料で練習できるサイト。簡体字・繁体字、ピンイン・注音入力に対応。HSK1〜6級とTOCFL準備級〜精通級の単語、初級〜超級の例文で、入力速度と正確さを記録しながら練習できます。">
 <meta property="og:title" content="中文打字道場 — 中国語タイピング練習">
 <meta property="og:description" content="簡体字・繁体字、ピンイン・注音に対応した中国語タイピング練習サイト。">
 <meta property="og:type" content="website">
@@ -42,7 +42,7 @@
       <img class="intro-mascot" src="assets/img/mascot.png" alt="鉢巻きをしてキーボードを打つ肉まんのキャラクター、ダーバオ" width="520" height="491">
       <div class="intro-text">
         <h1>中国語を、指で覚えよう。</h1>
-        <p>簡体字と繁體字、ピンインと注音に対応した中国語タイピング練習です。HSK・TBCLの単語から、公文書のような硬い文章まで。登録なしで、記録はこのブラウザに残ります。</p>
+        <p>簡体字と繁體字、ピンインと注音に対応した中国語タイピング練習です。HSK・TOCFLの単語から、公文書のような硬い文章まで。登録なしで、記録はこのブラウザに残ります。</p>
         <p class="intro-name">道場の案内役は、肉まんの<strong>ダーバオ</strong>（打包）。「打（打つ）」＋「包（肉まん）」で、毎日いっしょにキーを打ちます。</p>
       </div>
     </section>
@@ -75,7 +75,7 @@
         <div style="display:flex; gap:8px; flex-wrap:wrap">
           <div class="seg" data-key="source">
             <button type="button" data-v="hsk">HSK</button>
-            <button type="button" data-v="tocfl">TBCL（台湾）</button>
+            <button type="button" data-v="tocfl">TOCFL</button>
           </div>
           <select id="levelSel" aria-label="級"></select>
         </div>
@@ -86,7 +86,7 @@
           <div class="seg" data-key="textBasis">
             <button type="button" data-v="difficulty">4段階</button>
             <button type="button" data-v="hsk">HSK級</button>
-            <button type="button" data-v="tbcl">TBCL級</button>
+            <button type="button" data-v="tbcl">TOCFL級</button>
           </div>
           <div class="seg" data-key="difficulty" id="diffSeg">
             <button type="button" data-v="beginner">初級</button>
@@ -155,7 +155,7 @@
       <h3>注音入力</h3>
       <p>台湾で標準的な「大千式」配列を使います。ㄅ=<kbd>1</kbd>、ㄆ=<kbd>q</kbd>、ㄇ=<kbd>a</kbd>、ㄈ=<kbd>z</kbd>…のように、キーに注音符号が割り当てられています。各音節の最後に声調キーを押します。一声は <kbd>Space</kbd>、二声 <kbd>6</kbd>、三声 <kbd>3</kbd>、四声 <kbd>4</kbd>、軽声 <kbd>7</kbd> です。「キー配列」をオンにすると、次に押すキーが光ります。</p>
       <h3>単語の級と例文の難易度</h3>
-      <p>単語は旧HSK（1〜6級）と、台湾の「臺灣華語文能力基準（TBCL）」の詞語表 第1〜7級から出題します。TBCLは台湾の中国語検定 TOCFL（華語文能力測驗）が2021年から基準にしている語彙表で、基礎（1〜3級）・進階（4〜5級）・精熟（6〜7級）の3等7級に分かれています。TOCFLの試験の級（入門級〜精通級）とは一対一には対応しません。一文・長文は初級・中級・上級・超級の4段階で選べるほか、HSK・TBCLの級でも選べます。例文の級は、使われている語の9割がその級までの語彙表に入っているかで自動判定しています（例:「HSK 3級相当」）。超級は公文書・契約書・論文・古典の言い回しなど硬い書面語です。</p>
+      <p>単語は旧HSK（1〜6級）と、台湾の中国語検定 TOCFL（華語文能力測驗）の準備級〜精通級から出題します。TOCFLの単語は、TOCFLが基準にしている台湾の語彙基準（臺灣華語文能力基準）の詞語表を、華語測験推動工作委員会の等級対照に従って各級に割り当てたものです（準備級＝基準の1級、入門級＝2級、基礎級＝3級、進階級＝4級、高階級＝5級、流利級＝6級、精通級＝7級）。対応は目安です。一文・長文は初級・中級・上級・超級の4段階で選べるほか、HSK・TOCFLの級でも選べます。例文の級は、使われている語の9割がその級までの語彙表に入っているかで自動判定しています（例:「HSK 3級相当」）。超級は公文書・契約書・論文・古典の言い回しなど硬い書面語です。</p>
       <h3>読みの表記</h3>
       <p>簡体字では中国大陸の標準音、繁體字では台湾の標準音で読みを表示します（例: 星期 xīngqī／xīngqí、垃圾 lājī／lèsè）。「一」「不」は変調前の本来の声調で表示し、入力も本来の声調で行います（例: 不客气 → bu4ke4qi5）。読みの誤りに気づいたら「誤りを報告」から知らせてください。</p>
     </article>
