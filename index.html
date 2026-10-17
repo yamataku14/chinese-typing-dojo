@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中文打字道場 | 中国語タイピング練習（ピンイン・注音）</title>
+<meta name="description" content="中国語のタイピングを無料で練習できるサイト。簡体字・繁体字、ピンイン・注音入力に対応。HSK1〜6級とTOCFLの単語、初級〜超級の例文で、入力速度と正確さを記録しながら練習できます。">
+<meta property="og:title" content="中文打字道場 — 中国語タイピング練習">
+<meta property="og:description" content="簡体字・繁体字、ピンイン・注音に対応した中国語タイピング練習サイト。">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans:wght@400;600&family=Noto+Sans+TC:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="module" src="assets/js/ads.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <a class="brand" href="./">
+      <span class="seal" aria-hidden="true"><span>打</span><span>字</span><span>道</span><span>場</span></span>
+      <span>
+        <p class="brand-name">中文打字道場</p>
+        <p class="brand-sub">中国語タイピング練習 ・ ピンイン／注音</p>
+      </span>
+    </a>
+    <nav class="nav" aria-label="ページ">
+      <a href="#practice" data-view="practice" aria-current="page">練習</a>
+      <a href="#records" data-view="records">記録</a>
+      <a href="#guide">使い方</a>
+      <a href="about.html">このサイトについて</a>
+    </nav>
+  </header>
+
+  <main class="wrap" id="practiceView">
+    <div class="controls" id="controls">
+      <div class="group">
+        <span class="label">字体</span>
+        <div class="seg" data-key="script">
+          <button type="button" data-v="simp">簡体字</button>
+          <button type="button" data-v="trad">繁體字</button>
+        </div>
+      </div>
+      <div class="group">
+        <span class="label">入力方式</span>
+        <div class="seg" data-key="input">
+          <button type="button" data-v="pinyin">ピンイン</button>
+          <button type="button" data-v="tone">ピンイン＋声調</button>
+          <button type="button" data-v="zhuyin">注音</button>
+        </div>
+      </div>
+      <div class="group">
+        <span class="label">長さ</span>
+        <div class="seg" data-key="length">
+          <button type="button" data-v="word">単語</button>
+          <button type="button" data-v="sentence">一文</button>
+          <button type="button" data-v="passage">長文</button>
+        </div>
+      </div>
+      <div class="group" id="wordGroup">
+        <span class="label">単語の級</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap">
+          <div class="seg" data-key="source">
+            <button type="button" data-v="hsk">HSK</button>
+            <button type="button" data-v="tocfl">TOCFL</button>
+          </div>
+          <select id="levelSel" aria-label="級"></select>
+        </div>
+      </div>
+      <div class="group" id="diffGroup">
+        <span class="label">難易度</span>
+        <div class="seg" data-key="difficulty">
+          <button type="button" data-v="beginner">初級</button>
+          <button type="button" data-v="intermediate">中級</button>
+          <button type="button" data-v="advanced">上級</button>
+          <button type="button" data-v="expert">超級</button>
+        </div>
+      </div>
+      <div class="group">
+        <span class="label">表示</span>
+        <div class="toggles">
+          <label class="toggle"><input type="checkbox" id="showReading"> 読みを表示</label>
+          <label class="toggle"><input type="checkbox" id="showMeaning"> 意味を表示</label>
+          <label class="toggle"><input type="checkbox" id="autoSpeak"> 自動で読み上げ</label>
+          <label class="toggle" id="kbdToggle"><input type="checkbox" id="showKeyboard"> キー配列</label>
+        </div>
+      </div>
+    </div>
+
+    <section class="desk" id="desk" aria-label="タイピング練習">
+      <input id="typer" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="入力欄">
+      <div id="play">
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div class="desk-top">
+            <div class="progress"><span id="count">–</span><span class="bar"><i id="barFill"></i></span><span class="tag" id="courseTag"></span></div>
+            <button type="button" class="pill-btn" id="speakBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              発音を聞く
+            </button>
+          </div>
+          <div class="stage" id="stage"><div class="line" id="line"><p class="loading">読み込み中…</p></div></div>
+          <p class="meaning" id="meaning"></p>
+          <p class="hint" id="hint"></p>
+          <div class="kbd" id="kbd" hidden></div>
+          <p class="next" id="next"></p>
+        </div>
+      </div>
+      <div id="result" class="result" hidden></div>
+    </section>
+
+    <div class="stats">
+      <div class="stat"><span class="label">速度</span><span class="v" id="sCpm">0<small>字/分</small></span></div>
+      <div class="stat"><span class="label">打鍵速度</span><span class="v" id="sKpm">0<small>キー/分</small></span></div>
+      <div class="stat"><span class="label">正確率</span><span class="v" id="sAcc">100<small>%</small></span></div>
+      <div class="stat"><span class="label">経過時間</span><span class="v" id="sTime">0:00</span></div>
+    </div>
+
+    <aside class="ad-slot" data-slot="belowPractice" hidden></aside>
+
+    <article class="article" id="guide">
+      <h2>使い方</h2>
+      <ul>
+        <li>上の設定で字体・入力方式・長さを選び、表示された漢字の読みをキーボードで入力します。打ち間違えると枠が揺れ、正しいキーを押すまで先へ進みません。</li>
+        <li>入力はIMEを<strong>オフ（英数入力）</strong>にして行います。中国語IMEで実際に変換するときと同じキーを押す練習です。</li>
+        <li><kbd>Esc</kbd> でやり直し、結果画面では <kbd>Enter</kbd> でもう一度。記録はこのブラウザに自動で保存され、「記録」タブで見られます。</li>
+      </ul>
+      <h3>ピンイン入力</h3>
+      <p>声調記号は打たずに、アルファベットだけを入力します（例: 你好 → <kbd>nihao</kbd>）。ü は <kbd>v</kbd> で打ちます（绿 → <kbd>lv</kbd>）。「ピンイン＋声調」では各音節のあとに声調の数字 <kbd>1</kbd>〜<kbd>4</kbd>、軽声は <kbd>5</kbd> を打ちます（<kbd>ni3hao3</kbd>）。</p>
+      <h3>注音入力</h3>
+      <p>台湾で標準的な「大千式」配列を使います。ㄅ=<kbd>1</kbd>、ㄆ=<kbd>q</kbd>、ㄇ=<kbd>a</kbd>、ㄈ=<kbd>z</kbd>…のように、キーに注音符号が割り当てられています。各音節の最後に声調キーを押します。一声は <kbd>Space</kbd>、二声 <kbd>6</kbd>、三声 <kbd>3</kbd>、四声 <kbd>4</kbd>、軽声 <kbd>7</kbd> です。「キー配列」をオンにすると、次に押すキーが光ります。</p>
+      <h3>単語の級と例文の難易度</h3>
+      <p>単語は旧HSK（1〜6級）と、TOCFL（台湾の華語文能力測験）の詞語表 第1〜7級から出題します。一文・長文は初級・中級・上級・超級の4段階で、超級は公文書・契約書・論文・古典の言い回しなど硬い書面語です。読みは辞書どおりの本来の声調で表示します（「一」「不」の変調は表示に反映していません）。</p>
+    </article>
+  </main>
+
+  <main class="wrap" id="recordsView" hidden>
+    <div id="recordsBody"></div>
+  </main>
+
+  <aside class="ad-slot" data-slot="footer" hidden></aside>
+
+  <footer class="site-foot">
+    <span>© 中文打字道場</span>
+    <a href="about.html">このサイトについて・出典</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </footer>
+</div>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
