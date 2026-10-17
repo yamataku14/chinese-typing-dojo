@@ -35,9 +35,10 @@ function sample(arr, n) {
   return a.slice(0, n);
 }
 
-function buildItem([simp, trad, py, meaning]) {
+// データの1件: [簡体字, 繁体字, 大陸の読み, 意味, 台湾の読み（大陸と違うときだけ）]
+function buildItem([simp, trad, cn, meaning, tw]) {
   const text = S.script === "simp" ? simp : trad;
-  const syls = py.split(" ");
+  const syls = (S.script === "trad" && tw ? tw : cn).split(" ");
   let k = 0;
   const cells = [...text].map(ch => {
     if (!HAN.test(ch)) return { ch, punct: true };

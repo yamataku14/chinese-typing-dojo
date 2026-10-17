@@ -2,7 +2,9 @@
 
 使い方:  sh scripts/fetch_sources.sh && python3 scripts/build_data.py
 
-出力（どれも [簡体字, 繁体字, 数字ピンイン, 意味] の配列）:
+出力（どれも [簡体字, 繁体字, 大陸の読み, 意味, 台湾の読み] の配列。台湾の読みは大陸と同じなら省く）:
+  読みは数字ピンイン。「一」「不」は変調前の本来の声調にそろえる。
+  台湾の読みは TBCL の注音、CC-CEDICT の「Taiwan pr.」注記の順で決める。
   単語の意味は content/glossary-ja.tsv に日本語訳があればそれを、なければ CC-CEDICT の英語を使う。
   data/words/hsk-1.json … hsk-6.json     旧HSK 1〜6級
   data/words/tocfl-1.json … tocfl-7.json TBCL 詞語表 第1〜7級（TOCFLの基準。内部名は tocfl のまま）
@@ -30,12 +32,40 @@ def norm_syl(s):
     return f"{base}{tone}"
 
 
+# ---------- 読みの正規化 ----------
+def citation(text, syls):
+    """「一」「不」の変調（yi2, yi4, bu2）を本来の声調（yi1, bu4）に戻す。"""
+    han = [c for c in text if HAN.match(c)]
+    if len(han) != len(syls):
+        return syls
+    out = []
+    for ch, s in zip(han, syls):
+        if ch == "一" and s[:-1] == "yi":
+            s = "yi1"
+        elif ch == "不" and s[:-1] == "bu":
+            s = "bu4"
+        out.append(s)
+    return out
+
+
+def eq_loose(a, b):
+    """同じ読みか。軽声（5）と本来の声調の違いは同じとみなす。"""
+    return len(a) == len(b) and all(x == y or (x[:-1] == y[:-1] and "5" in (x[-1], y[-1])) for x, y in zip(a, b))
+
+
+def bases(syls):
+    return [s[:-1] for s in syls]
+
+
 # ---------- CC-CEDICT ----------
+TAIWAN_PR = re.compile(r"Taiwan pr\. \[([^\]]+)\]")
+PY_SYL = re.compile(r"[a-zü:]+[1-5]")
+TW_PR = {}                                # (繁体語, 大陸の読み) -> 台湾の読み
 CEDICT_LINE = re.compile(r"^(\S+) (\S+) \[([^\]]+)\] /(.+)/$")
 
 
 def load_cedict():
-    words_t = defaultdict(list)          # 繁体語 -> [(簡体, ピンイン, 定義)]
+    words_t = defaultdict(list)          # 繁体語 -> [(簡体, ピンイン, 定義, 固有名詞か)]
     char_rs = {}                          # (繁体字, 音節) -> 簡体字
     char_s = {}                           # 繁体字 -> 簡体字（読みを問わない）
     readings = defaultdict(set)           # 漢字 -> 読みの集合
@@ -50,7 +80,16 @@ def load_cedict():
             syls = [norm_syl(x) for x in py.split()]
         except ValueError:
             continue
+        syls = citation(trad, syls)
         words_t[trad].append((simp, syls, defs, py[:1].isupper()))
+        for tw in TAIWAN_PR.findall(defs):
+            tws = PY_SYL.findall(tw.lower())
+            try:
+                tws = citation(trad, [norm_syl(x) for x in tws])
+            except ValueError:
+                continue
+            if len(tws) == len(syls):
+                TW_PR[(trad, tuple(syls))] = tws
         if len(trad) == 1 and len(syls) == 1:
             char_rs.setdefault((trad, syls[0]), simp)
             char_s.setdefault(trad, simp)
@@ -119,13 +158,15 @@ def same_but_neutral(a, b):
 
 
 def apply_glossary(items, gl):
-    """読みが一致すれば日本語訳に置き換える。軽声だけ違うものは訳が1つに決まるときだけ使う。"""
+    """読みが一致すれば日本語訳に置き換える（大陸・台湾どちらの読みでもよい）。
+    軽声だけ違うものは訳が1つに決まるときだけ使う。"""
     hit = 0
     for it in items:
         cands = gl.get(it[1], {})
-        ja = cands.get(it[2])
+        readings = [it[2]] + ([it[4]] if len(it) > 4 else [])
+        ja = next((cands[r] for r in readings if r in cands), None)
         if not ja:
-            near = {v for py, v in cands.items() if same_but_neutral(py, it[2])}
+            near = {v for py, v in cands.items() for r in readings if same_but_neutral(py, r)}
             ja = near.pop() if len(near) == 1 else None
         if ja:
             it[3] = ja
@@ -134,28 +175,63 @@ def apply_glossary(items, gl):
 
 
 # ---------- HSK（旧HSK 1〜6級） ----------
-def build_hsk(words_t):
+MINOR_SENSE = ("surname", "variant of", "old variant", "unofficial variant", "used in", "see ")
+
+
+def pick_hsk_form(simp, forms, tbcl_tw):
+    """複数の読みがある語から主な読みを選ぶ。
+    固有名詞・異体字・「〜に使う」だけの読みを除き、台湾の TBCL の読みと合うもの、
+    なければ語義の多いものを選ぶ。"""
+    cands = []
+    for f in forms:
+        py = f["transcriptions"]["numeric"]
+        try:
+            syls = citation(f["traditional"], [norm_syl(x) for x in py.split()])
+        except ValueError:
+            continue
+        minor = py[:1].isupper() or all(m.startswith(MINOR_SENSE) for m in f["meanings"])
+        cands.append((f, syls, minor))
+    if not cands:
+        return None
+    major = [c for c in cands if not c[2]] or cands
+    # TBCL で同じ字に複数の読みがあれば、低い級（基本的な読み）を優先する
+    trads = {f["traditional"] for f, _, _ in major}
+    tws = [tw for _, tw in sorted(x for t in trads for x in tbcl_tw.get(t, []))]
+    for match in (lambda f, syls, tw: syls == tw or TW_PR.get((f["traditional"], tuple(syls))) == tw,
+                  lambda f, syls, tw: eq_loose(tw, syls)):
+        for tw in tws:
+            for f, syls, _ in major:
+                if match(f, syls, tw):
+                    return f, syls
+    f, syls, _ = max(major, key=lambda c: len(c[0]["meanings"]))
+    return f, syls
+
+
+def load_hsk(tbcl):
+    """{級: [(簡体, 繁体, 読み, 意味)]}。読みは大陸の読み。"""
+    tbcl_tw = defaultdict(list)
+    for lv, rows in tbcl.items():
+        for trad, tw in rows:
+            tbcl_tw[trad].append((lv, tw))
     out = {}
     for lv in range(1, 7):
-        items, seen = [], set()
+        rows, seen = [], set()
         for e in json.loads((SRC / f"hsk/old-{lv}.json").read_text(encoding="utf-8")):
             simp = e["simplified"]
-            f = e["forms"][0]
-            trad = f["traditional"]
-            try:
-                syls = [norm_syl(x) for x in f["transcriptions"]["numeric"].split()]
-            except ValueError:
+            picked = pick_hsk_form(simp, e["forms"], tbcl_tw)
+            if not picked:
                 continue
+            f, syls = picked
+            trad = f["traditional"]
             if not ALL_HAN.fullmatch(simp) or len(simp) != len(syls) or len(trad) != len(simp) or simp in seen:
                 continue
             seen.add(simp)
-            mean = gloss("/".join(f["meanings"])) or cedict_gloss(trad, syls, words_t)
-            items.append([simp, trad, " ".join(syls), mean])
-        out[lv] = items
+            rows.append((simp, trad, syls, "/".join(f["meanings"])))
+        out[lv] = rows
     return out
 
 
-# ---------- TOCFL 詞語表 ----------
+# ---------- TBCL 詞語表（ファイル名・内部名は tocfl） ----------
 ZY_SYL = re.compile(r"˙?[ㄅ-ㄙ]?[ㄧㄨㄩ]?[ㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦ]?[ˊˇˋ]?")
 
 
@@ -172,7 +248,8 @@ def zy_tokens(zy):
     return toks
 
 
-def build_tocfl(rev, words_t, char_rs, char_s):
+def load_tbcl(rev):
+    """{級: [(繁体, 台湾の読み)]} と、読みを揃えられず除いた語数。"""
     out = defaultdict(list)
     skipped = 0
     for line in (SRC / "tocfl/tocfl_words.json").open(encoding="utf-8"):
@@ -183,9 +260,127 @@ def build_tocfl(rev, words_t, char_rs, char_s):
         if not syls or None in syls or len(syls) != len(trad):
             skipped += 1
             continue
-        simp = t2s(trad, syls, words_t, char_rs, char_s)
-        out[r["tocfl_level"]].append([simp, trad, " ".join(syls), cedict_gloss(trad, syls, words_t)])
+        out[r["tocfl_level"]].append((trad, citation(trad, syls)))
     return out, skipped
+
+
+# ---------- 大陸の読みと台湾の読み ----------
+class Readings:
+    """語ごとに大陸の読みと台湾の読みを対応づける。
+
+    大陸の読み: 旧HSK → CC-CEDICT（Taiwan pr. 注記・音節の一致から逆引き）
+    台湾の読み: TBCL の注音 → CC-CEDICT の Taiwan pr. 注記 → 大陸と同じ
+    """
+
+    def __init__(self, hsk, tbcl, words_t):
+        self.words_t = words_t
+        self.hsk_cn = {}                      # 繁体語 -> 大陸の読み
+        for rows in hsk.values():
+            for _, trad, syls, _ in rows:
+                self.hsk_cn.setdefault(trad, syls)
+        self.tbcl_tw = defaultdict(list)      # 繁体語 -> [(台湾の読み, 対応する大陸の読み)]
+        for rows in tbcl.values():
+            for trad, tw in rows:
+                if all(tw != x[0] for x in self.tbcl_tw[trad]):
+                    self.tbcl_tw[trad].append((tw, self.cn_for_tw(trad, tw)))
+
+    def cn_for_tw(self, trad, tw):
+        if trad in self.hsk_cn and len(self.hsk_cn[trad]) == len(tw):
+            cn = self.hsk_cn[trad]
+            if bases(cn) == bases(tw) or TW_PR.get((trad, tuple(cn))) == tw:
+                return cn
+        cands = [c for c in self.words_t.get(trad, []) if not c[3] and len(c[1]) == len(tw)]
+        for c in cands:
+            if c[1] == tw:
+                return tw
+        for c in cands:
+            if TW_PR.get((trad, tuple(c[1]))) == tw:
+                return c[1]
+        same = [c for c in cands if bases(c[1]) == bases(tw)]
+        if same:
+            return max(same, key=lambda c: sum(x == y for x, y in zip(c[1], tw)))[1]
+        if trad in self.hsk_cn and len(self.hsk_cn[trad]) == len(tw):
+            return self.hsk_cn[trad]
+        return tw
+
+    def tw_for_cn(self, trad, cn):
+        """大陸の読みに対応する台湾の読み。見つからなければ None。"""
+        for tw, tcn in self.tbcl_tw.get(trad, []):
+            if eq_loose(tcn, cn):
+                return tw
+        return TW_PR.get((trad, tuple(cn)))
+
+    def text_tw(self, trad, cn):
+        """例文（1字ずつの大陸の読み）を、語の単位で台湾の読みに置き換える。最長一致。"""
+        han = [c for c in trad if HAN.match(c)]
+        out, i = list(cn), 0
+        while i < len(han):
+            for n in range(min(6, len(han) - i), 0, -1):
+                tw = self.tw_for_cn("".join(han[i:i + n]), cn[i:i + n])
+                if tw:
+                    out[i:i + n] = tw
+                    i += n
+                    break
+            else:
+                i += 1
+        return out
+
+
+# ---------- 読みの訂正 ----------
+def load_corrections():
+    """content/corrections.tsv を読む。書式: 繁体語 \t 大陸の読み \t 台湾の読み（大陸と同じなら空）
+    報告を受けて読みを直すときはここに1行足す。単語データのすべての級に効く。"""
+    out = {}
+    path = ROOT / "content/corrections.tsv"
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip() and not line.startswith("#"):
+                cols = line.split("\t") + [""]
+                trad, cn, tw = cols[0].strip(), cols[1].strip(), cols[2].strip()
+                out[trad] = (citation(trad, cn.split()), citation(trad, tw.split()) if tw else None)
+    return out
+
+
+def apply_corrections(items, corr):
+    n = 0
+    for it in items:
+        if it[1] in corr:
+            cn, tw = corr[it[1]]
+            del it[4:]
+            it[2] = " ".join(cn)
+            if tw and tw != cn:
+                it.append(" ".join(tw))
+            n += 1
+    return n
+
+
+def word_item(simp, trad, cn, tw, meaning):
+    item = [simp, trad, " ".join(cn), meaning]
+    if tw and tw != cn:
+        item.append(" ".join(tw))
+    return item
+
+
+def build_hsk(hsk, rd, words_t):
+    out = {}
+    for lv, rows in hsk.items():
+        out[lv] = [
+            word_item(simp, trad, cn, rd.tw_for_cn(trad, cn), gloss(meanings) or cedict_gloss(trad, cn, words_t))
+            for simp, trad, cn, meanings in rows
+        ]
+    return out
+
+
+def build_tocfl(tbcl, rd, words_t, char_rs, char_s):
+    out = {}
+    for lv, rows in tbcl.items():
+        items = []
+        for trad, tw in rows:
+            cn = rd.cn_for_tw(trad, tw)
+            simp = t2s(trad, cn, words_t, char_rs, char_s)
+            items.append(word_item(simp, trad, cn, tw, cedict_gloss(trad, cn, words_t)))
+        out[lv] = items
+    return out
 
 
 # ---------- 自作の例文 ----------
@@ -193,10 +388,11 @@ LEVELS = {"初級": "beginner", "中級": "intermediate", "上級": "advanced", 
 LENGTHS = {"一文": "sentence", "長文": "passage"}
 
 
-def build_texts(words_t, char_rs, char_s, readings):
+def build_texts(rd, char_rs, char_s, readings):
     """content/texts.txt を読む。書式:
         ## 初級 一文
-        繁体字の本文 | 数字ピンイン（漢字1字に1音節） | 日本語訳
+        繁体字の本文 | 数字ピンイン（大陸の読み。漢字1字に1音節） | 日本語訳
+    台湾の読みは語の単位で自動で付ける。
     """
     out = {v: {"sentence": [], "passage": []} for v in LEVELS.values()}
     level = length = None
@@ -219,12 +415,17 @@ def build_texts(words_t, char_rs, char_s, readings):
         if len(han) != len(syls):
             errors.append(f"{n}: 漢字 {len(han)} 字に対して読みが {len(syls)} 音節  {trad}")
             continue
+        syls = citation(trad, syls)
         for ch, syl in zip(han, syls):
             rs = readings.get(ch)
             if rs and syl not in rs and syl[:-1] + "5" not in rs and not syl.endswith("5"):
                 warnings.append(f"{n}: {ch} を {syl} と読んでいる（辞書: {'/'.join(sorted(rs))}）")
         simp = t2s_text(trad, syls, char_rs, char_s)
-        out[level][length].append([simp, trad, " ".join(syls), ja])
+        item = [simp, trad, " ".join(syls), ja]
+        tw = rd.text_tw(trad, syls)
+        if tw != syls:
+            item.append(" ".join(tw))
+        out[level][length].append(item)
     return out, errors, warnings
 
 
@@ -255,28 +456,37 @@ def main():
         except ValueError:
             pass
 
+    tbcl, skipped = load_tbcl(rev)
+    hsk = load_hsk(tbcl)
+    rd = Readings(hsk, tbcl, words_t)
+
     glossary = load_glossary()
-    ja_hits = []
+    corrections = load_corrections()
+    ja_hits, tw_diff = [], []
     manifest = {"hsk": {}, "tocfl": {}, "texts": {}}
-    for lv, items in build_hsk(words_t).items():
+    for lv, items in build_hsk(hsk, rd, words_t).items():
+        apply_corrections(items, corrections)
         ja_hits.append(f"HSK{lv} {apply_glossary(items, glossary)}/{len(items)}")
+        tw_diff.append(f"HSK{lv} {sum(len(i) > 4 for i in items)}")
         write(OUT / f"words/hsk-{lv}.json", items)
         manifest["hsk"][lv] = len(items)
-    tocfl, skipped = build_tocfl(rev, words_t, char_rs, char_s)
-    for lv, items in sorted(tocfl.items()):
-        ja_hits.append(f"TOCFL{lv} {apply_glossary(items, glossary)}/{len(items)}")
+    for lv, items in sorted(build_tocfl(tbcl, rd, words_t, char_rs, char_s).items()):
+        apply_corrections(items, corrections)
+        ja_hits.append(f"TBCL{lv} {apply_glossary(items, glossary)}/{len(items)}")
+        tw_diff.append(f"TBCL{lv} {sum(len(i) > 4 for i in items)}")
         write(OUT / f"words/tocfl-{lv}.json", items)
         manifest["tocfl"][lv] = len(items)
 
-    texts, errors, warnings = build_texts(words_t, char_rs, char_s, readings)
+    texts, errors, warnings = build_texts(rd, char_rs, char_s, readings)
     for lv, d in texts.items():
         write(OUT / f"texts/{lv}.json", d)
         manifest["texts"][lv] = {k: len(v) for k, v in d.items()}
     write(OUT / "manifest.json", manifest)
 
     print(json.dumps(manifest, ensure_ascii=False))
-    print(f"TOCFL: 読みを揃えられず除外 {skipped} 語")
+    print(f"TBCL: 読みを揃えられず除外 {skipped} 語")
     print("日本語訳:", "  ".join(ja_hits))
+    print("台湾の読みが大陸と違う語:", "  ".join(tw_diff))
     for w in warnings:
         print("注意", w)
     for e in errors:
