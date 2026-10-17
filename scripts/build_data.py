@@ -3,6 +3,7 @@
 使い方:  sh scripts/fetch_sources.sh && python3 scripts/build_data.py
 
 出力（どれも [簡体字, 繁体字, 数字ピンイン, 意味] の配列）:
+  単語の意味は content/glossary-ja.tsv に日本語訳があればそれを、なければ CC-CEDICT の英語を使う。
   data/words/hsk-1.json … hsk-6.json     旧HSK 1〜6級
   data/words/tocfl-1.json … tocfl-7.json TOCFL 詞語表 第1〜7級
   data/texts/{beginner,intermediate,advanced,expert}.json  一文・長文
@@ -96,6 +97,40 @@ def cedict_gloss(trad, syls, words_t):
             if g:
                 return g
     return ""
+
+
+# ---------- 日本語訳 ----------
+def load_glossary():
+    """content/glossary-ja.tsv を読む。書式: 繁体字 \t 数字ピンイン \t 日本語の意味"""
+    gl = defaultdict(dict)                # 繁体字 -> {数字ピンイン: 日本語}
+    path = ROOT / "content/glossary-ja.tsv"
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip() and not line.startswith("#"):
+                trad, py, ja = line.split("\t")
+                gl[trad][py] = ja
+    return gl
+
+
+def same_but_neutral(a, b):
+    """軽声（5）の有無だけが違う読みか。"""
+    a, b = a.split(), b.split()
+    return len(a) == len(b) and all(x == y or x[:-1] == y[:-1] and "5" in (x[-1], y[-1]) for x, y in zip(a, b))
+
+
+def apply_glossary(items, gl):
+    """読みが一致すれば日本語訳に置き換える。軽声だけ違うものは訳が1つに決まるときだけ使う。"""
+    hit = 0
+    for it in items:
+        cands = gl.get(it[1], {})
+        ja = cands.get(it[2])
+        if not ja:
+            near = {v for py, v in cands.items() if same_but_neutral(py, it[2])}
+            ja = near.pop() if len(near) == 1 else None
+        if ja:
+            it[3] = ja
+            hit += 1
+    return hit
 
 
 # ---------- HSK（旧HSK 1〜6級） ----------
@@ -220,12 +255,16 @@ def main():
         except ValueError:
             pass
 
+    glossary = load_glossary()
+    ja_hits = []
     manifest = {"hsk": {}, "tocfl": {}, "texts": {}}
     for lv, items in build_hsk(words_t).items():
+        ja_hits.append(f"HSK{lv} {apply_glossary(items, glossary)}/{len(items)}")
         write(OUT / f"words/hsk-{lv}.json", items)
         manifest["hsk"][lv] = len(items)
     tocfl, skipped = build_tocfl(rev, words_t, char_rs, char_s)
     for lv, items in sorted(tocfl.items()):
+        ja_hits.append(f"TOCFL{lv} {apply_glossary(items, glossary)}/{len(items)}")
         write(OUT / f"words/tocfl-{lv}.json", items)
         manifest["tocfl"][lv] = len(items)
 
@@ -237,6 +276,7 @@ def main():
 
     print(json.dumps(manifest, ensure_ascii=False))
     print(f"TOCFL: 読みを揃えられず除外 {skipped} 語")
+    print("日本語訳:", "  ".join(ja_hits))
     for w in warnings:
         print("注意", w)
     for e in errors:
