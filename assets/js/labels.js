@@ -9,7 +9,7 @@ export const NAMES = {
   input: { pinyin: "ピンイン", tone: "ピンイン＋声調", zhuyin: "注音" },
   length: { word: "単語", sentence: "一文", passage: "長文" },
   difficulty: { beginner: "初級", intermediate: "中級", advanced: "上級", expert: "超級" },
-  source: { hsk: "HSK", tocfl: "TOCFL" },
+  source: { hsk: "HSK", tocfl: "TBCL" },
 };
 export function describe(s) {
   const what = s.length === "word"

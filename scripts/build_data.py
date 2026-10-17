@@ -5,7 +5,7 @@
 出力（どれも [簡体字, 繁体字, 数字ピンイン, 意味] の配列）:
   単語の意味は content/glossary-ja.tsv に日本語訳があればそれを、なければ CC-CEDICT の英語を使う。
   data/words/hsk-1.json … hsk-6.json     旧HSK 1〜6級
-  data/words/tocfl-1.json … tocfl-7.json TOCFL 詞語表 第1〜7級
+  data/words/tocfl-1.json … tocfl-7.json TBCL 詞語表 第1〜7級（TOCFLの基準。内部名は tocfl のまま）
   data/texts/{beginner,intermediate,advanced,expert}.json  一文・長文
 """
 import json
