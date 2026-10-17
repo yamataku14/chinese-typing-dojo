@@ -50,6 +50,18 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
   padding-block: 18px 4px;
 }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand-face { width: 48px; height: 48px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); flex: none; object-fit: cover; }
+
+/* 冒頭の紹介（キャラクター） */
+.intro { display: flex; align-items: center; gap: 8px 24px; }
+.intro-mascot { width: clamp(110px, 20vw, 190px); height: auto; flex: none; filter: drop-shadow(0 4px 10px rgba(0,0,0,.08)); }
+.intro-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; max-width: 60ch; }
+.intro h1 { font-family: var(--f-han); font-size: clamp(20px, 3.4vw, 28px); margin: 0; text-wrap: balance; line-height: 1.35; }
+.intro p { margin: 0; color: var(--muted); }
+.result-mascot { width: 120px; height: auto; }
+.result-mascot.cheer { animation: hop .6s ease-out 2; }
+@keyframes hop { 30% { transform: translateY(-10px) rotate(-3deg); } 60% { transform: translateY(0) rotate(2deg); } }
+
 .seal {
   width: 44px; height: 44px; border-radius: 6px; background: var(--seal); color: var(--paper); flex: none;
   font-family: var(--f-han); font-weight: 600; font-size: 15px; line-height: 1.05;
@@ -245,7 +257,12 @@ kbd { font-family: var(--f-py); font-size: 12px; border: 1px solid var(--line); 
   .kbd-row:nth-child(n) { margin-left: 0; }
   .kbd-row { gap: 3px; } .kbd { gap: 3px; }
 }
+@media (max-width: 520px) {
+  .intro { gap: 4px 14px; }
+  .intro p { font-size: 13px; }
+}
 @media (prefers-reduced-motion: reduce) {
+  .result-mascot.cheer { animation: none; }
   .cell.miss .han { animation: none; }
   .bar i, .han { transition: none; }
 }

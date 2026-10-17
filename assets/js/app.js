@@ -249,8 +249,11 @@ function finish() {
   $("play").hidden = true;
   const res = $("result");
   res.hidden = false;
+  const cheer = weak.length === 0 || isNew;
+  const headline = isNew && prev ? "自己ベスト更新！" : weak.length === 0 ? "ノーミス、すごい！" : acc >= 95 ? "いい調子！" : "おつかれさまでした";
   res.innerHTML = `
-    <h2>おつかれさまでした</h2>
+    <img class="result-mascot${cheer ? " cheer" : ""}" src="assets/img/mascot.png" alt="" width="520" height="491">
+    <h2>${headline}</h2>
     <div class="big">
       <div><span class="v">${cpm}</span><span class="k">字/分</span></div>
       <div><span class="v">${kpm}</span><span class="k">キー/分</span></div>
@@ -264,7 +267,7 @@ function finish() {
     <p class="note">${describe(R.settings)}</p>
     ${weak.length
       ? `<div><p class="label" style="margin:0 0 8px">ミスの多かった音節</p><div class="chips">${weak.map(([k, n]) => `<span>${k}<em>×${n}</em></span>`).join("")}</div></div>`
-      : `<p class="best new">ノーミス！</p>`}
+      : ""}
     <div class="actions">
       <button type="button" class="primary" id="again">もう一度（Enter）</button>
       <button type="button" class="secondary" id="toRecords">記録を見る</button>
