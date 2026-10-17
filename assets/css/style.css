@@ -58,6 +58,8 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
 .intro-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; max-width: 60ch; }
 .intro h1 { font-family: var(--f-han); font-size: clamp(20px, 3.4vw, 28px); margin: 0; text-wrap: balance; line-height: 1.35; }
 .intro p { margin: 0; color: var(--muted); }
+.intro .intro-name { color: var(--ink); font-size: 14px; }
+.intro-name strong { color: var(--seal); }
 .result-mascot { width: 120px; height: auto; }
 .result-mascot.cheer { animation: hop .6s ease-out 2; }
 @keyframes hop { 30% { transform: translateY(-10px) rotate(-3deg); } 60% { transform: translateY(0) rotate(2deg); } }

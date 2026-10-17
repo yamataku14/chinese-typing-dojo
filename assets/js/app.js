@@ -250,9 +250,10 @@ function finish() {
   const res = $("result");
   res.hidden = false;
   const cheer = weak.length === 0 || isNew;
-  const headline = isNew && prev ? "自己ベスト更新！" : weak.length === 0 ? "ノーミス、すごい！" : acc >= 95 ? "いい調子！" : "おつかれさまでした";
+  // ダーバオのひとこと
+  const headline = isNew && prev ? "自己ベスト更新！ ダーバオも大喜び" : weak.length === 0 ? "ノーミス、すごい！" : acc >= 95 ? "いい調子！ この調子で打とう" : "おつかれさま！ もう一回いこう";
   res.innerHTML = `
-    <img class="result-mascot${cheer ? " cheer" : ""}" src="assets/img/mascot.png" alt="" width="520" height="491">
+    <img class="result-mascot${cheer ? " cheer" : ""}" src="assets/img/mascot.png" alt="ダーバオ" width="520" height="491">
     <h2>${headline}</h2>
     <div class="big">
       <div><span class="v">${cpm}</span><span class="k">字/分</span></div>
