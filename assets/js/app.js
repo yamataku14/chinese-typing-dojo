@@ -45,10 +45,33 @@ async function loadPool() {
   return all.filter(textMatches).map(o => Object.assign([o.x, o.x, o.p, o.ja], { lv: o.lv, basis: examBasis(), src: o.src }));
 }
 
-function sample(arr, n) {
+function shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a.slice(0, n);
+  return a;
+}
+
+// ---------- 出題の履歴（最近出した問題を避ける） ----------
+// 字体ごとに、出した問題の本文を古い順に覚えておく（このブラウザだけ）。
+// 出題は「まだ出していないもの」をランダムに先に、そのあと「出してから時間がたったもの」の順。
+const SEEN_KEY = "ctd:seen:v1";
+const SEEN_MAX = 3000;
+const rowText = row => (S.script === "simp" ? row[0] : row[1]);
+function loadSeen() {
+  try { return JSON.parse(localStorage.getItem(SEEN_KEY) || "{}"); } catch { return {}; }
+}
+function markSeen(text) {
+  const all = loadSeen();
+  const list = (all[S.script] || []).filter(t => t !== text);
+  list.push(text);
+  all[S.script] = list.slice(-SEEN_MAX);
+  try { localStorage.setItem(SEEN_KEY, JSON.stringify(all)); } catch {}
+}
+function pickOrder(pool) {
+  const order = new Map((loadSeen()[S.script] || []).map((t, i) => [t, i]));
+  const fresh = shuffle(pool.filter(r => !order.has(rowText(r))));
+  const old = pool.filter(r => order.has(rowText(r))).sort((a, b) => order.get(rowText(a)) - order.get(rowText(b)));
+  return fresh.concat(old);
 }
 
 // データの1件: [簡体字, 繁体字, 大陸の読み, 意味, 台湾の読み（大陸と違うときだけ）]
@@ -96,8 +119,10 @@ async function newRound() {
     R = null;
     return;
   }
+  const order = pickOrder(pool);
   R = {
-    settings, items: sample(pool, ROUND[S.length]).map(buildItem),
+    settings, items: order.slice(0, ROUND[S.length]).map(buildItem),
+    queue: order.slice(ROUND[S.length]),   // 「別の文にする」で差し替える候補
     qi: 0, ci: 0, pos: 0, keys: 0, misses: 0, chars: 0, start: null, end: null, weak: {},
   };
   $("courseTag").textContent = describe(settings);
@@ -129,6 +154,8 @@ function skipPunct() {
 
 function loadItem() {
   const it = item();
+  markSeen(it.text);
+  $("skipBtn").textContent = R.settings.length === "word" ? "別の単語にする" : "別の文にする";
   R.ci = 0; R.pos = 0;
   skipPunct();
   const line = $("line");
@@ -291,6 +318,22 @@ function finish() {
   $("again").focus();
   void entry;
 }
+
+// ---------- 別の問題にする ----------
+function skipItem() {
+  if (!R || R.end) return;
+  const next = R.queue.shift();
+  if (!next) {
+    focusInput();
+    warn("この条件の問題は、ほかにありません");
+    return;
+  }
+  R.items[R.qi] = buildItem(next);
+  lastCur = -1;
+  loadItem();
+  focusInput();
+}
+$("skipBtn").addEventListener("click", skipItem);
 
 // ---------- 誤りの報告 ----------
 function readingOf(it) {
