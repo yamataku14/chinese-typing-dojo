@@ -1,8 +1,9 @@
-import { splitSyllable, toneMarkLetters, zhuyinParts, zhuyinKeys, zhuyinText, KEYBOARD_ROWS, KEY_TO_ZHUYIN } from "./phonetics.js";
-import { Records, settingKey } from "./records.js";
-import { renderRecords } from "./records-view.js";
-import { LEVELS, TEXT_LEVEL_MAX, describe, fmtTime, textLevelName } from "./labels.js";
-import { renderReport } from "./report.js";
+import { splitSyllable, toneMarkLetters, zhuyinParts, zhuyinKeys, zhuyinText, KEYBOARD_ROWS, KEY_TO_ZHUYIN } from "./phonetics.js?v=202610190848";
+import { Records, settingKey } from "./records.js?v=202610190848";
+import { renderRecords } from "./records-view.js?v=202610190848";
+import { LEVELS, TEXT_LEVEL_MAX, describe, fmtTime, textLevelName } from "./labels.js?v=202610190848";
+import { renderReport } from "./report.js?v=202610190848";
+import { VERSION } from "./version.js?v=202610190848";
 
 const HAN = /[㐀-鿿]/;
 const ROUND = { word: 20, sentence: 5, passage: 1 };
@@ -22,7 +23,7 @@ function saveSettings() { try { localStorage.setItem(SETTINGS_KEY, JSON.stringif
 // ---------- データ ----------
 const cache = new Map();
 async function fetchJSON(path) {
-  if (!cache.has(path)) cache.set(path, fetch(path).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }));
+  if (!cache.has(path)) cache.set(path, fetch(`${path}?v=${VERSION}`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }));
   return cache.get(path);
 }
 
@@ -136,6 +137,7 @@ const item = () => R.items[R.qi];
 // 時事の例文は、話題にした記事へのリンクを出す
 function showSource(src) {
   const el = $("itemSrc");
+  if (!el) return;
   el.hidden = !src;
   if (!src) return;
   const a = el.querySelector("a");
@@ -143,7 +145,7 @@ function showSource(src) {
   const host = (() => { try { return new URL(src).hostname; } catch { return src; } })();
   // Tatoeba の文は CC BY 2.0 FR。作者の文へのリンクとライセンスを示す
   const tatoeba = host === "tatoeba.org";
-  $("itemSrcLabel").textContent = tatoeba ? "出典" : "話題の出典";
+  if ($("itemSrcLabel")) $("itemSrcLabel").textContent = tatoeba ? "出典" : "話題の出典";
   a.textContent = tatoeba ? "Tatoeba（CC BY 2.0 FR）の例文" : host;
 }
 
@@ -155,7 +157,7 @@ function skipPunct() {
 function loadItem() {
   const it = item();
   markSeen(it.text);
-  $("skipBtn").textContent = R.settings.length === "word" ? "別の単語にする" : "別の文にする";
+  if ($("skipBtn")) $("skipBtn").textContent = R.settings.length === "word" ? "別の単語にする" : "別の文にする";
   R.ci = 0; R.pos = 0;
   skipPunct();
   const line = $("line");
@@ -333,7 +335,7 @@ function skipItem() {
   loadItem();
   focusInput();
 }
-$("skipBtn").addEventListener("click", skipItem);
+$("skipBtn")?.addEventListener("click", skipItem);
 
 // ---------- 誤りの報告 ----------
 function readingOf(it) {
@@ -358,7 +360,7 @@ function openReport() {
   });
   $("report").scrollIntoView({ block: "nearest" });
 }
-$("reportBtn").addEventListener("click", openReport);
+$("reportBtn")?.addEventListener("click", openReport);
 
 // ---------- 注音キーボード ----------
 function buildKeyboard() {

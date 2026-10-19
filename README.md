@@ -108,6 +108,15 @@ python3 scripts/build_data.py
 API を呼ばずに流れだけ試すときは、Claude の応答の形の JSON を用意して `--sample 応答.json` を付ける。
 フィードを足すときは `FEEDS` に追加する。各社の RSS の利用規約を確認すること。
 
+## 公開する前に
+
+```sh
+python3 scripts/bump_version.py
+```
+
+CSS・JS・データの URL に版番号（`?v=日時`）を付け直す。GitHub Pages はファイルを10分ほどブラウザにキャッシュさせるので、
+これを忘れると更新直後に新しいページと古いプログラムが混ざり、ボタンが動かないなどの不具合が出る。
+
 ## 公開（GitHub Pages）
 
 1. GitHub でリポジトリを作り、このフォルダを push する。
