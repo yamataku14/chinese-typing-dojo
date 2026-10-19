@@ -19,4 +19,13 @@ curl -sfL -o sources/cedict/cedict.txt.gz \
   "https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz"
 gunzip -f sources/cedict/cedict.txt.gz
 
+# Tatoeba の例文（CC BY 2.0 FR）— 中国語の文・日本語の文・その対応・利用者の母語
+mkdir -p sources/tatoeba
+T=https://downloads.tatoeba.org/exports
+curl -sfL -o sources/tatoeba/cmn_sentences_detailed.tsv.bz2 "$T/per_language/cmn/cmn_sentences_detailed.tsv.bz2"
+curl -sfL -o sources/tatoeba/jpn_sentences.tsv.bz2 "$T/per_language/jpn/jpn_sentences.tsv.bz2"
+curl -sfL -o sources/tatoeba/cmn-jpn_links.tsv.bz2 "$T/per_language/cmn/cmn-jpn_links.tsv.bz2"
+curl -sfL -o sources/tatoeba/user_languages.tar.bz2 "$T/user_languages.tar.bz2"
+(cd sources/tatoeba && bunzip2 -f ./*.tsv.bz2 && tar -xjf user_languages.tar.bz2 && rm user_languages.tar.bz2)
+
 echo "done"

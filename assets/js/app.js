@@ -25,15 +25,16 @@ async function fetchJSON(path) {
   if (!cache.has(path)) cache.set(path, fetch(path).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }));
   return cache.get(path);
 }
-const loadTexts = () => fetchJSON("data/texts/all.json");
 
-// 例文は {v: "cn"（簡体字・大陸の普通話）| "tw"（繁體字・台湾の国語）, x: 本文, p: 読み, ja, d: 難易度, l: 長さ,
-//          lv: 級（cn は HSK、tw は TOCFL 詞語表）, src: 時事の例文の出典}。
-// 簡体字と繁體字は別々の文章なので、字体に合うほうだけを出す。
+
+// 例文は data/texts/cn.json（簡体字・大陸の普通話）と tw.json（繁體字・台湾の国語）に分かれている。
+// 1件は {x: 本文, p: 読み, ja, d: 難易度, l: 長さ, lv: 級（cn は HSK、tw は TOCFL 詞語表）, src: 出典}。
+// 簡体字と繁體字は別々の文章なので、字体に合うほうだけを読む。
 const textVariant = () => (S.script === "simp" ? "cn" : "tw");
+const loadTexts = () => fetchJSON(`data/texts/${textVariant()}.json`);
 const examBasis = () => (S.script === "simp" ? "hsk" : "tbcl");
 function textMatches(o) {
-  if (o.v !== textVariant() || o.l !== S.length) return false;
+  if (o.l !== S.length) return false;
   if (S.textBasis === "difficulty") return o.d === S.difficulty;
   return o.lv === S.textLevel;
 }
@@ -41,7 +42,7 @@ async function loadPool() {
   if (S.length === "word") return fetchJSON(`data/words/${S.source}-${S.level}.json`);
   const all = await loadTexts();
   // 単語と同じ配列の形にそろえる（本文は字体どちらの欄にも入れる）
-  return all.filter(textMatches).map(o => Object.assign([o.x, o.x, o.p, o.ja], { lv: o.lv, basis: o.v === "cn" ? "hsk" : "tbcl", src: o.src }));
+  return all.filter(textMatches).map(o => Object.assign([o.x, o.x, o.p, o.ja], { lv: o.lv, basis: examBasis(), src: o.src }));
 }
 
 function sample(arr, n) {
@@ -114,7 +115,11 @@ function showSource(src) {
   if (!src) return;
   const a = el.querySelector("a");
   a.href = src;
-  try { a.textContent = new URL(src).hostname; } catch { a.textContent = src; }
+  const host = (() => { try { return new URL(src).hostname; } catch { return src; } })();
+  // Tatoeba の文は CC BY 2.0 FR。作者の文へのリンクとライセンスを示す
+  const tatoeba = host === "tatoeba.org";
+  $("itemSrcLabel").textContent = tatoeba ? "出典" : "話題の出典";
+  a.textContent = tatoeba ? "Tatoeba（CC BY 2.0 FR）の例文" : host;
 }
 
 function skipPunct() {
@@ -433,7 +438,7 @@ async function fillTextLevels() {
   const all = await loadTexts().catch(() => []);
   const basis = S.textBasis, max = TEXT_LEVEL_MAX[basis] + 1;
   const counts = {};
-  for (const o of all) if (o.v === textVariant() && o.l === S.length) counts[o.lv] = (counts[o.lv] || 0) + 1;
+  for (const o of all) if (o.l === S.length) counts[o.lv] = (counts[o.lv] || 0) + 1;
   const sel = $("textLevelSel");
   sel.innerHTML = Array.from({ length: max }, (_, i) => i + 1)
     .map(lv => `<option value="${lv}" ${counts[lv] ? "" : "disabled"}>${textLevelName(basis, lv)}（${counts[lv] || 0}件）</option>`).join("");

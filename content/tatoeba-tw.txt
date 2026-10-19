@@ -1,0 +1,546 @@
+# Tatoeba（https://tatoeba.org/ 、CC BY 2.0 FR）の、中国語を母語とする人が書いた例文（繁體字）。
+# scripts/import_tatoeba.py が作るファイル。直接直さず、外したい文は content/tatoeba-exclude.txt に ID を書く。
+# 書式: 本文 | 数字ピンイン（自動。台湾の標準音） | 日本語訳（Tatoeba の訳） | 元の文の URL
+
+
+## 初級 一文
+我爸爸走路。 | wo3 ba4 ba5 zou3 lu4 | 私の父は歩く。 | https://tatoeba.org/ja/sentences/show/4757681
+我要去哪裡？ | wo3 yao4 qu4 na3 li3 | どこ行くの？ | https://tatoeba.org/ja/sentences/show/13549435
+他要去哪裡？ | ta1 yao4 qu4 na3 li3 | どこ行くの？ | https://tatoeba.org/ja/sentences/show/13549436
+要不要睡覺？ | yao4 bu4 yao4 shui4 jiao4 | 寝たら？ | https://tatoeba.org/ja/sentences/show/13112161
+喜歡小孩嗎？ | xi3 huan1 xiao3 hai2 ma5 | 子供好き？ | https://tatoeba.org/ja/sentences/show/13275192
+我每晚洗澡。 | wo3 mei3 wan3 xi3 zao3 | 私は毎晩風呂に入る。 | https://tatoeba.org/ja/sentences/show/707281
+晚到一會兒。 | wan3 dao4 yi1 hui4 r5 | ちょっと遅れます。 | https://tatoeba.org/ja/sentences/show/13109157
+明天有空嗎？ | ming2 tian1 you3 kong4 ma5 | 明日暇？ | https://tatoeba.org/ja/sentences/show/13276166
+從哪兒來的？ | cong2 na3 r5 lai2 de5 | どこから来たのか。 | https://tatoeba.org/ja/sentences/show/13337178
+他走路很快。 | ta1 zou3 lu4 hen3 kuai4 | 彼は歩くのが速い。 | https://tatoeba.org/ja/sentences/show/8888278
+我不能跳舞。 | wo3 bu4 neng2 tiao4 wu3 | 私は踊れません。 | https://tatoeba.org/ja/sentences/show/12278111
+音樂我喜歡。 | yin1 yue4 wo3 xi3 huan1 | 音楽が好きです。 | https://tatoeba.org/ja/sentences/show/13254418
+也有黃色的。 | ye3 you3 huang2 se4 de5 | 黄色のもあるよ。 | https://tatoeba.org/ja/sentences/show/13580923
+今晚有空嗎？ | jin1 wan3 you3 kong4 ma5 | 今晩お空きですか。 | https://tatoeba.org/ja/sentences/show/1205888
+我明天再做。 | wo3 ming2 tian1 zai4 zuo4 | 明日にやります。 | https://tatoeba.org/ja/sentences/show/8734952
+沒人會聽的。 | mei2 ren2 hui4 ting1 de5 | 誰も聞かないよ。 | https://tatoeba.org/ja/sentences/show/13138792
+真的好可愛！ | zhen1 de5 hao3 ke3 ai4 | 本当にかわいいです！ | https://tatoeba.org/ja/sentences/show/13523678
+我的書在哪？ | wo3 de5 shu1 zai4 na3 | 私の本はどこにありますか。 | https://tatoeba.org/ja/sentences/show/1561711
+我需要一把刀。 | wo3 xu1 yao4 yi1 ba3 dao1 | ナイフが必要だ。 | https://tatoeba.org/ja/sentences/show/9135871
+電梯在哪裡？ | dian4 ti1 zai4 na3 li3 | エレベーターはどこですか？ | https://tatoeba.org/ja/sentences/show/6284516
+我很喜歡雪。 | wo3 hen3 xi3 huan1 xue3 | 私は雪がとても好きです。 | https://tatoeba.org/ja/sentences/show/6994073
+一，二，三，四，五。 | yi1 er4 san1 si4 wu3 | 一、二、三、四、五。 | https://tatoeba.org/ja/sentences/show/12993361
+要不要一起去？ | yao4 bu4 yao4 yi1 qi3 qu4 | 一緒に行かない？ | https://tatoeba.org/ja/sentences/show/13311086
+我要加水的。 | wo3 yao4 jia1 shui3 de5 | 水割りにしてください。 | https://tatoeba.org/ja/sentences/show/13942572
+我朋友很少。 | wo3 peng2 you3 hen3 shao3 | 友人は少ししかいない。 | https://tatoeba.org/ja/sentences/show/4265094
+沒有電視嗎？ | mei2 you3 dian4 shi4 ma5 | テレビはないんですか？ | https://tatoeba.org/ja/sentences/show/13189719
+我喜歡蘋果。 | wo3 xi3 huan1 ping2 guo3 | 私はりんごが好きです。 | https://tatoeba.org/ja/sentences/show/13605050
+不想去泳池。 | bu4 xiang3 qu4 yong3 chi2 | プール行きたくない。 | https://tatoeba.org/ja/sentences/show/13651565
+讓我想一想。 | rang4 wo3 xiang3 yi1 xiang3 | ちょっと考えさせて。 | https://tatoeba.org/ja/sentences/show/4504253
+有喜歡的人嗎？ | you3 xi3 huan1 de5 ren2 ma5 | 好きな人いるの？ | https://tatoeba.org/ja/sentences/show/13550561
+他在等電話。 | ta1 zai4 deng3 dian4 hua4 | 彼は、電話がなるのを待つ。 | https://tatoeba.org/ja/sentences/show/2511451
+有沒有帶錢？ | you3 mei2 you3 dai4 qian2 | お金を持ってきましたか。 | https://tatoeba.org/ja/sentences/show/13529784
+他在她的旁邊。 | ta1 zai4 ta1 de5 pang2 bian1 | 彼は彼女の側にいます。 | https://tatoeba.org/ja/sentences/show/712989
+洗手間在哪裡？ | xi3 shou3 jian1 zai4 na3 li3 | トイレはどこですか。 | https://tatoeba.org/ja/sentences/show/6284507
+他什麼也沒說。 | ta1 shen2 me5 ye3 mei2 shuo1 | 彼は何も言わなかった。 | https://tatoeba.org/ja/sentences/show/3739020
+水非常重要。 | shui3 fei1 chang2 zhong4 yao4 | 水はとっても重要です。 | https://tatoeba.org/ja/sentences/show/8888006
+他們穿過馬路。 | ta1 men5 chuan1 guo4 ma3 lu4 | 彼らは道路を渡った。 | https://tatoeba.org/ja/sentences/show/13519512
+歡迎來到日本。 | huan1 ying2 lai2 dao4 ri4 ben3 | 日本へようこそ。 | https://tatoeba.org/ja/sentences/show/13549389
+多好的一天那！ | duo1 hao3 de5 yi1 tian1 na4 | なんといい日なのでしょう。 | https://tatoeba.org/ja/sentences/show/2029440
+我沒有腳踏車。 | wo3 mei2 you3 jiao3 ta4 che1 | 自転車を持ってないんだ。 | https://tatoeba.org/ja/sentences/show/5401634
+銀行九點開門。 | yin2 hang2 jiu3 dian3 kai1 men2 | 銀行は９時に開く。 | https://tatoeba.org/ja/sentences/show/6842377
+妳沒有電視嗎？ | ni3 mei2 you3 dian4 shi4 ma5 | テレビはないんですか？ | https://tatoeba.org/ja/sentences/show/13580944
+我白天在工作。 | wo3 bai2 tian1 zai4 gong1 zuo4 | 昼間は働いてます。 | https://tatoeba.org/ja/sentences/show/13880640
+我們電話裡說。 | wo3 men5 dian4 hua4 li3 shuo1 | 私たちは電話で話をした。 | https://tatoeba.org/ja/sentences/show/9149211
+她什麼也沒說！ | ta1 shen2 me5 ye3 mei2 shuo1 | 彼女は何も言わなかった！ | https://tatoeba.org/ja/sentences/show/13519469
+她有喜歡的人嗎？ | ta1 you3 xi3 huan1 de5 ren2 ma5 | 好きな人いるの？ | https://tatoeba.org/ja/sentences/show/13550563
+有沒有電視呢？ | you3 mei2 you3 dian4 shi4 ne5 | テレビはないんですか？ | https://tatoeba.org/ja/sentences/show/13580945
+我們在聽音樂。 | wo3 men5 zai4 ting1 yin1 yue4 | 私たちは音楽を聴いている。 | https://tatoeba.org/ja/sentences/show/1959761
+別進我的房間。 | bie2 jin4 wo3 de5 fang2 jian1 | 俺の部屋に入ってくんなよ。 | https://tatoeba.org/ja/sentences/show/5613642
+我坐在火車站裡。 | wo3 zuo4 zai4 huo3 che1 zhan4 li3 | 私は駅で座っている。 | https://tatoeba.org/ja/sentences/show/9524574
+知道現在幾點嗎？ | zhi1 dao4 xian4 zai4 ji3 dian3 ma5 | 今何時か分かる？ | https://tatoeba.org/ja/sentences/show/13109279
+那位老人八十歲。 | na4 wei4 lao3 ren2 ba1 shi2 sui4 | あの方は八十歳です。 | https://tatoeba.org/ja/sentences/show/13526849
+我什麼都還沒說。 | wo3 shen2 me5 dou1 hai2 mei2 shuo1 | まだ何も言ってない。 | https://tatoeba.org/ja/sentences/show/13119765
+請脫下您的外套。 | qing3 tuo1 xia4 nin2 de5 wai4 tao4 | コートを脱いでください。 | https://tatoeba.org/ja/sentences/show/6014699
+今天我一直很忙。 | jin1 tian1 wo3 yi1 zhi2 hen3 mang2 | 今日はずっと忙しかった。 | https://tatoeba.org/ja/sentences/show/9932495
+我有一些蘋果。 | wo3 you3 yi1 xie1 ping2 guo3 | 私はいくつかのりんごを持っています。 | https://tatoeba.org/ja/sentences/show/13166981
+她在全世界旅行。 | ta1 zai4 quan2 shi4 jie4 lv3 xing2 | 彼女は世界中を旅行した。 | https://tatoeba.org/ja/sentences/show/13564338
+我喜歡自己的名字。 | wo3 xi3 huan1 zi4 ji3 de5 ming2 zi5 | 自分の名前好きなんだ。 | https://tatoeba.org/ja/sentences/show/13261936
+我問他忙不忙。 | wo3 wen4 ta1 mang2 bu4 mang2 | あなたは忙しいのですかと私は彼に聞きました。 | https://tatoeba.org/ja/sentences/show/1241262
+明天天氣怎麼樣？ | ming2 tian1 tian1 qi4 zen3 me5 yang4 | 明日天気はどうでしょうか。 | https://tatoeba.org/ja/sentences/show/6092461
+我怎麼到那裡去？ | wo3 zen3 me5 dao4 na4 li5 qu4 | そこへはどうやって行けばいいのですか。 | https://tatoeba.org/ja/sentences/show/10040488
+我明天不想上班。 | wo3 ming2 tian1 bu4 xiang3 shang4 ban1 | 明日働きたくないな。 | https://tatoeba.org/ja/sentences/show/11702402
+請幫我買這本書。 | qing3 bang1 wo3 mai3 zhe4 ben3 shu1 | この本を私に買って下さい。 | https://tatoeba.org/ja/sentences/show/13496426
+我喜歡這些蘋果。 | wo3 xi3 huan1 zhe4 xie1 ping2 guo3 | 私はこれらのリンゴが好きです。 | https://tatoeba.org/ja/sentences/show/13175436
+要不要去，看天氣。 | yao4 bu4 yao4 qu4 kan4 tian1 qi4 | 行くか行かないかは天気次第です。 | https://tatoeba.org/ja/sentences/show/13311106
+我很喜歡新泳衣。 | wo3 hen3 xi3 huan1 xin1 yong3 yi1 | 私は新しい水着が気に入っている。 | https://tatoeba.org/ja/sentences/show/13651582
+這些要多少錢呢？ | zhe4 xie1 yao4 duo1 shao3 qian2 ne5 | それ全部でいくらになるのかな？ | https://tatoeba.org/ja/sentences/show/13319056
+不， 我不會說英文。 | bu4 wo3 bu4 hui4 shuo1 ying1 wen2 | いいえ、私は英語を話すことができません。 | https://tatoeba.org/ja/sentences/show/1020287
+他不可能做那種事。 | ta1 bu4 ke3 neng2 zuo4 na4 zhong3 shi4 | 彼がそんなことをしたはずがない。 | https://tatoeba.org/ja/sentences/show/8387410
+這些香蕉多少錢？ | zhe4 xie1 xiang1 jiao1 duo1 shao3 qian2 | これらのバナナはいくらですか？ | https://tatoeba.org/ja/sentences/show/13539441
+圖書館裡有很多書。 | tu2 shu1 guan3 li3 you3 hen3 duo1 shu1 | 図書館にはたくさんの本があります。 | https://tatoeba.org/ja/sentences/show/1260555
+我爺爺的聽力不太好。 | wo3 ye2 ye5 de5 ting1 li4 bu4 tai4 hao3 | おじいさんは少し耳が遠いんだ。 | https://tatoeba.org/ja/sentences/show/1959985
+我喜歡去菜場買菜。 | wo3 xi3 huan1 qu4 cai4 chang3 mai3 cai4 | 私は市場で野菜を買うのが好きだ。 | https://tatoeba.org/ja/sentences/show/5401385
+我真的非常需要錢。 | wo3 zhen1 de5 fei1 chang2 xu1 yao4 qian2 | どうしてもお金が必要なんだ。 | https://tatoeba.org/ja/sentences/show/13634174
+我還想再要一點水。 | wo3 hai2 xiang3 zai4 yao4 yi1 dian3 shui3 | もう少し、水が欲しいです。 | https://tatoeba.org/ja/sentences/show/13875827
+我把她帶到我的房間。 | wo3 ba3 ta1 dai4 dao4 wo3 de5 fang2 jian1 | 彼女を僕の部屋に案内した。 | https://tatoeba.org/ja/sentences/show/13110301
+我沒有時間，也沒有錢。 | wo3 mei2 you3 shi2 jian1 ye3 mei2 you3 qian2 | 私には時間もお金もない。 | https://tatoeba.org/ja/sentences/show/6068645
+妳還記得我的名字嗎 ?。 | ni3 hai2 ji4 de5 wo3 de5 ming2 zi5 ma5 | まだ、私の名前を覚えていますか。 | https://tatoeba.org/ja/sentences/show/13235752
+不知道電腦好不好。 | bu4 zhi1 dao4 dian4 nao3 hao3 bu4 hao3 | そのパソコンがいいかどうか分からない。 | https://tatoeba.org/ja/sentences/show/13527570
+做這種事，真的好嗎？ | zuo4 zhe4 zhong3 shi4 zhen1 de5 hao3 ma5 | こんなことしてて、いいんですか？ | https://tatoeba.org/ja/sentences/show/13549426
+巴士站離我們的學校近。 | ba1 shi4 zhan4 li2 wo3 men5 de5 xue2 xiao4 jin4 | バス停は学校の近くにある。 | https://tatoeba.org/ja/sentences/show/6119278
+我知道盒子裡有什麼。 | wo3 zhi1 dao4 he2 zi5 li3 you3 shen2 me5 | 私は何がこの箱の中にあるのか知っています。 | https://tatoeba.org/ja/sentences/show/9096120
+我昨天沒時間看電視。 | wo3 zuo2 tian1 mei2 shi2 jian1 kan4 dian4 shi4 | 昨日はテレビを見る時間がなかった。 | https://tatoeba.org/ja/sentences/show/6169158
+做這種事情真的好嗎？ | zuo4 zhe4 zhong3 shi4 qing2 zhen1 de5 hao3 ma5 | こんなことしてて、いいんですか？ | https://tatoeba.org/ja/sentences/show/13549427
+我們班有三十名學生。 | wo3 men5 ban1 you3 san1 shi2 ming2 xue2 sheng1 | 私のクラスには30人生徒がいます。 | https://tatoeba.org/ja/sentences/show/13549455
+我不知道，我也不想知道。 | wo3 bu4 zhi1 dao4 wo3 ye3 bu4 xiang3 zhi1 dao4 | 私は知らないし、知りたくもない。 | https://tatoeba.org/ja/sentences/show/10258117
+那種事情一點都不重要。 | na4 zhong3 shi4 qing2 yi1 dian3 dou1 bu4 zhong4 yao4 | そんなことどうでもいい。 | https://tatoeba.org/ja/sentences/show/13550585
+我的女朋友跳舞跳得很棒。 | wo3 de5 nv3 peng2 you5 tiao4 wu3 tiao4 de5 hen3 bang4 | 私の彼女は踊りがうまい。 | https://tatoeba.org/ja/sentences/show/8831888
+一天一蘋果，醫生遠離我。 | yi1 tian1 yi1 ping2 guo3 yi1 sheng1 yuan3 li2 wo3 | １日１個のりんごは医者を遠ざける。 | https://tatoeba.org/ja/sentences/show/13605051
+我的班上有三十名學生。 | wo3 de5 ban1 shang4 you3 san1 shi2 ming2 xue2 sheng1 | 私のクラスには30人生徒がいます。 | https://tatoeba.org/ja/sentences/show/13549453
+銀河裡有好多好多星星呢。 | yin2 he2 li3 you3 hao3 duo1 hao3 duo1 xing1 xing5 ne5 | 銀河は星がたくさんたくさんあるね。 | https://tatoeba.org/ja/sentences/show/13634189
+請在下週一再來一次看看。 | qing3 zai4 xia4 zhou1 yi1 zai4 lai2 yi1 ci4 kan4 kan5 | 来週の月曜日にもう一度お寄りになってみて下さい。 | https://tatoeba.org/ja/sentences/show/13607688
+在圖書館前有朋友在等我。 | zai4 tu2 shu1 guan3 qian2 you3 peng2 you3 zai4 deng3 wo3 | 図書館の前で、私のことを待ってる友達がいるんです。 | https://tatoeba.org/ja/sentences/show/9740054
+我每天放學後都在書店等她。 | wo3 mei3 tian1 fang4 xue2 hou4 dou1 zai4 shu1 dian4 deng3 ta1 | 毎日、放課後に私はその本屋で彼女を待った。 | https://tatoeba.org/ja/sentences/show/5942081
+如果明天下雪，我就要做雪人。 | ru2 guo3 ming2 tian1 xia4 xue3 wo3 jiu4 yao4 zuo4 xue3 ren2 | もし明日雪が降ったら、雪だるまを作ります。 | https://tatoeba.org/ja/sentences/show/13187207
+紅色很漂亮，但還比不過藍色。 | hong2 se4 hen3 piao4 liang4 dan4 hai2 bi3 bu4 guo4 lan2 se4 | 赤はとてもきれいですが、青にはまだ敵いません。 | https://tatoeba.org/ja/sentences/show/3739106
+爸爸媽媽，今晚讓我晚點睡吧。 | ba4 ba5 ma1 ma5 jin1 wan3 rang4 wo3 wan3 dian3 shui4 ba5 | お父さんとお母さん、今夜は夜更かしさせてくれたらなぁ。 | https://tatoeba.org/ja/sentences/show/13109281
+在日本，沒有比東京更大的城市。 | zai4 ri4 ben3 mei2 you3 bi3 dong1 jing1 geng4 da4 de5 cheng2 shi4 | 日本には、東京ほど大きな都市は他にない。 | https://tatoeba.org/ja/sentences/show/13632020
+他幫助一位老太太從位子上站起來。 | ta1 bang1 zhu4 yi1 wei4 lao3 tai4 tai5 cong2 wei4 zi5 shang4 zhan4 qi3 lai5 | 彼は手を貸して老婦人を席から立たせた。 | https://tatoeba.org/ja/sentences/show/3149141
+紅色雖然很漂亮，但仍比不上藍色。 | hong2 se4 sui1 ran2 hen3 piao4 liang4 dan4 reng2 bi3 bu4 shang4 lan2 se4 | 赤はとてもきれいですが、青にはまだ敵いません。 | https://tatoeba.org/ja/sentences/show/13605069
+公車司機對我們說，下車的時候要小心。 | gong1 che1 si1 ji1 dui4 wo3 men5 shuo1 xia4 che1 de5 shi2 hou4 yao4 xiao3 xin1 | バスの運転手は私達に、バスを降りるときには注意しなさいと言った。 | https://tatoeba.org/ja/sentences/show/13638051
+
+## 中級 一文
+我一個人去。 | wo3 yi1 ge4 ren2 qu4 | 一人で行く。 | https://tatoeba.org/ja/sentences/show/13228414
+我的眼睛疼。 | wo3 de5 yan3 jing1 teng2 | 目が痛い。 | https://tatoeba.org/ja/sentences/show/12278115
+有八個孫女。 | you3 ba1 ge4 sun1 nv3 | 8人孫がいます。 | https://tatoeba.org/ja/sentences/show/13111409
+好好休息吧！ | hao3 hao3 xiu1 xi2 ba5 | ゆっくり休んでね。 | https://tatoeba.org/ja/sentences/show/4887549
+按我說的做。 | an4 wo3 shuo1 de5 zuo4 | 言うとおりにして。 | https://tatoeba.org/ja/sentences/show/6150007
+一個月兩次。 | yi1 ge5 yue4 liang3 ci4 | 月に2回です。 | https://tatoeba.org/ja/sentences/show/13543850
+不需要解釋。 | bu4 xu1 yao4 jie3 shi4 | 説明は要りません。 | https://tatoeba.org/ja/sentences/show/13212983
+一起學習吧！ | yi1 qi3 xue2 xi2 ba5 | 一緒に勉強しましょう！ | https://tatoeba.org/ja/sentences/show/13519581
+把襪子脫掉。 | ba3 wa4 zi5 tuo1 diao4 | ソックスを脱ぎなさい。 | https://tatoeba.org/ja/sentences/show/5780279
+萬物真美好。 | wan4 wu4 zhen1 mei3 hao3 | 万物は素晴らしい。 | https://tatoeba.org/ja/sentences/show/9155266
+我靜不下心。 | wo3 jing4 bu4 xia4 xin1 | 私は落ち着かない。 | https://tatoeba.org/ja/sentences/show/13557542
+我收集郵票。 | wo3 shou1 ji2 you2 piao4 | 切手を集めてるんだ。 | https://tatoeba.org/ja/sentences/show/6728905
+我全身疼痛。 | wo3 quan2 shen1 teng2 tong4 | 体中が痛む。 | https://tatoeba.org/ja/sentences/show/11199834
+這座山很低。 | zhe4 zuo4 shan1 hen3 di1 | この山は低いです。 | https://tatoeba.org/ja/sentences/show/13144778
+早上要早起。 | zao3 shang4 yao4 zao3 qi3 | 朝早く起きなさいよ。 | https://tatoeba.org/ja/sentences/show/1423330
+他放聲大喊。 | ta1 fang4 sheng1 da4 han3 | 彼は大声で叫んだ。 | https://tatoeba.org/ja/sentences/show/13523748
+我聞到瓦斯味。 | wo3 wen2 dao4 wa3 si1 wei4 | ガスの臭いがする。 | https://tatoeba.org/ja/sentences/show/1440981
+昨晚月亮圓。 | zuo2 wan3 yue4 liang4 yuan2 | 昨夜は満月だった。 | https://tatoeba.org/ja/sentences/show/5845582
+讓我們握手吧。 | rang4 wo3 men5 wo4 shou3 ba5 | 握手しようぜ！ | https://tatoeba.org/ja/sentences/show/6105188
+也有黃色的喔。 | ye3 you3 huang2 se4 de5 o1 | 黄色のもあるよ。 | https://tatoeba.org/ja/sentences/show/13580921
+泳衣超緊的。 | yong3 yi1 chao1 jin3 de5 | 水着がめっちゃきつい。 | https://tatoeba.org/ja/sentences/show/13651580
+電話正在響。 | dian4 hua4 zheng4 zai4 xiang3 | 電話が鳴ってるよ。 | https://tatoeba.org/ja/sentences/show/710667
+讓我們開始吧！ | rang4 wo3 men5 kai1 shi3 ba5 | 始めましょう！ | https://tatoeba.org/ja/sentences/show/13252525
+還有黃色的喔。 | hai2 you3 huang2 se4 de5 o1 | 黄色のもあるよ。 | https://tatoeba.org/ja/sentences/show/13580920
+有紅鉛筆嗎？ | you3 hong2 qian1 bi3 ma5 | 赤鉛筆を持っていますか。 | https://tatoeba.org/ja/sentences/show/13918288
+我會等到四點。 | wo3 hui4 deng3 dao4 si4 dian3 | 四時まで待ちます。 | https://tatoeba.org/ja/sentences/show/836568
+可惜我做不到。 | ke3 xi2 wo3 zuo4 bu4 dao4 | 残念ながら出来ませんね。 | https://tatoeba.org/ja/sentences/show/2031455
+她全身都疼。 | ta1 quan2 shen1 dou1 teng2 | 彼女は体中が痛んでいた。 | https://tatoeba.org/ja/sentences/show/8765254
+牙齒非常痛。 | ya2 chi3 fei1 chang2 tong4 | 歯がひどく痛むんです。 | https://tatoeba.org/ja/sentences/show/13311108
+我們搭電車來。 | wo3 men5 da1 dian4 che1 lai2 | 電車で来ました。 | https://tatoeba.org/ja/sentences/show/13526856
+關掉電視吧。 | guan1 diao4 dian4 shi4 ba5 | テレビを消しましょう。 | https://tatoeba.org/ja/sentences/show/13557527
+我靜不下心來。 | wo3 jing4 bu4 xia4 xin1 lai2 | 私は落ち着かない。 | https://tatoeba.org/ja/sentences/show/13557539
+嬰兒會走路嗎？ | ying1 er2 hui4 zou3 lu4 ma5 | 赤ん坊は歩けますか？ | https://tatoeba.org/ja/sentences/show/13605074
+互相幫助吧。 | hu4 xiang1 bang1 zhu4 ba5 | お互いに助け合いましょう。 | https://tatoeba.org/ja/sentences/show/13612455
+他很少食言。 | ta1 hen3 shao3 shi2 yan2 | 彼は、めったに約束を破らない。 | https://tatoeba.org/ja/sentences/show/12686100
+搭計程車去吧。 | da1 ji4 cheng2 che1 qu4 ba5 | タクシーで行きなさい。 | https://tatoeba.org/ja/sentences/show/13638043
+不喜歡搭地鐵。 | bu4 xi3 huan1 da1 di4 tie3 | 地下鉄に乗るのは嫌いだ。 | https://tatoeba.org/ja/sentences/show/13638078
+他一直在讀書。 | ta1 yi1 zhi2 zai4 du2 shu1 | 彼はいつも勉強している。 | https://tatoeba.org/ja/sentences/show/13990029
+他的要求如下。 | ta1 de5 yao1 qiu2 ru2 xia4 | 彼の要求は次の通りであった。 | https://tatoeba.org/ja/sentences/show/2143954
+我時間還來得及。 | wo3 shi2 jian1 hai2 lai2 de5 ji2 | まだ間に合う。 | https://tatoeba.org/ja/sentences/show/5985468
+我喝蘋果汁。 | wo3 he1 ping2 guo3 zhi1 | 私はリンゴジュースを飲んでいます。 | https://tatoeba.org/ja/sentences/show/13166905
+我們三個一隊。 | wo3 men5 san1 ge4 yi1 dui4 | 私たち三人で一チームです。 | https://tatoeba.org/ja/sentences/show/13504674
+我喜歡香蕉喔。 | wo3 xi3 huan1 xiang1 jiao1 o1 | バナナは好きですよ。 | https://tatoeba.org/ja/sentences/show/13605601
+昨天天氣很糟。 | zuo2 tian1 tian1 qi4 hen3 zao1 | 昨日は天気が悪かった。 | https://tatoeba.org/ja/sentences/show/1233811
+我正在學日文。 | wo3 zheng4 zai4 xue2 ri4 wen2 | 日本語を勉強しています。 | https://tatoeba.org/ja/sentences/show/3742414
+這把傘多少錢?。 | zhe4 ba3 san3 duo1 shao3 qian2 | この傘いくらですか？ | https://tatoeba.org/ja/sentences/show/4830644
+我坐地鐵上學。 | wo3 zuo4 di4 tie3 shang4 xue2 | 私は地下鉄で学校に行く。 | https://tatoeba.org/ja/sentences/show/9524569
+她非常缺錢。 | ta1 fei1 chang2 que1 qian2 | 彼女はお金にとても困っている。 | https://tatoeba.org/ja/sentences/show/13634178
+把我的鉛筆還我。 | ba3 wo3 de5 qian1 bi3 hai2 wo3 | 私の鉛筆、返して。 | https://tatoeba.org/ja/sentences/show/13873637
+她住在他的隔壁。 | ta1 zhu4 zai4 ta1 de5 ge2 bi4 | 彼女は彼の隣に住んでいる。 | https://tatoeba.org/ja/sentences/show/457755
+我叔叔開旅館。 | wo3 shu1 shu5 kai1 lv3 guan3 | おじはホテルを経営している。 | https://tatoeba.org/ja/sentences/show/1270581
+我喜歡那個地方。 | wo3 xi3 huan1 na4 ge5 di4 fang1 | その場所が好きです。 | https://tatoeba.org/ja/sentences/show/7980344
+把電視關掉吧。 | ba3 dian4 shi4 guan1 diao4 ba5 | テレビを消しましょう。 | https://tatoeba.org/ja/sentences/show/13557525
+不能用手指人。 | bu4 neng2 yong4 shou3 zhi3 ren2 | 人を指差してはいけません。 | https://tatoeba.org/ja/sentences/show/2031307
+國際婦女節快樂！ | guo2 ji4 fu4 nv3 jie2 kuai4 le4 | 国際女性の日おめでとう！ | https://tatoeba.org/ja/sentences/show/4965406
+三加二會得到五。 | san1 jia1 er4 hui4 de2 dao4 wu3 | 三に二を足すと五になる。 | https://tatoeba.org/ja/sentences/show/5849920
+我在哪裡坐地鐵？ | wo3 zai4 na3 li3 zuo4 di4 tie3 | どこで地下鉄に乗れますか。 | https://tatoeba.org/ja/sentences/show/9524567
+有人會這樣想。 | you3 ren2 hui4 zhe4 yang4 xiang3 | こう考える人もいます。 | https://tatoeba.org/ja/sentences/show/13138787
+公車票價多少？ | gong1 che1 piao4 jia4 duo1 shao3 | バス賃はいくらですか？ | https://tatoeba.org/ja/sentences/show/13190542
+我在街上遇到他。 | wo3 zai4 jie1 shang5 yu4 dao4 ta1 | 私は彼に通りで会った。 | https://tatoeba.org/ja/sentences/show/1019864
+他的書非常有趣。 | ta1 de5 shu1 fei1 chang2 you3 qu4 | 彼の本はとても面白い。 | https://tatoeba.org/ja/sentences/show/1441678
+為什麼妳會好奇？ | wei4 shen2 me5 ni3 hui4 hao4 qi2 | なぜ君は気になるのか？ | https://tatoeba.org/ja/sentences/show/13557534
+哥哥的記憶力很好。 | ge1 ge5 de5 ji4 yi4 li4 hen3 hao3 | 兄は記憶力がいい。 | https://tatoeba.org/ja/sentences/show/13860132
+她的書非常有趣。 | ta1 de5 shu1 fei1 chang2 you3 qu4 | 彼女の本はとても面白い。 | https://tatoeba.org/ja/sentences/show/1441683
+您每天都讀書嗎？ | nin2 mei3 tian1 dou1 du2 shu1 ma5 | あなたは毎日勉強しますか。 | https://tatoeba.org/ja/sentences/show/1507027
+我來自別的行星。 | wo3 lai2 zi4 bie2 de5 xing2 xing1 | 私は別の惑星から来ました。 | https://tatoeba.org/ja/sentences/show/4261694
+旅行時必須提包。 | lv3 xing2 shi2 bi4 xu1 ti2 bao1 | キャリーバッグは旅行に必須。 | https://tatoeba.org/ja/sentences/show/13550608
+我找不到我的襪子！ | wo3 zhao3 bu4 dao4 wo3 de5 wa4 zi5 | 靴下を見つけなかった！ | https://tatoeba.org/ja/sentences/show/12278119
+當時她在看書嗎？ | dang1 shi2 ta1 zai4 kan4 shu1 ma5 | その時は本を読んでいたの？ | https://tatoeba.org/ja/sentences/show/13123214
+當時他在看書嗎？ | dang1 shi2 ta1 zai4 kan4 shu1 ma5 | その時は本を読んでいたの？ | https://tatoeba.org/ja/sentences/show/13123215
+當時妳在看書嗎？ | dang1 shi2 ni3 zai4 kan4 shu1 ma5 | その時は本を読んでいたの？ | https://tatoeba.org/ja/sentences/show/13123218
+我們關掉電視吧。 | wo3 men5 guan1 diao4 dian4 shi4 ba5 | テレビを消しましょう。 | https://tatoeba.org/ja/sentences/show/13557526
+下雨她就搭公車。 | xia4 yu3 ta1 jiu4 da1 gong1 che1 | 雨が降ると彼女はバスに乗る。 | https://tatoeba.org/ja/sentences/show/13638053
+太陽在晚上不亮。 | tai4 yang2 zai4 wan3 shang4 bu4 liang4 | 夜は太陽が輝かない。 | https://tatoeba.org/ja/sentences/show/6476292
+那座城值得一看。 | na4 zuo4 cheng2 zhi2 de5 yi1 kan4 | その城は見物する価値がある。 | https://tatoeba.org/ja/sentences/show/13656792
+明天朋友要來喔。 | ming2 tian1 peng2 you3 yao4 lai2 o1 | 明日、友達が来るんだよ。 | https://tatoeba.org/ja/sentences/show/14014425
+我心情一直不太好。 | wo3 xin1 qing2 yi1 zhi2 bu4 tai4 hao3 | いつも不機嫌なのです。 | https://tatoeba.org/ja/sentences/show/2029393
+為什麼昨天沒來？ | wei4 shen2 me5 zuo2 tian1 mei2 lai2 | 何で昨日は来れなかったの？ | https://tatoeba.org/ja/sentences/show/13311105
+其實我也想學日語。 | qi2 shi2 wo3 ye3 xiang3 xue2 ri4 yu3 | 実は私も日本語を学びたい。 | https://tatoeba.org/ja/sentences/show/5683183
+我們有足夠的食物。 | wo3 men5 you3 zu2 gou4 de5 shi2 wu4 | 私たちに十分な食べ物がある。 | https://tatoeba.org/ja/sentences/show/9694403
+他常常抱怨牙痛。 | ta1 chang2 chang2 bao4 yuan4 ya2 tong4 | 彼はしばしば歯痛を訴える。 | https://tatoeba.org/ja/sentences/show/1236438
+我的蘋果汁在哪?。 | wo3 de5 ping2 guo3 zhi1 zai4 na3 | 私のアップルジュースはどこにあるの？ | https://tatoeba.org/ja/sentences/show/5548527
+一切看起來都很棒。 | yi1 qie4 kan4 qi3 lai2 dou1 hen3 bang4 | 何もかもが素敵に見えた。 | https://tatoeba.org/ja/sentences/show/13119393
+歡迎來到現實世界！ | huan1 ying2 lai2 dao4 xian4 shi2 shi4 jie4 | 現実へようこそ！ | https://tatoeba.org/ja/sentences/show/13549393
+歡迎來到舊金山。 | huan1 ying2 lai2 dao4 jiu4 jin1 shan1 | サンフランシスコへようこそ。 | https://tatoeba.org/ja/sentences/show/13549395
+那片湖裡有很多魚。 | na4 pian4 hu2 li3 you3 hen3 duo1 yu2 | その湖には魚がたくさんいる。 | https://tatoeba.org/ja/sentences/show/13573251
+我喜歡那樣的蘋果。 | wo3 xi3 huan1 na4 yang4 de5 ping2 guo3 | そんなりんごがすきです。 | https://tatoeba.org/ja/sentences/show/13605053
+每週三都去公園。 | mei3 zhou1 san1 dou1 qu4 gong1 yuan2 | 毎週水曜日は、公園に行きます。 | https://tatoeba.org/ja/sentences/show/13605690
+誰不知道這個問題？ | shei2 bu4 zhi1 dao4 zhe4 ge5 wen4 ti2 | 誰がこの問題をしらないんだ？ | https://tatoeba.org/ja/sentences/show/13119728
+聖誕樹下有問題。 | sheng4 dan4 shu4 xia4 you3 wen4 ti2 | クリスマスツリーの下に問題がある。 | https://tatoeba.org/ja/sentences/show/13511780
+我的工作還沒做完。 | wo3 de5 gong1 zuo4 hai2 mei2 zuo4 wan2 | 私の仕事はまだ未完成です。 | https://tatoeba.org/ja/sentences/show/13605591
+老公～我需要毛巾！ | lao3 gong1 wo3 xu1 yao4 mao2 jin1 | あなたぁ〜！タオルが必要なんだけど！ | https://tatoeba.org/ja/sentences/show/13928956
+我需要給手機充電。 | wo3 xu1 yao4 gei3 shou3 ji1 chong1 dian4 | 携帯を充電する必要がある。 | https://tatoeba.org/ja/sentences/show/5254711
+那種事根本不重要。 | na4 zhong3 shi4 gen1 ben3 bu4 zhong4 yao4 | そんなのどうでもいい。 | https://tatoeba.org/ja/sentences/show/13557523
+請告訴我該怎麼做。 | qing3 gao4 su4 wo3 gai1 zen3 me5 zuo4 | どうすればいいのか教えてください。 | https://tatoeba.org/ja/sentences/show/1225694
+這些水聞起來很香。 | zhe4 xie1 shui3 wen2 qi3 lai2 hen3 xiang1 | この水はいい匂いがする。 | https://tatoeba.org/ja/sentences/show/12278590
+我有一輛舊自行車。 | wo3 you3 yi1 liang4 jiu4 zi4 xing2 che1 | 私は古い自転車を持っている。 | https://tatoeba.org/ja/sentences/show/13119415
+他看不起她的成功。 | ta1 kan4 bu4 qi3 ta1 de5 cheng2 gong1 | 彼は彼女の成功を何とも思わなかった。 | https://tatoeba.org/ja/sentences/show/2031272
+情況比我想的還壞。 | qing2 kuang4 bi3 wo3 xiang3 de5 hai2 huai4 | 状況は思っていたより悪い。 | https://tatoeba.org/ja/sentences/show/6197294
+我們沒想傷害他。 | wo3 men5 mei2 xiang3 shang1 hai4 ta1 | 私たちは彼を傷つけるつもりはなかった。 | https://tatoeba.org/ja/sentences/show/13138145
+我從來不喝檸檬茶。 | wo3 cong2 lai2 bu4 he1 ning2 meng2 cha2 | 私はレモンティーを決して飲まない。 | https://tatoeba.org/ja/sentences/show/5707217
+那顆行星稱為土星。 | na4 ke1 xing2 xing1 cheng1 wei2 tu3 xing1 | その惑星は土星と呼ばれます。 | https://tatoeba.org/ja/sentences/show/13605107
+老師，這句話正確嗎？ | lao3 shi1 zhe4 ju4 hua4 zheng4 que4 ma5 | 先生、この文章は正しいですか？ | https://tatoeba.org/ja/sentences/show/13920702
+他問我喜不喜歡數學。 | ta1 wen4 wo3 xi3 bu4 xi3 huan1 shu4 xue2 | 彼は私に数学が好きかとたずねた。 | https://tatoeba.org/ja/sentences/show/4265781
+這根本算不上解釋吧？ | zhe4 gen1 ben3 suan4 bu4 shang4 jie3 shi4 ba5 | 説明になってなくね？ | https://tatoeba.org/ja/sentences/show/13212981
+我把行李放到卡車上。 | wo3 ba3 xing2 li3 fang4 dao4 ka3 che1 shang4 | トラックに荷物を積んだ。 | https://tatoeba.org/ja/sentences/show/13523733
+飯店泳池能使用啦。 | fan4 dian4 yong3 chi2 neng2 shi3 yong4 la5 | ホテルのプールが利用できるよ。 | https://tatoeba.org/ja/sentences/show/13651562
+請用鉛筆寫下姓名。 | qing3 yong4 qian1 bi3 xie3 xia4 xing4 ming2 | 名前は鉛筆で書いてください。 | https://tatoeba.org/ja/sentences/show/13873635
+我們把書案整理乾淨吧。 | wo3 men5 ba3 shu1 an4 zheng3 li3 gan1 jing4 ba5 | 机の上を片付けよう。 | https://tatoeba.org/ja/sentences/show/9381249
+我有一個很不錯的主意。 | wo3 you3 yi1 ge5 hen3 bu4 cuo4 de5 zhu3 yi4 | すごいいい考えがあるんだ。 | https://tatoeba.org/ja/sentences/show/13265235
+先做調查，再問別人。 | xian1 zuo4 diao4 cha2 zai4 wen4 bie2 ren2 | まず調査してから、他の人に聞く。 | https://tatoeba.org/ja/sentences/show/13519140
+這輛自行車多少錢？ | zhe4 liang4 zi4 xing2 che1 duo1 shao3 qian2 | この自転車って、いくらしたの？ | https://tatoeba.org/ja/sentences/show/13647114
+他的意見與她的不一樣。 | ta1 de5 yi4 jian4 yu3 ta1 de5 bu4 yi1 yang4 | 彼の意見は彼女のものとは違う。 | https://tatoeba.org/ja/sentences/show/5843639
+我上過名古屋的小學。 | wo3 shang4 guo4 ming2 gu3 wu1 de5 xiao3 xue2 | 私は名古屋の小学校に通った。 | https://tatoeba.org/ja/sentences/show/13632052
+當時日本還沒有鐵路。 | dang1 shi2 ri4 ben3 hai2 mei2 you3 tie3 lu4 | 当時は日本には鉄道はなかった。 | https://tatoeba.org/ja/sentences/show/13634872
+誰都不會信我們的吧。 | shei2 dou1 bu4 hui4 xin4 wo3 men5 de5 ba5 | 誰も私たちを信じはしないでしょう。 | https://tatoeba.org/ja/sentences/show/13949340
+我為什麼需要一個律師？ | wo3 wei4 shen2 me5 xu1 yao4 yi1 ge5 lv4 shi1 | なぜ弁護士が必要なのでしょう？ | https://tatoeba.org/ja/sentences/show/6316780
+別人說什麼都沒關係。 | bie2 ren2 shuo1 shen2 me5 dou1 mei2 guan1 xi5 | 人が何を言おうと気にしない。 | https://tatoeba.org/ja/sentences/show/13118958
+比爾帶他弟弟去動物園。 | bi3 er3 dai4 ta1 di4 di5 qu4 dong4 wu4 yuan2 | ビルは弟を動物園へ連れていった。 | https://tatoeba.org/ja/sentences/show/2243470
+我們必須在一起生活。 | wo3 men5 bi4 xu1 zai4 yi1 qi3 sheng1 huo2 | 私たちは一緒に生活しなければいけません。 | https://tatoeba.org/ja/sentences/show/8215737
+要訓練狗並不簡單。 | yao4 xun4 lian4 gou3 bing4 bu4 jian3 dan1 | 犬をしつけるのって、簡単じゃないんだよ。 | https://tatoeba.org/ja/sentences/show/13108770
+我沒想讓人感到不適。 | wo3 mei2 xiang3 rang4 ren2 gan3 dao4 bu4 shi4 | 不快にさせるつもりはなかった。 | https://tatoeba.org/ja/sentences/show/13137903
+那個計畫我完全不知道。 | na4 ge5 ji4 hua4 wo3 wan2 quan2 bu4 zhi1 dao4 | 私はその計画を全然知らない。 | https://tatoeba.org/ja/sentences/show/13286404
+這週三有什麼安排嗎？ | zhe4 zhou1 san1 you3 shen2 me5 an1 pai2 ma5 | 今度の水曜日何か予定がありますか。 | https://tatoeba.org/ja/sentences/show/13605692
+請給我一份地鐵路線圖。 | qing3 gei3 wo3 yi1 fen4 di4 tie3 lu4 xian4 tu2 | 地下鉄の路線図をください。 | https://tatoeba.org/ja/sentences/show/13634869
+我父親每天早上都跑步。 | wo3 fu4 qin1 mei3 tian1 zao3 shang4 dou1 pao3 bu4 | 父は毎朝ジョギングする。 | https://tatoeba.org/ja/sentences/show/5964270
+請把這個換成藍色的。 | qing3 ba3 zhe4 ge5 huan4 cheng2 lan2 se4 de5 | これを青いのと取り替えてください。 | https://tatoeba.org/ja/sentences/show/13605535
+他對自己沒有多少信心。 | ta1 dui4 zi4 ji3 mei2 you3 duo1 shao3 xin4 xin1 | 彼はほとんど自分に自信がない。 | https://tatoeba.org/ja/sentences/show/6147574
+我們可能會上學遲到。 | wo3 men5 ke3 neng2 hui4 shang4 xue2 chi2 dao4 | 私たちは学校に遅れるかもしれない。 | https://tatoeba.org/ja/sentences/show/13119009
+您從事哪一種運動呢？ | nin2 cong2 shi4 na3 yi1 zhong3 yun4 dong4 ne5 | どのようなスポーツをなさいますか。 | https://tatoeba.org/ja/sentences/show/13651259
+請告訴我什麼時候該走。 | qing3 gao4 su4 wo3 shen2 me5 shi2 hou5 gai1 zou3 | いつ行くのか教えてくださいね。 | https://tatoeba.org/ja/sentences/show/1236361
+那個人在看我們的水果。 | na4 ge4 ren2 zai4 kan4 wo3 men5 de5 shui3 guo3 | あの人は私たちの果物を見ている。 | https://tatoeba.org/ja/sentences/show/13607665
+昨天我一整天都在工作。 | zuo2 tian1 wo3 yi1 zheng3 tian1 dou1 zai4 gong1 zuo4 | 昨日は一日中働いていた。 | https://tatoeba.org/ja/sentences/show/1423381
+旅行時必須要有行李箱。 | lv3 xing2 shi2 bi4 xu1 yao4 you3 xing2 li5 xiang1 | キャリーバッグは旅行に必須。 | https://tatoeba.org/ja/sentences/show/13550605
+這道沙拉有檸檬的味道。 | zhe4 dao4 sha1 la1 you3 ning2 meng2 de5 wei4 dao4 | このサラダはレモンの風味がある。 | https://tatoeba.org/ja/sentences/show/2806362
+那個人想住在大都市裡。 | na4 ge4 ren2 xiang3 zhu4 zai4 da4 du1 shi4 li3 | あの人は大都市で住みたがっています。 | https://tatoeba.org/ja/sentences/show/13523665
+他的書房裡有數百本書。 | ta1 de5 shu1 fang2 li3 you3 shu4 bai3 ben3 shu1 | 彼の書斎には何百冊という本が有る。 | https://tatoeba.org/ja/sentences/show/13855618
+她從來不穿綠色的衣服。 | ta1 cong2 lai2 bu4 chuan1 lv4 se4 de5 yi1 fu2 | 彼女は緑色の服を着ることは決してありません。 | https://tatoeba.org/ja/sentences/show/1019959
+沒有水，人類就活不下去。 | mei2 you3 shui3 ren2 lei4 jiu4 huo2 bu4 xia4 qu5 | 水がなければ、人間は生きられない。 | https://tatoeba.org/ja/sentences/show/13549461
+她絕對不穿綠色的衣服。 | ta1 jue2 dui4 bu4 chuan1 lv4 se4 de5 yi1 fu2 | 彼女は緑色の服を着ることは決してありません。 | https://tatoeba.org/ja/sentences/show/13605083
+他一定會搭八點的公車。 | ta1 yi1 ding4 hui4 da1 ba1 dian3 de5 gong1 che1 | 彼は必ず８時のバスに乗ることにしている。 | https://tatoeba.org/ja/sentences/show/13638047
+喜歡哪一種類型的運動？ | xi3 huan1 na3 yi1 zhong3 lei4 xing2 de5 yun4 dong4 | どんな種類のスポーツが好きですか。 | https://tatoeba.org/ja/sentences/show/13651253
+學生有清掃教室的責任。 | xue2 sheng1 you3 qing1 sao3 jiao4 shi4 de5 ze2 ren4 | 教室のそうじをするのは生徒の義務だ。 | https://tatoeba.org/ja/sentences/show/1249802
+為什麼沒寫作業？快說！ | wei4 shen2 me5 mei2 xie3 zuo4 ye4 kuai4 shuo1 | どうして宿題をしていかなかったの？言いなさい！ | https://tatoeba.org/ja/sentences/show/13311096
+我眼前的景色非常美麗。 | wo3 yan3 qian2 de5 jing3 se4 fei1 chang2 mei3 li4 | 私の目の前にある景色はとても美しかった。 | https://tatoeba.org/ja/sentences/show/13605718
+為什麼決定買這棟房子？ | wei4 shen2 me5 jue2 ding4 mai3 zhe4 dong4 fang2 zi5 | なぜこの家を買うことに決めたのですか。 | https://tatoeba.org/ja/sentences/show/13878470
+這個書架組裝起來很簡單。 | zhe4 ge5 shu1 jia4 zu3 zhuang1 qi3 lai2 hen3 jian3 dan1 | この本棚は組み立てが簡単です。 | https://tatoeba.org/ja/sentences/show/13108759
+從來沒看過什麼黃色的牛。 | cong2 lai2 mei2 kan4 guo4 shen2 me5 huang2 se4 de5 niu2 | 黄色い牛なんて見たことないよ。 | https://tatoeba.org/ja/sentences/show/13603083
+我並不打算在這裡交朋友。 | wo3 bing4 bu4 da3 suan4 zai4 zhe4 li3 jiao1 peng2 you5 | 俺はここで友達を作るつもりじゃない。 | https://tatoeba.org/ja/sentences/show/13123222
+這個泳池對一般民眾開放。 | zhe4 ge5 yong3 chi2 dui4 yi1 ban1 min2 zhong4 kai1 fang4 | このプールは一般開放されている。 | https://tatoeba.org/ja/sentences/show/13651552
+我說的那個女生住在東京。 | wo3 shuo1 de5 na4 ge5 nv3 sheng1 zhu4 zai4 dong1 jing1 | 私が話した女の子は東京に住んでいます。 | https://tatoeba.org/ja/sentences/show/13632039
+一個人的時候，偶爾會想哭。 | yi1 ge4 ren2 de5 shi2 hou4 ou3 er3 hui4 xiang3 ku1 | 一人になると、時々泣きたくなることがあります。 | https://tatoeba.org/ja/sentences/show/14013586
+他這個月還沒有提交報告書。 | ta1 zhe4 ge5 yue4 hai2 mei2 you3 ti2 jiao1 bao4 gao4 shu1 | 彼は今月まだ報告書を提出していない。 | https://tatoeba.org/ja/sentences/show/8387437
+我們的眼睛看不見紅外線。 | wo3 men5 de5 yan3 jing1 kan4 bu4 jian4 hong2 wai4 xian4 | 私達の目は赤外線を見ることはできません。 | https://tatoeba.org/ja/sentences/show/13605061
+我們的城市比東京小很多。 | wo3 men5 de5 cheng2 shi4 bi3 dong1 jing1 xiao3 hen3 duo1 | 私達の市は東京に比べるとかなり小さい。 | https://tatoeba.org/ja/sentences/show/13632035
+我想在紐約的第五大道購物。 | wo3 xiang3 zai4 niu3 yue1 de5 di4 wu3 da4 dao4 gou4 wu4 | ニューヨークの５番街で買い物をしてみたい。 | https://tatoeba.org/ja/sentences/show/3701732
+如果沒有水，人類就活不下去。 | ru2 guo3 mei2 you3 shui3 ren2 lei4 jiu4 huo2 bu4 xia4 qu5 | 水がなければ、人間は生きられない。 | https://tatoeba.org/ja/sentences/show/13549462
+那座泳池看來的確很吸引人。 | na4 zuo4 yong3 chi2 kan4 lai2 di2 que4 hen3 xi1 yin3 ren2 | それはこころをひきつけるようなプールだ。 | https://tatoeba.org/ja/sentences/show/2757054
+電話響的時候，我正在泡澡。 | dian4 hua4 xiang3 de5 shi2 hou4 wo3 zheng4 zai4 pao4 zao3 | 電話が鳴ったときわたしは風呂に入っていた。 | https://tatoeba.org/ja/sentences/show/5957632
+上課時間從八點四十分開始。 | shang4 ke4 shi2 jian1 cong2 ba1 dian3 si4 shi2 fen1 kai1 shi3 | 授業は8時40分から始まります。 | https://tatoeba.org/ja/sentences/show/13298297
+我一個人把兩個小孩扶養長大。 | wo3 yi1 ge4 ren2 ba3 liang3 ge4 xiao3 hai2 fu2 yang3 zhang3 da4 | 私はひとりで２人の子供を育てました。 | https://tatoeba.org/ja/sentences/show/2256347
+他們在賣蘋果、橘子、雞蛋等等。 | ta1 men5 zai4 mai4 ping2 guo3 ju2 zi5 ji1 dan4 deng3 deng3 | 彼らはリンゴ、みかん、卵などを売っている。 | https://tatoeba.org/ja/sentences/show/13605589
+下週三之前必須提交報告。 | xia4 zhou1 san1 zhi1 qian2 bi4 xu1 ti2 jiao1 bao4 gao4 | 来週の水曜日までにレポートを提出しなければならないんです。 | https://tatoeba.org/ja/sentences/show/13605698
+說到名古屋，就會想到名古屋城。 | shuo1 dao4 ming2 gu3 wu1 jiu4 hui4 xiang3 dao4 ming2 gu3 wu1 cheng2 | 名古屋といえば名古屋城である。 | https://tatoeba.org/ja/sentences/show/13632054
+每個人都應該做自己命運的主人。 | mei3 ge5 ren2 dou1 ying1 gai1 zuo4 zi4 ji3 ming4 yun4 de5 zhu3 ren2 | 人は皆自己の運命の支配者になるべきだ。 | https://tatoeba.org/ja/sentences/show/1221042
+沒有人知道未來會發生什麼事。 | mei2 you3 ren2 zhi1 dao4 wei4 lai2 hui4 fa1 sheng1 shen2 me5 shi4 | 将来何が起こるかなんて、誰にもわかりっこないんだ。 | https://tatoeba.org/ja/sentences/show/1423385
+小時候做這件事有種尋寶的感覺。 | xiao3 shi2 hou4 zuo4 zhe4 jian4 shi4 you3 zhong3 xun2 bao3 de5 gan3 jue2 | 子供のころは宝探し感覚でやってた。 | https://tatoeba.org/ja/sentences/show/13907215
+我想對兒子育幼院的保母抱怨。 | wo3 xiang3 dui4 er2 zi5 yu4 you4 yuan4 de5 bao3 mu3 bao4 yuan4 | 息子の保育園の保母さんにクレームをつけたいと思っています。 | https://tatoeba.org/ja/sentences/show/13108718
+她一旦開始說話，就很難讓她停下來。 | ta1 yi1 dan4 kai1 shi3 shuo1 hua4 jiu4 hen3 nan2 rang4 ta1 ting2 xia4 lai2 | 彼女はいったん話し始めると止めどがない。 | https://tatoeba.org/ja/sentences/show/3713533
+飲用水中的酸雨影響人類的健康。 | yin3 yong4 shui3 zhong4 di4 suan1 yu3 ying3 xiang3 ren2 lei4 de5 jian4 kang1 | 飲料水中の酸性雨は人間の健康に影響する。 | https://tatoeba.org/ja/sentences/show/4262177
+這本小說比我上週看的那本有意思。 | zhe4 ben3 xiao3 shuo1 bi3 wo3 shang4 zhou1 kan4 de5 na4 ben3 you3 yi4 si5 | この小説の方が先週読んだ小説よりおもしろい。 | https://tatoeba.org/ja/sentences/show/5683209
+我正在存錢，好將來能環遊世界。 | wo3 zheng4 zai4 cun2 qian2 hao3 jiang1 lai2 neng2 huan2 you2 shi4 jie4 | いつか世界中を旅できるように、お金を貯めてるんだ。 | https://tatoeba.org/ja/sentences/show/13634177
+我看到預想中的那個人就站在那裡。 | wo3 kan4 dao4 yu4 xiang3 zhong4 di4 na4 ge4 ren2 jiu4 zhan4 zai4 na4 li5 | 私は予想通りの人物がそこに立っているのを見た。 | https://tatoeba.org/ja/sentences/show/13734235
+這個案件可能不會在短時間內就解決。 | zhe4 ge5 an4 jian4 ke3 neng2 bu4 hui4 zai4 duan3 shi2 jian1 nei4 jiu4 jie3 jue2 | この件はしばらく解決しないかもしれなし。 | https://tatoeba.org/ja/sentences/show/803501
+我不太懂畫，但我覺得這筆觸很厲害。 | wo3 bu4 tai4 dong3 hua4 dan4 wo3 jue2 de5 zhe4 bi3 chu4 hen3 li4 hai4 | 私は絵のことはよくわからないが、この筆のタッチはすごいと思う。 | https://tatoeba.org/ja/sentences/show/13874954
+東京的人口比日本的其他任何城市都多。 | dong1 jing1 de5 ren2 kou3 bi3 ri4 ben3 de5 qi2 ta1 ren4 he2 cheng2 shi4 dou1 duo1 | 東京は日本の他のどの都市より人口が多い。 | https://tatoeba.org/ja/sentences/show/13632027
+請填寫白天也能聯絡到您的電話號碼。 | qing3 tian2 xie3 bai2 tian1 ye3 neng2 lian2 luo4 dao4 nin2 de5 dian4 hua4 hao4 ma3 | 昼間でも連絡がつく電話番号をご記入下さい。 | https://tatoeba.org/ja/sentences/show/13899318
+我想成為一個醫生、一個護士或者一個老師。 | wo3 xiang3 cheng2 wei2 yi1 ge5 yi1 sheng1 yi1 ge5 hu4 shi4 huo4 zhe3 yi1 ge5 lao3 shi1 | 私は医者か看護婦か先生になりたい。 | https://tatoeba.org/ja/sentences/show/5919370
+日本的其他任何城市都沒有東京那麼大。 | ri4 ben3 de5 qi2 ta1 ren4 he2 cheng2 shi4 dou1 mei2 you3 dong1 jing1 na4 me5 da4 | 日本のほかのどの都市も東京ほど大きくありません。 | https://tatoeba.org/ja/sentences/show/13632023
+有的人騎自行車去學校，也有的人搭公車去。 | you3 de5 ren2 qi2 zi4 xing2 che1 qu4 xue2 xiao4 ye3 you3 de5 ren2 da1 gong1 che1 qu4 | 自転車で学校に行く人もいれば、バスで行く人もいる。 | https://tatoeba.org/ja/sentences/show/13647109
+銀河中，像木星一般大的行星有很多很多。 | yin2 he2 zhong1 xiang4 mu4 xing1 yi1 ban1 da4 de5 xing2 xing1 you3 hen3 duo1 hen3 duo1 | 銀河に木星的なサイズで惑星がたくさんたくさんある。 | https://tatoeba.org/ja/sentences/show/13605526
+她在新竹唸大學，每天都要騎車穿過竹科上課。 | ta1 zai4 xin1 zhu2 nian4 da4 xue2 mei3 tian1 dou1 yao4 qi2 che1 chuan1 guo4 zhu2 ke1 shang4 ke4 | 彼女は新竹の大学に通っていて、毎日竹科を通って授業に行かなければならない。 | https://tatoeba.org/ja/sentences/show/13537649
+一開始搬來這裡的時候，我在波士頓沒有認識的人。 | yi1 kai1 shi3 ban1 lai2 zhe4 li3 de5 shi2 hou4 wo3 zai4 bo1 shi4 dun4 mei2 you3 ren4 shi4 de5 ren2 | 最初にここに越してきたとき、ボストンには知り合いが誰もいなかったんだ。 | https://tatoeba.org/ja/sentences/show/13187203
+企業如果整體生產力提高，那麼市場競爭力也會增強。 | qi4 ye4 ru2 guo3 zheng3 ti3 sheng1 chan3 li4 ti2 gao1 na4 me5 shi4 chang3 jing4 zheng1 li4 ye3 hui4 zeng1 qiang2 | 企業全体の生産性が上がれば、市場での競争力も強化されます。 | https://tatoeba.org/ja/sentences/show/13580048
+
+## 上級 一文
+我有個提案。 | wo3 you3 ge4 ti2 an4 | 提案があります。 | https://tatoeba.org/ja/sentences/show/1484798
+他怒不可遏。 | ta1 nu4 bu4 ke3 e4 | 彼は怒り心頭である。 | https://tatoeba.org/ja/sentences/show/8730056
+他心不在焉。 | ta1 xin1 bu4 zai4 yan1 | 彼は上の空だ。 | https://tatoeba.org/ja/sentences/show/2040482
+他們會儘快。 | ta1 men5 hui4 jin3 kuai4 | 速やかに。 | https://tatoeba.org/ja/sentences/show/13199799
+我喜歡港口。 | wo3 xi3 huan1 gang3 kou3 | 港が好きだ。 | https://tatoeba.org/ja/sentences/show/13138808
+她會被釋放。 | ta1 hui4 bei4 shi4 fang4 | 解放される。 | https://tatoeba.org/ja/sentences/show/13199802
+不接近敵人。 | bu4 jie1 jin4 di2 ren2 | 敵に近づかない。 | https://tatoeba.org/ja/sentences/show/13580930
+我要去噓噓。 | wo3 yao4 qu4 xu1 xu1 | おしっこに行かなきゃ。 | https://tatoeba.org/ja/sentences/show/13364081
+歲月不等人。 | sui4 yue4 bu4 deng3 ren2 | 歳月人を待たず。 | https://tatoeba.org/ja/sentences/show/13580927
+我喜歡短詩。 | wo3 xi3 huan1 duan3 shi1 | 私は短詩が好きです。 | https://tatoeba.org/ja/sentences/show/3148931
+彼此互助吧。 | bi3 ci3 hu4 zhu4 ba5 | お互いに助け合いましょう。 | https://tatoeba.org/ja/sentences/show/13612456
+她仰慕著他。 | ta1 yang3 mu4 zhe5 ta1 | 彼女は彼にあこがれた。 | https://tatoeba.org/ja/sentences/show/13795579
+別讓我等著。 | bie2 rang4 wo3 deng3 zhe5 | 待たせないでくれ！ | https://tatoeba.org/ja/sentences/show/10040333
+她眉頭緊鎖。 | ta1 mei2 tou2 jin3 suo3 | 彼女は額に皺を寄せた。 | https://tatoeba.org/ja/sentences/show/13109162
+已展開調查。 | yi3 zhan3 kai1 diao4 cha2 | 調査が開始された。 | https://tatoeba.org/ja/sentences/show/13206709
+宇宙浩瀚無邊。 | yu3 zhou4 hao4 han4 wu2 bian1 | 宇宙は無限だ。 | https://tatoeba.org/ja/sentences/show/928900
+他喜歡惡作劇。 | ta1 xi3 huan1 e4 zuo4 ju4 | 彼はいたずら好きだ。 | https://tatoeba.org/ja/sentences/show/1422762
+哪裡有餐具啊？ | na3 li3 you3 can1 ju4 a5 | どこに食器があるの？ | https://tatoeba.org/ja/sentences/show/13576067
+我住在橫濱。 | wo3 zhu4 zai4 heng2 bin1 | 私は横浜に住んでいる。 | https://tatoeba.org/ja/sentences/show/13632071
+好痛！快住手！ | hao3 tong4 kuai4 zhu4 shou3 | 痛い！ やめてよ！ | https://tatoeba.org/ja/sentences/show/4879004
+我知道真相。 | wo3 zhi1 dao4 zhen1 xiang4 | 私は真実を知っている。 | https://tatoeba.org/ja/sentences/show/7771678
+一不做，二不休。 | yi1 bu4 zuo4 er4 bu4 xiu1 | 毒を食らわば皿まで。 | https://tatoeba.org/ja/sentences/show/8762970
+我不想曬黑。 | wo3 bu4 xiang3 shai4 hei1 | 日焼けをしたくないんだよ。 | https://tatoeba.org/ja/sentences/show/1252418
+歷史自會重演。 | li4 shi3 zi4 hui4 chong2 yan3 | 歴史は繰り返す。 | https://tatoeba.org/ja/sentences/show/1365924
+放開我的手臂。 | fang4 kai1 wo3 de5 shou3 bi4 | 腕を放してくれ。 | https://tatoeba.org/ja/sentences/show/13187200
+謝謝妳的描述。 | xie4 xie5 ni3 de5 miao2 shu4 | 説明ありがとう。 | https://tatoeba.org/ja/sentences/show/13212977
+伏特加在哪裡？ | fu2 te4 jia1 zai4 na3 li3 | ウォッカはどこですか？ | https://tatoeba.org/ja/sentences/show/13298294
+我由衷感謝。 | wo3 you2 zhong1 gan3 xie4 | 心より感謝申し上げます。 | https://tatoeba.org/ja/sentences/show/13546198
+更新我的軟體。 | geng1 xin1 wo3 de5 ruan3 ti3 | 私のソフトを更新。 | https://tatoeba.org/ja/sentences/show/13175380
+試著描述看看。 | shi4 zhe5 miao2 shu4 kan4 kan5 | 説明してみて。 | https://tatoeba.org/ja/sentences/show/13212974
+未思慮，勿發言。 | wei4 si1 lv4 wu4 fa1 yan2 | 考えずにものを言うな。 | https://tatoeba.org/ja/sentences/show/13265266
+海嘯襲擊日本。 | hai3 xiao4 xi2 ji2 ri4 ben3 | 津波が日本を襲った。 | https://tatoeba.org/ja/sentences/show/13519472
+歡迎來到地獄。 | huan1 ying2 lai2 dao4 di4 yu4 | 地獄へようこそ。 | https://tatoeba.org/ja/sentences/show/13549388
+金星沒有衛星。 | jin1 xing1 mei2 you3 wei4 xing1 | 金星は月がない。 | https://tatoeba.org/ja/sentences/show/4262122
+他們目光相接。 | ta1 men5 mu4 guang1 xiang1 jie1 | 目と目が合った。 | https://tatoeba.org/ja/sentences/show/6109301
+土星有光環。 | tu3 xing1 you3 guang1 huan2 | 土星にはリングがあります。 | https://tatoeba.org/ja/sentences/show/6961297
+不要自言自語喔。 | bu4 yao4 zi4 yan2 zi4 yu3 o1 | 独り言を言うなよ。 | https://tatoeba.org/ja/sentences/show/13287644
+銅像沒有頭。 | tong2 xiang4 mei2 you3 tou2 | 銅像は頭を持っていない。 | https://tatoeba.org/ja/sentences/show/13634199
+他很有幽默感。 | ta1 hen3 you3 you1 mo4 gan3 | 彼はユーモアが分かる。 | https://tatoeba.org/ja/sentences/show/13884910
+助人者自助。 | zhu4 ren2 zhe3 zi4 zhu4 | 他人を助けることは自分を助けること。 | https://tatoeba.org/ja/sentences/show/1735625
+真讓人不舒服。 | zhen1 rang4 ren2 bu4 shu1 fu5 | とても気持ち悪いです。 | https://tatoeba.org/ja/sentences/show/6059526
+一心不可二用。 | yi1 xin1 bu4 ke3 er4 yong4 | 同時に二つの事はできない。 | https://tatoeba.org/ja/sentences/show/11236324
+不要慌張喔。 | bu4 yao4 huang1 zhang1 o1 | 何事も慌ててやらないようにね。 | https://tatoeba.org/ja/sentences/show/13108749
+她的密友很少。 | ta1 de5 mi4 you3 hen3 shao3 | 彼女には親友がほとんどいない。 | https://tatoeba.org/ja/sentences/show/412793
+他的手臂很有力。 | ta1 de5 shou3 bi4 hen3 you3 li4 | 彼は腕の力が強い。 | https://tatoeba.org/ja/sentences/show/4488591
+她抓住他的手。 | ta1 zhua1 zhu4 ta1 de5 shou3 | 彼女は彼の手をつかんだ。 | https://tatoeba.org/ja/sentences/show/10260790
+拜託，快開門。 | bai4 tuo1 kuai4 kai1 men2 | 誰か、お願い、このドア開けて。 | https://tatoeba.org/ja/sentences/show/13110290
+我跑到公交站。 | wo3 pao3 dao4 gong1 jiao1 zhan4 | バス停まで走った。 | https://tatoeba.org/ja/sentences/show/14039615
+不浪費則不匱乏。 | bu4 lang4 fei4 ze2 bu4 kui4 fa2 | 浪費なければ欠乏なし。 | https://tatoeba.org/ja/sentences/show/718437
+我不輕易放棄。 | wo3 bu4 qing1 yi4 fang4 qi4 | 私は少々の事ではあきらめない。 | https://tatoeba.org/ja/sentences/show/8215727
+大樓正在建造。 | da4 lou2 zheng4 zai4 jian4 zao4 | そのビルは現在建設中だ。 | https://tatoeba.org/ja/sentences/show/6023517
+這個桶有個洞。 | zhe4 ge5 tong3 you3 ge4 dong4 | このバケツ、穴が開いてるよ。 | https://tatoeba.org/ja/sentences/show/9170865
+兩人公佈婚約。 | liang3 ren2 gong1 bu4 hun1 yue1 | ２人は婚約を発表した。 | https://tatoeba.org/ja/sentences/show/13184482
+好一場演說！ | hao3 yi1 chang3 yan3 shuo1 | なんて素晴らしいスピーチでしょう！ | https://tatoeba.org/ja/sentences/show/13244345
+怎麼維持生計？ | zen3 me5 wei2 chi2 sheng1 ji4 | どうやって生計立ててるの？ | https://tatoeba.org/ja/sentences/show/13364049
+葉子逐漸變黃。 | ye4 zi5 zhu2 jian4 bian4 huang2 | 葉が黄色くなっていく。 | https://tatoeba.org/ja/sentences/show/13603087
+必須警告他們。 | bi4 xu1 jing3 gao4 ta1 men5 | 彼らに警告しなければならない。 | https://tatoeba.org/ja/sentences/show/13906523
+他們互相超越。 | ta1 men5 hu4 xiang1 chao1 yue4 | 彼らは互いに凌ぎを削った。 | https://tatoeba.org/ja/sentences/show/13180269
+用這個當誘餌啊？ | yong4 zhe4 ge5 dang1 you4 er3 a5 | これを餌に使うのか？ | https://tatoeba.org/ja/sentences/show/13511765
+他身肩重任。 | ta1 shen1 jian1 zhong4 ren4 | 彼の肩には責任が重くのしかかっている。 | https://tatoeba.org/ja/sentences/show/1233797
+我想要去夏威夷。 | wo3 xiang3 yao4 qu4 xia4 wei1 yi2 | ハワイに行きたいです。 | https://tatoeba.org/ja/sentences/show/4394674
+為什麼妳會在意？ | wei4 shen2 me5 ni3 hui4 zai4 yi4 | なぜ君は気になるのか？ | https://tatoeba.org/ja/sentences/show/13557533
+他重述他的問題。 | ta1 chong2 shu4 ta1 de5 wen4 ti2 | 彼は質問を繰り返しました。 | https://tatoeba.org/ja/sentences/show/1365925
+這個描述很簡單。 | zhe4 ge5 miao2 shu4 hen3 jian3 dan1 | その説明は簡単よ。 | https://tatoeba.org/ja/sentences/show/13212980
+這事費解得很。 | zhe4 shi4 fei4 jie3 de5 hen3 | このことは非常に理解しにくいです。 | https://tatoeba.org/ja/sentences/show/13504565
+樹葉的顏色好美。 | shu4 ye4 de5 yan2 se4 hao3 mei3 | 葉の色がとても美しいです。 | https://tatoeba.org/ja/sentences/show/13519123
+警衛遭歹徒襲擊。 | jing3 wei4 zao1 dai3 tu2 xi2 ji2 | 警備員が強盗に襲われた。 | https://tatoeba.org/ja/sentences/show/13877985
+歡迎來到波士頓。 | huan1 ying2 lai2 dao4 bo1 shi4 dun4 | ボストンへようこそ。 | https://tatoeba.org/ja/sentences/show/13549391
+自己試著用用看。 | zi4 ji3 shi4 zhe5 yong4 yong4 kan4 | 自分で使ってみなさい。 | https://tatoeba.org/ja/sentences/show/13904548
+他懷疑我說謊。 | ta1 huai2 yi2 wo3 shuo1 huang3 | 彼は私が嘘をついていると疑っている。 | https://tatoeba.org/ja/sentences/show/1225691
+不要低估我的力量。 | bu4 yao4 di1 gu1 wo3 de5 li4 liang4 | 私の力を甘く見ないで。 | https://tatoeba.org/ja/sentences/show/1778281
+我在她手下工作。 | wo3 zai4 ta1 shou3 xia4 gong1 zuo4 | 私は彼女の下で働いている。 | https://tatoeba.org/ja/sentences/show/8731981
+我由衷感謝各位。 | wo3 you2 zhong1 gan3 xie4 ge4 wei4 | 心より感謝申し上げます。 | https://tatoeba.org/ja/sentences/show/13546199
+火星上有活物嗎？ | huo3 xing1 shang4 you3 huo2 wu4 ma5 | 火星に生き物はいるの？ | https://tatoeba.org/ja/sentences/show/13605101
+火星有兩個衛星。 | huo3 xing1 you3 liang3 ge4 wei4 xing1 | 火星は二つ衛星がある。 | https://tatoeba.org/ja/sentences/show/3739095
+請尊重他的感受。 | qing3 zun1 zhong4 ta1 de5 gan3 shou4 | 彼の感情を尊重しなさい。 | https://tatoeba.org/ja/sentences/show/4365383
+京都有許多古剎。 | jing1 du1 you3 xu3 duo1 gu3 cha4 | 京都には古いお寺がたくさんある。 | https://tatoeba.org/ja/sentences/show/7980310
+有領導潛力嗎？ | you3 ling3 dao3 qian2 li4 ma5 | リーダーシップの潜在能力はありますか？ | https://tatoeba.org/ja/sentences/show/13201817
+列車已準備發車。 | lie4 che1 yi3 zhun3 bei4 fa1 che1 | 列車が発車する準備が整った。 | https://tatoeba.org/ja/sentences/show/13364036
+不要加太多芥末。 | bu4 yao4 jia1 tai4 duo1 jie4 mo5 | マスタードは少なめにお願いします。 | https://tatoeba.org/ja/sentences/show/1365932
+他的書非常有意思。 | ta1 de5 shu1 fei1 chang2 you3 yi4 si5 | 彼の本はとても面白い。 | https://tatoeba.org/ja/sentences/show/1441754
+我啊，一直瞞著他。 | wo3 a5 yi1 zhi2 man2 zhe5 ta1 | 私ね、ずっと隠してたことがあるんだ。 | https://tatoeba.org/ja/sentences/show/13123244
+為什麼妳會在意呢？ | wei4 shen2 me5 ni3 hui4 zai4 yi4 ne5 | なぜ君は気になるのか？ | https://tatoeba.org/ja/sentences/show/13557535
+他拼命踏腳踏車。 | ta1 pin1 ming4 ta4 jiao3 ta4 che1 | 彼は、自転車を一生懸命こいだ。 | https://tatoeba.org/ja/sentences/show/13647111
+賣場比較空曠。 | mai4 chang3 bi3 jiao4 kong1 kuang4 | 売り場は比較的すいていました。 | https://tatoeba.org/ja/sentences/show/13656775
+我爸爸幫我做作業。 | wo3 ba4 ba5 bang1 wo3 zuo4 zuo4 ye4 | 父は私の宿題を手伝ってくれた。 | https://tatoeba.org/ja/sentences/show/724312
+木星有幾個衛星？ | mu4 xing1 you3 ji3 ge5 wei4 xing1 | 木星にはいくつの衛星がありますか？ | https://tatoeba.org/ja/sentences/show/4265886
+還住在波士頓嗎？ | hai2 zhu4 zai4 bo1 shi4 dun4 ma5 | まだボストンに住んでいるんですか。 | https://tatoeba.org/ja/sentences/show/13109270
+我們尋找支持者。 | wo3 men5 xun2 zhao3 zhi1 chi2 zhe3 | 私たちは支援者を探しています。 | https://tatoeba.org/ja/sentences/show/13174484
+說話之前先思量。 | shuo1 hua4 zhi1 qian2 xian1 si1 liang2 | 考えずにものを言うな。 | https://tatoeba.org/ja/sentences/show/13265264
+他住在東京近郊。 | ta1 zhu4 zai4 dong1 jing1 jin4 jiao1 | 彼は東京近郊に住んでいる。 | https://tatoeba.org/ja/sentences/show/13632033
+今晚的月色真美呢。 | jin1 wan3 de5 yue4 se4 zhen1 mei3 ne5 | 今夜は月が綺麗ですね。 | https://tatoeba.org/ja/sentences/show/13908658
+把那本詞典遞給我。 | ba3 na4 ben3 ci2 dian3 di4 gei3 wo3 | 私にその辞書を持ってきなさい。 | https://tatoeba.org/ja/sentences/show/9054800
+我喜歡明亮的顏色。 | wo3 xi3 huan1 ming2 liang4 de5 yan2 se4 | 私は明るい色が好きです。 | https://tatoeba.org/ja/sentences/show/4455614
+他的謙遜值得尊敬。 | ta1 de5 qian1 xun4 zhi2 de5 zun1 jing4 | 彼の謙遜さは賞賛に値する。 | https://tatoeba.org/ja/sentences/show/6309814
+怎麼可能會有幽靈！ | zen3 me5 ke3 neng2 hui4 you3 you1 ling2 | 幽霊なんているもんか！ | https://tatoeba.org/ja/sentences/show/13111403
+憑什麼讓我們走？ | ping2 shen2 me5 rang4 wo3 men5 zou3 | 何の権利で私たちを行かせるんだ？ | https://tatoeba.org/ja/sentences/show/13504666
+有的地方不能理解。 | you3 de5 di4 fang1 bu4 neng2 li3 jie3 | 理解できないところもある。 | https://tatoeba.org/ja/sentences/show/13505779
+那種事根本無所謂。 | na4 zhong3 shi4 gen1 ben3 wu2 suo3 wei4 | そんなのどうでもいい。 | https://tatoeba.org/ja/sentences/show/13557522
+她穿著藍色的衣服。 | ta1 chuan1 zhuo2 lan2 se4 de5 yi1 fu2 | 彼女は青い服を着ています。 | https://tatoeba.org/ja/sentences/show/13605537
+我在小城鎮長大。 | wo3 zai4 xiao3 cheng2 zhen4 zhang3 da4 | 私は小さな町で育ちました。 | https://tatoeba.org/ja/sentences/show/13667861
+檸檬有獨特的味道。 | ning2 meng2 you3 du2 te4 de5 wei4 dao4 | レモンには独特の風味がある。 | https://tatoeba.org/ja/sentences/show/2806363
+我不能做體力勞動。 | wo3 bu4 neng2 zuo4 ti3 li4 lao2 dong4 | 私は肉体労働には向いていない。 | https://tatoeba.org/ja/sentences/show/7752868
+網站流量下跌。 | wang3 zhan4 liu2 liang4 xia4 die2 | ウェブサイトのアクセス数が減少しました。 | https://tatoeba.org/ja/sentences/show/13138929
+牛排三分熟比較好。 | niu2 pai2 san1 fen1 shu2 bi3 jiao4 hao3 | ステーキはレアがいいな。 | https://tatoeba.org/ja/sentences/show/13549439
+這種啤酒口感乾燥。 | zhe4 zhong3 pi2 jiu3 kou3 gan3 gan1 zao4 | このビールはドライだ。 | https://tatoeba.org/ja/sentences/show/13612480
+我順道去一下銀行。 | wo3 shun4 dao4 qu4 yi1 xia4 yin2 hang2 | ちょっと銀行によってくる。 | https://tatoeba.org/ja/sentences/show/13634195
+我把日曆掛在牆上。 | wo3 ba3 ri4 li4 gua4 zai4 qiang2 shang4 | 私は壁にカレンダーを掛ける。 | https://tatoeba.org/ja/sentences/show/2806369
+獵人跟著熊的蹤跡。 | lie4 ren2 gen1 zhe5 xiong2 de5 zong1 ji1 | 猟師は熊の足跡をたどった。 | https://tatoeba.org/ja/sentences/show/4133704
+波士頓有動物園嗎？ | bo1 shi4 dun4 you3 dong4 wu4 yuan2 ma5 | ボストンに動物園がありますか。 | https://tatoeba.org/ja/sentences/show/5862157
+這條路與河流平行。 | zhe4 tiao2 lu4 yu3 he2 liu2 ping2 xing2 | その道路は川と並行している。 | https://tatoeba.org/ja/sentences/show/6477585
+我英文水平中等。 | wo3 ying1 wen2 shui3 ping2 zhong1 deng3 | 私の英語レベルは、中級です。 | https://tatoeba.org/ja/sentences/show/11702375
+這個商品不受好評。 | zhe4 ge5 shang1 pin3 bu4 shou4 hao3 ping2 | この商品、不評なんだ。 | https://tatoeba.org/ja/sentences/show/13612437
+雷電容易擊中金屬。 | lei2 dian4 rong2 yi4 ji1 zhong4 jin1 shu3 | 雷は金属に落ちやすい。 | https://tatoeba.org/ja/sentences/show/13634077
+鮭魚在淡水中產卵。 | gui1 yu2 zai4 dan4 shui3 zhong1 chan3 luan3 | サケは淡水で産卵する。 | https://tatoeba.org/ja/sentences/show/5248193
+請稱一下這些桃子。 | qing3 cheng1 yi1 xia4 zhe4 xie1 tao2 zi5 | これらの桃を量ってください。 | https://tatoeba.org/ja/sentences/show/8824213
+我不喜歡客服業。 | wo3 bu4 xi3 huan1 ke4 fu2 ye4 | 私はカスタマーサービスの仕事が好きではありません。 | https://tatoeba.org/ja/sentences/show/13527729
+這個商品不受歡迎。 | zhe4 ge5 shang1 pin3 bu4 shou4 huan1 ying2 | この商品、不評なんだ。 | https://tatoeba.org/ja/sentences/show/13612438
+為什麼要這麼纏人？ | wei4 shen2 me5 yao4 zhe4 me5 chan2 ren2 | どうして、そんなにしつこいの？ | https://tatoeba.org/ja/sentences/show/13108732
+薩米正在閱讀文章。 | sa4 mi3 zheng4 zai4 yue4 du2 wen2 zhang1 | サミーは記事を読んでいます。 | https://tatoeba.org/ja/sentences/show/13108756
+總覺得這樣很膽小。 | zong3 jue2 de5 zhe4 yang4 hen3 dan3 xiao3 | それって臆病って気がする。 | https://tatoeba.org/ja/sentences/show/13596929
+西瓜現在正值產季。 | xi1 gua1 xian4 zai4 zheng4 zhi2 chan3 ji4 | スイカは今がシーズンです。 | https://tatoeba.org/ja/sentences/show/13603197
+太陽擁有九顆行星。 | tai4 yang2 yong3 you3 jiu3 ke1 xing2 xing1 | 太陽は９つの惑星を持つ。 | https://tatoeba.org/ja/sentences/show/13605815
+那些事都一筆勾銷吧。 | na4 xie1 shi4 dou1 yi1 bi3 gou1 xiao1 ba5 | それはすべて水に流した。 | https://tatoeba.org/ja/sentences/show/14013613
+別說這麼不吉利的話。 | bie2 shuo1 zhe4 me5 bu4 ji2 li4 de5 hua4 | 縁起の悪いことを言いなさんな。 | https://tatoeba.org/ja/sentences/show/9694435
+我們正在探測火星。 | wo3 men5 zheng4 zai4 tan4 ce4 huo3 xing1 | 私たちは火星を探査しています。 | https://tatoeba.org/ja/sentences/show/13605102
+無論如何我都需要錢。 | wu2 lun4 ru2 he2 wo3 dou1 xu1 yao4 qian2 | どうしてもお金が必要なんだ。 | https://tatoeba.org/ja/sentences/show/13634173
+這份清單尚未完成。 | zhe4 fen4 qing1 dan1 shang4 wei4 wan2 cheng2 | このリストは未完成です。 | https://tatoeba.org/ja/sentences/show/13605583
+想開一個銀行帳戶。 | xiang3 kai1 yi1 ge5 yin2 hang2 zhang4 hu4 | 銀行口座を作りたいんですけど。 | https://tatoeba.org/ja/sentences/show/13634190
+不要憑感覺做決定。 | bu4 yao4 ping2 gan3 jue2 zuo4 jue2 ding4 | 雰囲気で物事を決めない方がいい。 | https://tatoeba.org/ja/sentences/show/13880637
+但願不需要工作。 | dan4 yuan4 bu4 xu1 yao4 gong1 zuo4 | 仕事をする必要がなければいいのになぁと思います。 | https://tatoeba.org/ja/sentences/show/13109156
+謝謝妳特地跑來這裡。 | xie4 xie5 ni3 te4 di4 pao3 lai2 zhe4 li3 | わざわざ、ありがとうございます。 | https://tatoeba.org/ja/sentences/show/13546236
+那種事根本無關緊要。 | na4 zhong3 shi4 gen1 ben3 wu2 guan1 jin3 yao4 | そんなのどうでもいい。 | https://tatoeba.org/ja/sentences/show/13557520
+木星有多少顆衛星？ | mu4 xing1 you3 duo1 shao3 ke1 wei4 xing1 | 木星にはいくつの衛星がありますか？ | https://tatoeba.org/ja/sentences/show/13605524
+她強烈反對我的計畫。 | ta1 qiang2 lie4 fan3 dui4 wo3 de5 ji4 hua4 | 彼女は私の計画にはまるで反対だ。 | https://tatoeba.org/ja/sentences/show/5405500
+他覺得這像箇鳥籠。 | ta1 jue2 de5 zhe4 xiang4 ge4 niao3 long2 | それは鳥かごのようだと彼は思いました。 | https://tatoeba.org/ja/sentences/show/5640782
+那種事情根本無所謂。 | na4 zhong3 shi4 qing2 gen1 ben3 wu2 suo3 wei4 | そんなことどうでもいい。 | https://tatoeba.org/ja/sentences/show/13550586
+不知道為何要那樣做。 | bu4 zhi1 dao4 wei4 he2 yao4 na4 yang4 zuo4 | 何故其れを行うのかわからない。 | https://tatoeba.org/ja/sentences/show/13933602
+那個犯人還沒被抓到。 | na4 ge5 fan4 ren2 hai2 mei2 bei4 zhua1 dao4 | その犯人はまだつかまっていない。 | https://tatoeba.org/ja/sentences/show/2256345
+三文魚在淡水中產卵。 | san1 wen2 yu2 zai4 dan4 shui3 zhong1 chan3 luan3 | サケは淡水で産卵する。 | https://tatoeba.org/ja/sentences/show/5248192
+誰也不能否定其事實。 | shei2 ye3 bu4 neng2 fou3 ding4 qi2 shi4 shi2 | その事実は誰にも否定出来ない。 | https://tatoeba.org/ja/sentences/show/7752874
+今天的活動到此結束。 | jin1 tian1 de5 huo2 dong4 dao4 ci3 jie2 shu4 | 今日の活動は、これでお開き。 | https://tatoeba.org/ja/sentences/show/13108974
+東京中城綠意盎然！ | dong1 jing1 zhong1 cheng2 lv4 yi4 ang4 ran2 | 東京ミッドタウンは緑がいっぱい！ | https://tatoeba.org/ja/sentences/show/13605084
+芬蘭人喝很多咖啡。 | fen1 lan2 ren2 he1 hen3 duo1 ka1 fei1 | フィンランド人はコーヒーをたくさん飲みます。 | https://tatoeba.org/ja/sentences/show/13655106
+意大利人不喝咖啡的。 | yi4 da4 li4 ren2 bu4 he1 ka1 fei1 de5 | イタリア人てね、コーヒーは飲まないんだよ。 | https://tatoeba.org/ja/sentences/show/13884912
+請允許我自我介紹一下。 | qing3 yun3 xu3 wo3 zi4 wo3 jie4 shao4 yi1 xia4 | 自己紹介をさせてください。 | https://tatoeba.org/ja/sentences/show/6559019
+我的老婆孩子都依靠我。 | wo3 de5 lao3 po2 hai2 zi5 dou1 yi1 kao4 wo3 | 妻と子供たちは私に頼っている。 | https://tatoeba.org/ja/sentences/show/10260760
+工廠會生產棉製品。 | gong1 chang3 hui4 sheng1 chan3 mian2 zhi4 pin3 | その工場は綿製品を生産する。 | https://tatoeba.org/ja/sentences/show/13144790
+他們嘗試要突破敵陣。 | ta1 men5 chang2 shi4 yao4 tu2 po4 di2 zhen4 | 彼らは敵陣を突破しようと試みた。 | https://tatoeba.org/ja/sentences/show/13656770
+狗搖著尾巴跟著主人。 | gou3 yao2 zhe5 wei3 ba5 gen1 zhe5 zhu3 ren2 | 犬は尻尾を振って、主人を追いました。 | https://tatoeba.org/ja/sentences/show/6070964
+她看古董的眼光很好。 | ta1 kan4 gu3 dong3 de5 yan3 guang1 hen3 hao3 | 彼女はアンティークを見る目がある。 | https://tatoeba.org/ja/sentences/show/8739479
+我習慣在馬桶上看書。 | wo3 xi2 guan4 zai4 ma3 tong3 shang4 kan4 shu1 | トイレで読書するのが私の習慣だ。 | https://tatoeba.org/ja/sentences/show/9049730
+她的臉頰上有雀斑喔。 | ta1 de5 lian3 jia2 shang4 you3 que4 ban1 o1 | 彼女の頬には、そばかすがあったよ。 | https://tatoeba.org/ja/sentences/show/13110285
+火星上有什麼活物嗎？ | huo3 xing1 shang4 you3 shen2 me5 huo2 wu4 ma5 | 火星には何か生き物はいますか。 | https://tatoeba.org/ja/sentences/show/13605098
+這裡攔得到計程車嗎？ | zhe4 li3 lan2 de2 dao4 ji4 cheng2 che1 ma5 | ここでタクシーをつかまえられますか。 | https://tatoeba.org/ja/sentences/show/13638034
+都說吸菸對身體有害。 | dou1 shuo1 xi1 yan1 dui4 shen1 ti3 you3 hai4 | 喫煙は体に悪いといわれています。 | https://tatoeba.org/ja/sentences/show/13852514
+他不想在視頻中露臉。 | ta1 bu4 xiang3 zai4 shi4 pin2 zhong1 lou4 lian3 | 彼は動画内で顔出ししたくない。 | https://tatoeba.org/ja/sentences/show/5941703
+我感覺到我的手在震動。 | wo3 gan3 jue2 dao4 wo3 de5 shou3 zai4 zhen4 dong4 | 私は手が震えるのを感じた。 | https://tatoeba.org/ja/sentences/show/4365373
+在墨西哥有很多貧民窟。 | zai4 mo4 xi1 ge1 you3 hen3 duo1 pin2 min2 ku1 | メキシコには貧民窟が多いあります。 | https://tatoeba.org/ja/sentences/show/4953631
+他說：「我想成為醫生。」 | ta1 shuo1 wo3 xiang3 cheng2 wei2 yi1 sheng1 | 彼は「私は医者になりたい」と言った。 | https://tatoeba.org/ja/sentences/show/5797490
+我們正在尋找支援者。 | wo3 men5 zheng4 zai4 xun2 zhao3 zhi1 yuan2 zhe3 | 私たちは支援者を探しています。 | https://tatoeba.org/ja/sentences/show/13537095
+充足的休息十分重要。 | chong1 zu2 de5 xiu1 xi2 shi2 fen1 zhong4 yao4 | 十分に休養をとることは、非常に大切です。 | https://tatoeba.org/ja/sentences/show/528018
+她穿著華麗的絲綢服飾。 | ta1 chuan1 zhuo2 hua2 li4 de5 si1 chou2 fu2 shi4 | 彼女は豪華な絹の服を着ていた。 | https://tatoeba.org/ja/sentences/show/6081688
+泳鏡能防沙塵進眼。 | yong3 jing4 neng2 fang2 sha1 chen2 jin4 yan3 | ゴーグルは砂ぼこりから目を守ってくれる。 | https://tatoeba.org/ja/sentences/show/13651541
+火星有兩個天然衛星。 | huo3 xing1 you3 liang3 ge4 tian1 ran2 wei4 xing1 | 火星には二つの天然衛星があります。 | https://tatoeba.org/ja/sentences/show/6961300
+她的聲音聽起來好舒服。 | ta1 de5 sheng1 yin1 ting1 qi5 lai5 hao3 shu1 fu5 | 彼女の声は聞いていて気持ちがいい。 | https://tatoeba.org/ja/sentences/show/1223768
+我們一週有五堂英語課。 | wo3 men5 yi1 zhou1 you3 wu3 tang2 ying1 yu3 ke4 | 私達は１週間に５回英語の授業がある。 | https://tatoeba.org/ja/sentences/show/8388731
+專案的進展情況如何？ | zhuan1 an4 de5 jin4 zhan3 qing2 kuang4 ru2 he2 | プロジェクトの進捗具合はいかがですか？ | https://tatoeba.org/ja/sentences/show/13185347
+許多衛星繞著土星轉。 | xu3 duo1 wei4 xing1 rao4 zhe5 tu3 xing1 zhuan3 | 多くの衛星が土星の周りを回っています。 | https://tatoeba.org/ja/sentences/show/13605115
+女孩在教室的角落啜泣。 | nv3 hai2 zai4 jiao4 shi4 de5 jiao3 luo4 chuo4 qi4 | 少女は教室の隅ですすり泣いていた。 | https://tatoeba.org/ja/sentences/show/5363945
+一個嬰兒在搖籃裡睡覺。 | yi1 ge5 ying1 er2 zai4 yao2 lan2 li3 shui4 jiao4 | 赤ちゃんがゆりかごの中で眠っている。 | https://tatoeba.org/ja/sentences/show/9046287
+這件商品相當難入手。 | zhe4 jian4 shang1 pin3 xiang1 dang1 nan2 ru4 shou3 | この商品は相当入手が困難ですよ。 | https://tatoeba.org/ja/sentences/show/13917145
+現在的建築物非常的古老。 | xian4 zai4 de5 jian4 zhu4 wu4 fei1 chang2 de5 gu3 lao3 | 現在の建物はとても古い。 | https://tatoeba.org/ja/sentences/show/5843647
+我的班級有三十名學生。 | wo3 de5 ban1 ji2 you3 san1 shi2 ming2 xue2 sheng1 | 私のクラスには30人生徒がいます。 | https://tatoeba.org/ja/sentences/show/13549454
+此外，中國人喜歡睡午覺。 | ci3 wai4 zhong1 guo2 ren2 xi3 huan1 shui4 wu3 jiao4 | そのうえ中国人は昼寝が好きなんだ。 | https://tatoeba.org/ja/sentences/show/858953
+客人，請問您要點什麼呢？ | ke4 ren2 qing3 wen4 nin2 yao4 dian3 shen2 me5 ne5 | お客様、ご注文は何になさいますか。 | https://tatoeba.org/ja/sentences/show/13123237
+雪梨的空氣比東京乾淨。 | xue3 li2 de5 kong1 qi4 bi3 dong1 jing1 gan1 jing4 | シドニーの空気は東京よりきれいです。 | https://tatoeba.org/ja/sentences/show/13632029
+這個港口可能會遭到封鎖。 | zhe4 ge5 gang3 kou3 ke3 neng2 hui4 zao1 dao4 feng1 suo3 | この港は封鎖されうる。 | https://tatoeba.org/ja/sentences/show/13924822
+漁夫將釣魚線拋入水中。 | yu2 fu1 jiang1 diao4 yu2 xian4 pao1 ru4 shui3 zhong1 | 釣り師は釣り糸を水中へ投げ入れた。 | https://tatoeba.org/ja/sentences/show/1423334
+海格力斯有強健的肌肉。 | hai3 ge2 li4 si1 you3 qiang2 jian4 de5 ji1 rou4 | ヘラクレスはたくましい筋肉を持っています。 | https://tatoeba.org/ja/sentences/show/13525498
+火星上沒有生命的痕跡。 | huo3 xing1 shang4 mei2 you3 sheng1 ming4 de5 hen2 ji1 | 火星に生命の痕跡はありません。 | https://tatoeba.org/ja/sentences/show/13605095
+現在，我將開始頒發銅牌。 | xian4 zai4 wo3 jiang1 kai1 shi3 ban1 fa1 tong2 pai2 | 今、私は銅メダルの授与を始める。 | https://tatoeba.org/ja/sentences/show/13634200
+那名學生連續三次蹺課。 | na4 ming2 xue2 sheng1 lian2 xu4 san1 ci4 qiao1 ke4 | その生徒は３回連続で授業をサボった。 | https://tatoeba.org/ja/sentences/show/13888869
+從這到那駕車要一箇小時。 | cong2 zhe4 dao4 na4 jia4 che1 yao4 yi1 ge4 xiao3 shi2 | ここからそこまで車で１時間です。 | https://tatoeba.org/ja/sentences/show/5911615
+請等待信號燈變成綠色。 | qing3 deng3 dai4 xin4 hao4 deng1 bian4 cheng2 lv4 se4 | 信号が青に変わるまで待ちなさい。 | https://tatoeba.org/ja/sentences/show/13605557
+他從事倉庫警衛的工作。 | ta1 cong2 shi4 cang1 ku4 jing3 wei4 de5 gong1 zuo4 | 彼は倉庫の警備員として仕事をしている。 | https://tatoeba.org/ja/sentences/show/13877988
+他們用電視宣傳新產品。 | ta1 men5 yong4 dian4 shi4 xuan1 chuan2 xin1 chan3 pin3 | 彼らはテレビで新製品を宣伝した。 | https://tatoeba.org/ja/sentences/show/13144797
+不好意思，我要問一些事情。 | bu4 hao3 yi4 si5 wo3 yao4 wen4 yi1 xie1 shi4 qing2 | すみません、いくつか質問があります。 | https://tatoeba.org/ja/sentences/show/13187192
+不要讓浴室亂七八糟的喔。 | bu4 yao4 rang4 yu4 shi4 luan4 qi1 ba1 zao1 de5 o1 | バスルームを散らかしたままにしないでよ。 | https://tatoeba.org/ja/sentences/show/13638049
+我們必須降低能源需求。 | wo3 men5 bi4 xu1 jiang4 di1 neng2 yuan2 xu1 qiu2 | 我々はエネルギーの需要を減らさなくてはならない。 | https://tatoeba.org/ja/sentences/show/5911627
+每天晚上睡前我都會看書。 | mei3 tian1 wan3 shang4 shui4 qian2 wo3 du1 hui4 kan4 shu1 | 毎晩寝る前に本を読みます。 | https://tatoeba.org/ja/sentences/show/13594661
+我喜歡喝天然的礦泉水。 | wo3 xi3 huan1 he1 tian1 ran2 de5 kuang4 quan2 shui3 | 天然のミネラルウォーターを飲むのが好きです。 | https://tatoeba.org/ja/sentences/show/6161733
+我們擁有改變事物的力量。 | wo3 men5 yong3 you3 gai3 bian4 shi4 wu4 de5 li4 liang4 | 私たちは物事を変える力を持っている。 | https://tatoeba.org/ja/sentences/show/13885281
+有直接去巴塞羅那的火車嗎？ | you3 zhi2 jie1 qu4 ba1 sai1 luo2 na4 de5 huo3 che1 ma5 | バルセロナへ直接行く電車はありますか？ | https://tatoeba.org/ja/sentences/show/5941695
+我不喜歡他做作的說話方式。 | wo3 bu4 xi3 huan1 ta1 zuo4 zuo4 de5 shuo1 hua4 fang1 shi4 | 彼のわざとらしい話し方が嫌いだ。 | https://tatoeba.org/ja/sentences/show/7752855
+羽衣甘藍被稱為超級食物。 | yu3 yi1 gan1 lan2 bei4 cheng1 wei2 chao1 ji2 shi2 wu4 | ケールはスーパーフードと呼ばれています。 | https://tatoeba.org/ja/sentences/show/13539372
+水果富含維生素與礦物質。 | shui3 guo3 fu4 han2 wei2 sheng1 su4 yu3 kuang4 wu4 zhi2 | 果物はビタミンとミネラルが豊富です。 | https://tatoeba.org/ja/sentences/show/13607677
+他在紐約的事業十分成功。 | ta1 zai4 niu3 yue1 de5 shi4 ye4 shi2 fen1 cheng2 gong1 | ニューヨークでの彼の事業は大成功であった。 | https://tatoeba.org/ja/sentences/show/5549571
+淋濕的傘請放進這個袋子裡。 | lin2 shi1 de5 san3 qing3 fang4 jin4 zhe4 ge5 dai4 zi5 li3 | 濡れた傘はこの袋にお入れください。 | https://tatoeba.org/ja/sentences/show/13110317
+我感覺好像沒有選擇的餘地。 | wo3 gan3 jue2 hao3 xiang4 mei2 you3 xuan3 ze2 de5 yu2 di4 | 選択の余地がないように感じました。 | https://tatoeba.org/ja/sentences/show/13155952
+請兩點半到正門前迎接。 | qing3 liang3 dian3 ban4 dao4 zheng4 men2 qian2 ying2 jie1 | 2時半に正門の前に迎えに来てください。 | https://tatoeba.org/ja/sentences/show/13549460
+他在自己的實驗室進行實驗。 | ta1 zai4 zi4 ji3 de5 shi2 yan4 shi4 jin4 xing2 shi2 yan4 | 彼は自分の研究室で実験を行っている。 | https://tatoeba.org/ja/sentences/show/13870269
+我看著那棟老建築被拆除。 | wo3 kan4 zhe5 na4 dong4 lao3 jian4 zhu2 bei4 chai1 chu2 | あの古い建物が解体されるのを見てたんだ。 | https://tatoeba.org/ja/sentences/show/13888887
+要成為鍛造師，就要鍛打鐵。 | yao4 cheng2 wei2 duan4 zao4 shi1 jiu4 yao4 duan4 da3 tie3 | 鍛冶屋になるのは，鉄を鍛えながらだ。 | https://tatoeba.org/ja/sentences/show/13634903
+味道與日本米相比毫不遜色。 | wei4 dao4 yu3 ri4 ben3 mi3 xiang1 bi3 hao2 bu4 xun4 se4 | 味は日本のお米に比べて遜色はありません。 | https://tatoeba.org/ja/sentences/show/13893812
+不行，今天不知為何沒有幹勁。 | bu4 xing2 jin1 tian1 bu4 zhi1 wei4 he2 mei2 you3 gan4 jin4 | だめだ、今日はなぜかやる気が出ない。 | https://tatoeba.org/ja/sentences/show/13108752
+經濟差距與語言差距有關嗎？ | jing1 ji4 cha1 ju4 yu3 yu3 yan2 cha1 ju4 you3 guan1 ma5 | 経済の格差と言語の格差は関連性がありますか？ | https://tatoeba.org/ja/sentences/show/13564358
+我將建築稱作被凍結的音樂。 | wo3 jiang1 jian4 zhu2 cheng1 zuo4 bei4 dong4 jie2 de5 yin1 yue4 | 私は建築を凍結した音楽と称する。 | https://tatoeba.org/ja/sentences/show/1239327
+請兩點半到正門前迎接我。 | qing3 liang3 dian3 ban4 dao4 zheng4 men2 qian2 ying2 jie1 wo3 | 2時半に正門の前に迎えに来てください。 | https://tatoeba.org/ja/sentences/show/13549459
+大部分美國人支持這項決定。 | da4 bu4 fen4 mei3 guo2 ren2 zhi1 chi2 zhe4 xiang4 jue2 ding4 | ほとんどのアメリカ人がその決定に賛成した。 | https://tatoeba.org/ja/sentences/show/3149270
+這個問題與那個問題密切相關。 | zhe4 ge5 wen4 ti2 yu3 na4 ge5 wen4 ti2 mi4 qie4 xiang1 guan1 | この問題はあの問題と密接に関連している。 | https://tatoeba.org/ja/sentences/show/13564350
+經濟差距與語言的差距有關嗎？ | jing1 ji4 cha1 ju4 yu3 yu3 yan2 de5 cha1 ju4 you3 guan1 ma5 | 経済の格差と言語の格差は関連性がありますか？ | https://tatoeba.org/ja/sentences/show/13564356
+在眼皮上輕輕疊加金色眼影。 | zai4 yan3 pi2 shang4 qing1 qing1 die2 jia1 jin1 se4 yan3 ying3 | まぶたにゴールドのアイシャドウを優しく重ねます。 | https://tatoeba.org/ja/sentences/show/13514575
+這個問題與那個問題有密切關聯。 | zhe4 ge5 wen4 ti2 yu3 na4 ge5 wen4 ti2 you3 mi4 qie4 guan1 lian2 | この問題はあの問題と密接に関連している。 | https://tatoeba.org/ja/sentences/show/13564352
+芬蘭的公共交通工具很準時。 | fen1 lan2 de5 gong1 gong4 jiao1 tong1 gong1 ju4 hen3 zhun3 shi2 | フィンランドの公共交通機関は時間を正確に守る。 | https://tatoeba.org/ja/sentences/show/13655114
+經濟的差距與語言的差距有關嗎？ | jing1 ji4 de5 cha1 ju4 yu3 yu3 yan2 de5 cha1 ju4 you3 guan1 ma5 | 経済の格差と言語の格差は関連性がありますか？ | https://tatoeba.org/ja/sentences/show/13564357
+「那邊的天氣怎麼樣？」「天氣晴朗。」 | na4 bian5 de5 tian1 qi4 zen3 me5 yang4 tian1 qi4 qing2 lang3 | 「そちらの天気はいかがですか」「晴れています」 | https://tatoeba.org/ja/sentences/show/13109268
+每週六上午都會工作三個小時。 | mei3 zhou1 liu4 shang4 wu3 du1 hui4 gong1 zuo4 san1 ge4 xiao3 shi2 | 毎週土曜日の午前中、３時間仕事をしてます。 | https://tatoeba.org/ja/sentences/show/13607690
+隨著汽車的增加，空氣也跟著變糟。 | sui2 zhe5 qi4 che1 de5 zeng1 jia1 kong1 qi4 ye3 gen1 zhe5 bian4 zao1 | 車が増えてくると、大気汚染もひどくなる。 | https://tatoeba.org/ja/sentences/show/4795918
+木星的衛星上可能有生命存在。 | mu4 xing1 de5 wei4 xing1 shang4 ke3 neng2 you3 sheng1 ming4 cun2 zai4 | 木星の衛星には生命が存在するかもしれません。 | https://tatoeba.org/ja/sentences/show/4265893
+傍晚時分，天空染上紫色的光芒。 | bang1 wan3 shi2 fen4 tian1 kong1 ran3 shang4 zi3 se4 de5 guang1 mang2 | 夕暮れ時、空は紫色の光に染まっています。 | https://tatoeba.org/ja/sentences/show/13557587
+他被丟在火星上，感到非常沮喪。 | ta1 bei4 diu1 zai4 huo3 xing1 shang4 gan3 dao4 fei1 chang2 ju3 sang4 | 彼は火星に置いていかれ、がっくりしている。 | https://tatoeba.org/ja/sentences/show/13605103
+我失業又沒錢。真不知該何去何從。 | wo3 shi1 ye4 you4 mei2 qian2 zhen1 bu4 zhi1 gai1 he2 qu4 he2 cong2 | 私は仕事を失いお金もない。私は途方にくれている。 | https://tatoeba.org/ja/sentences/show/2511573
+陌生人在擁擠的公車裡跟我搭話。 | mo4 sheng1 ren2 zai4 yong3 ji3 de5 gong1 che1 li3 gen1 wo3 da1 hua4 | 見知らぬ人が混み合ったバスの中で私に話しかけた。 | https://tatoeba.org/ja/sentences/show/13638057
+無須多言，基本人權應當被尊重。 | wu2 xu1 duo1 yan2 ji1 ben3 ren2 quan2 ying1 dang1 bei4 zun1 zhong4 | 論じるまでもなく基本的人権は尊重されなければならない。 | https://tatoeba.org/ja/sentences/show/6105262
+不、不一定每次都會被食物收買啦。 | bu4 bu4 yi1 ding4 mei3 ci4 du1 hui4 bei4 shi2 wu4 shou1 mai3 la5 | い、いっつも食べ物で懐柔されるとは、限りませんからねっ。 | https://tatoeba.org/ja/sentences/show/13611619
+通訊記者不得不立即適應海外生活。 | tong1 xun4 ji4 zhe3 bu4 de2 bu4 li4 ji2 shi4 ying4 hai3 wai4 sheng1 huo2 | 通信員は海外生活にすぐに順応しなくてはいけない。 | https://tatoeba.org/ja/sentences/show/1423375
+一百萬日圓的罰金?根本不痛不癢啊!。 | yi1 bai3 wan4 ri4 yuan2 de5 fa2 jin1 gen1 ben3 bu4 tong4 bu4 yang3 a5 | 百万円の罰金だって？そんなの痛くもかゆくもないよ。 | https://tatoeba.org/ja/sentences/show/4794181
+理科教室裡排列著各種形狀的器具。 | li3 ke1 jiao4 shi4 li3 pai2 lie4 zhe5 ge4 zhong3 xing2 zhuang4 de5 qi4 ju4 | 理科室にはさまざまな形の器具が並んでいる。 | https://tatoeba.org/ja/sentences/show/13878242
+這字典裡登載的單字，全部都很重要。 | zhe4 zi4 dian3 li3 deng1 zai4 de5 dan1 zi4 quan2 bu4 dou1 hen3 zhong4 yao4 | この辞書に載っている単語は、全て重要です。 | https://tatoeba.org/ja/sentences/show/13264915
+我們的音樂老師建議我去遊覽維也納。 | wo3 men5 de5 yin1 yue4 lao3 shi1 jian4 yi4 wo3 qu4 you2 lan3 wei2 ye3 na4 | 音楽の先生はウィーンを訪れるとよいと言いました。 | https://tatoeba.org/ja/sentences/show/6148370
+開發新產品時，市場調查至關重要。 | kai1 fa1 xin1 chan3 pin3 shi2 shi4 chang3 diao4 cha2 zhi4 guan1 zhong4 yao4 | 新商品の開発には、市場調査が重要になります。 | https://tatoeba.org/ja/sentences/show/13894769
+硬幣的價值取決於所用金屬的重量。 | ying4 bi4 de5 jia4 zhi2 qu3 jue2 yu2 suo3 yong4 jin1 shu3 de5 zhong4 liang4 | 硬貨の価値は使われた金属の重さによって決まった。 | https://tatoeba.org/ja/sentences/show/13634120
+盛夏的天空中，匯聚著雄渾的積雨雲。 | sheng4 xia4 de5 tian1 kong1 zhong1 hui4 ju4 zhe5 xiong2 hun2 de5 ji1 yu3 yun2 | 真夏の空には、力強い入道雲が浮かんでいた。 | https://tatoeba.org/ja/sentences/show/13893519
+傍晚時分，天空染上一層紫色的光芒。 | bang1 wan3 shi2 fen4 tian1 kong1 ran3 shang4 yi1 ceng2 zi3 se4 de5 guang1 mang2 | 夕暮れ時、空は紫色の光に染まっています。 | https://tatoeba.org/ja/sentences/show/13557585
+首先，來談談在實驗室進行的實驗吧。 | shou3 xian1 lai2 tan2 tan2 zai4 shi2 yan4 shi4 jin4 xing2 de5 shi2 yan4 ba5 | まず、実験室で行われる実験について話しましょう。 | https://tatoeba.org/ja/sentences/show/13870302
+日本有許多美麗的城市，例如京都、奈良。 | ri4 ben3 you3 xu3 duo1 mei3 li4 de5 cheng2 shi4 li4 ru2 jing1 du1 nai4 liang2 | 日本には美しい都市が多い。例えば京都、奈良だ。 | https://tatoeba.org/ja/sentences/show/13632024
+這場滔滔不絕的簡報，讓人甘拜下風。 | zhe4 chang3 tao1 tao1 bu4 jue2 de5 jian3 bao4 rang4 ren2 gan1 bai4 xia4 feng1 | 立て板に水の如きプレゼンテーション、おそれ入りました。 | https://tatoeba.org/ja/sentences/show/14005342
+好想哪天去巴黎、紐約，還有東京看看啊。 | hao3 xiang3 na3 tian1 qu4 ba1 li2 niu3 yue1 hai2 you3 dong1 jing1 kan4 kan5 a5 | いつか、パリとニューヨークとあと東京に行ってみてーなぁ。 | https://tatoeba.org/ja/sentences/show/13632038
+然後又把各書名揭示通衢，永遠禁止販賣。 | ran2 hou4 you4 ba3 ge4 shu1 ming2 jie1 shi4 tong1 qu2 yong3 yuan3 jin4 zhi3 fan4 mai4 | そしてすべての書名を公に示し、永遠に販売を禁止した。 | https://tatoeba.org/ja/sentences/show/13513815
+就算想用這種手段遮住我的眼睛也沒用。 | jiu4 suan4 xiang3 yong4 zhe4 zhong3 shou3 duan4 zhe1 zhu4 wo3 de5 yan3 jing1 ye3 mei2 yong4 | そんな手で私の目をごまかそうとしても無駄だ。 | https://tatoeba.org/ja/sentences/show/13309964
+日本有很多美麗的城市，例如京都、奈良等。 | ri4 ben3 you3 hen3 duo1 mei3 li4 de5 cheng2 shi4 li4 ru2 jing1 du1 nai4 liang2 deng3 | 日本には美しい都市が山ほどある。たとえば京都や奈良など。 | https://tatoeba.org/ja/sentences/show/13632021
+不好意思，請問到中央公園要怎麼走?。 | bu4 hao3 yi4 si5 qing3 wen4 dao4 zhong1 yang1 gong1 yuan2 yao4 zen3 me5 zou3 | すみませんが、セントラルパークにはどうやって行ったらいいか教えていただけませんか。 | https://tatoeba.org/ja/sentences/show/2771106
+為什麼我們糾纏細枝末節而不進入正題呢？ | wei4 shen2 me5 wo3 men5 jiu1 chan2 xi4 zhi1 mo4 jie2 er2 bu4 jin4 ru4 zheng4 ti2 ne5 | 枝葉末節の議論はもうそろそろ止めにして、本筋の話に移りませんか。 | https://tatoeba.org/ja/sentences/show/5574683
+住在橫濱近郊的各位，如果方便的話，歡迎蒞臨。 | zhu4 zai4 heng2 bin1 jin4 jiao1 de5 ge4 wei4 ru2 guo3 fang1 bian4 de5 hua4 huan1 ying2 li4 lin2 | 横浜近郊にご在住の方、ご都合がよろしければ、お出で下さいませ。 | https://tatoeba.org/ja/sentences/show/13632067
+去新竹旅遊，不可錯過清大、交大校園的美景。 | qu4 xin1 zhu2 lv3 you2 bu4 ke3 cuo4 guo4 qing1 da4 jiao1 da4 xiao4 yuan2 de5 mei3 jing3 | 新竹を旅行する際には、清華大学と交通大学のキャンパスの美しい景色を見逃してはいけない。 | https://tatoeba.org/ja/sentences/show/13537656
+「要把電腦的電源關掉嗎？」「就這樣放著吧，我還在用。」 | yao4 ba3 dian4 nao3 de5 dian4 yuan2 guan1 diao4 ma5 jiu4 zhe4 yang4 fang4 zhe5 ba5 wo3 hai2 zai4 yong4 | 「パソコンの電源、落としとく？」「そのままにしといて。まだ使ってるんだ」 | https://tatoeba.org/ja/sentences/show/13311097
+這個應用程式每日吸引超過一萬位使用者使用其功能。 | zhe4 ge5 ying4 yong4 cheng2 shi4 mei3 ri4 xi1 yin3 chao1 guo4 yi1 wan4 wei4 shi3 yong4 zhe3 shi3 yong4 qi2 gong1 neng2 | この応用プログラムは、一万人以上の使用者が使用する機能を毎日引き付けている。 | https://tatoeba.org/ja/sentences/show/13199844
+絕對不能直視太陽，一秒鐘也不行。直視太陽會傷害眼睛。 | jue2 dui4 bu4 neng2 zhi2 shi4 tai4 yang2 yi1 miao3 zhong1 ye3 bu4 xing2 zhi2 shi4 tai4 yang2 hui4 shang1 hai4 yan3 jing1 | 絶対に太陽を直接見てはいけない。たとえ1秒でも。直接見れば、目を傷つけることになる。 | https://tatoeba.org/ja/sentences/show/13959025
+您選擇的服務方案將影響您的使用體驗，請務必仔細比較細節。 | nin2 xuan3 ze2 de5 fu2 wu4 fang1 an4 jiang1 ying3 xiang3 nin2 de5 shi3 yong4 ti3 yan4 qing3 wu4 bi4 zi3 xi4 bi3 jiao4 xi4 jie2 | ご選択のサービスプランによって、使用体験が左右されます。細部までしっかり比較してください。 | https://tatoeba.org/ja/sentences/show/13233299
+警告！新的密碼與確認密碼不符。請確認新密碼後，再次嘗試更改。 | jing3 gao4 xin1 de5 mi4 ma3 yu3 que4 ren4 mi4 ma3 bu4 fu2 qing3 que4 ren4 xin1 mi4 ma3 hou4 zai4 ci4 chang2 shi4 geng1 gai3 | 警告！新たな暗証番号と其の確認は一致しません。新たな暗証番号を確認して、再び変更してみて下さい。 | https://tatoeba.org/ja/sentences/show/13887502

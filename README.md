@@ -15,6 +15,7 @@
 | `assets/js/config.js` | AdSense の設定 |
 | `content/texts-cn.txt` | 簡体字の例文（中国大陸の普通話・大陸の発音） |
 | `content/texts-tw.txt` | 繁體字の例文（台湾の国語・台湾の発音） |
+| `content/tatoeba-cn.txt`, `content/tatoeba-tw.txt` | Tatoeba から取り込んだネイティブの例文（`scripts/import_tatoeba.py` が作る） |
 | `content/news-cn.txt`, `content/news-tw.txt` | 時事の例文（ニュースの話題から自動生成し、PR で確認して入れる） |
 | `scripts/` | 公開データの取得と `data/` の生成 |
 | `data/` | サイトが読む単語・例文データ（生成物） |
@@ -37,6 +38,17 @@ python3 scripts/build_data.py # data/ を生成。例文の読みの数が合わ
 
 例文を足すときは、簡体字なら `content/texts-cn.txt`（大陸の言い方・大陸の発音）、繁體字なら `content/texts-tw.txt`（台湾の言い方・台湾の発音）に
 `本文 | 数字ピンイン | 日本語訳` の形で1行追加して、`build_data.py` を実行する。2つのファイルは別々の文章で、互いに変換はしない。
+
+## Tatoeba の例文を取り込む
+
+```sh
+python3 scripts/import_tatoeba.py   # content/tatoeba-cn.txt・tatoeba-tw.txt を作り直す
+python3 scripts/build_data.py
+```
+
+中国語を母語と登録している人が書いた、日本語訳つきの文だけを取り込む（Tatoeba、CC BY 2.0 FR）。
+読みは辞書から自動で付け、文脈がないと読みが決まらない文は捨てる。
+不自然な文や読みの誤りは、その文の ID を `content/tatoeba-exclude.txt` に書いて取り込み直す（`tatoeba-*.txt` は直接直さない）。
 
 ## 読みの誤りを直す
 

@@ -8,7 +8,7 @@
   単語の意味は content/glossary-ja.tsv に日本語訳があればそれを、なければ CC-CEDICT の英語を使う。
   data/words/hsk-1.json … hsk-6.json     旧HSK 1〜6級
   data/words/tocfl-1.json … tocfl-7.json TBCL 詞語表 第1〜7級（TOCFLの基準。内部名は tocfl のまま）
-  data/texts/all.json  一文・長文。簡体字（大陸の普通話）は content/texts-cn.txt・news-cn.txt、
+  data/texts/cn.json・tw.json  一文・長文。簡体字（大陸の普通話）は content/texts-cn.txt・news-cn.txt、
                        繁體字（台湾の国語）は content/texts-tw.txt・news-tw.txt。互いに変換はしない
 """
 import json
@@ -391,8 +391,8 @@ LENGTHS = {"一文": "sentence", "長文": "passage"}
 
 # 簡体字（大陸の普通話）と繁體字（台湾の国語）は別々の文章として持つ。互いに変換はしない。
 TEXT_FILES = {
-    "cn": ["content/texts-cn.txt", "content/news-cn.txt"],
-    "tw": ["content/texts-tw.txt", "content/news-tw.txt"],
+    "cn": ["content/texts-cn.txt", "content/news-cn.txt", "content/tatoeba-cn.txt"],
+    "tw": ["content/texts-tw.txt", "content/news-tw.txt", "content/tatoeba-tw.txt"],
 }
 
 
@@ -576,9 +576,11 @@ def main():
                         obj["src"] = src
                     all_texts.append(obj)
             manifest["texts"].setdefault(variant, {})[diff] = {k: len(v) for k, v in d.items()}
-    write(OUT / "texts/all.json", all_texts)
+    # 字体ごとに分けて書き出す（画面は使う字体のぶんだけ読む）
+    for variant in ("cn", "tw"):
+        write(OUT / f"texts/{variant}.json", [{k: v for k, v in o.items() if k != "v"} for o in all_texts if o["v"] == variant])
     for old in (OUT / "texts").glob("*.json"):
-        if old.name != "all.json":
+        if old.stem not in ("cn", "tw"):
             old.unlink()
     from collections import Counter
     grid = Counter((o["v"], o["l"], o["d"], o["lv"]) for o in all_texts)
