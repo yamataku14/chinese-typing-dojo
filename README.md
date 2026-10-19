@@ -89,7 +89,7 @@ Anthropic の SDK（1.x）は Python 3.10 以上が必要。
 
 ```sh
 pip3 install anthropic
-ANTHROPIC_API_KEY=... python3 scripts/generate_news.py   # content/news.txt に追記される
+ANTHROPIC_API_KEY=... python3 scripts/generate_news.py   # content/news-cn.txt・news-tw.txt に追記される
 python3 scripts/build_data.py
 ```
 
