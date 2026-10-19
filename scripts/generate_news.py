@@ -1,4 +1,4 @@
-"""ニュースの話題をもとにした例文を作り、content/news.txt に足す（GitHub Actions から1日1回実行）。
+"""ニュースの話題をもとにした例文を作り、content/news-cn.txt と news-tw.txt に足す（GitHub Actions から1日1回実行）。
 
 使い方:
   ANTHROPIC_API_KEY=... python3 scripts/generate_news.py [--report 報告.md]
@@ -7,10 +7,11 @@
 流れ:
   1. FEEDS の RSS から見出しと概要だけを取る（本文は取らない）。
   2. 政治的に敏感な話題・事件・事故を BLOCK の語で除く。既に使った記事も除く。
-  3. Claude に、記事の文を写さず事実だけを使ったオリジナルの短文（繁体字）と日本語訳を書かせる。
-  4. 読みは辞書（CC-CEDICT）で照合する。辞書で読みが1つに決まる語は辞書の読みにそろえ、
-     決まらないのに食い違うものは「要確認」として news.txt のコメントと報告に残す。
-  5. content/news.txt の末尾に、出典 URL 付きで追記する。公開前に Pull Request で人が確認する。
+  3. Claude に、記事の文を写さず事実だけを使ったオリジナルの短文と日本語訳を書かせる。
+     同じ内容を、簡体字・大陸の普通話（大陸の発音）と、繁體字・台湾の国語（台湾の発音）の2通りで書く。
+  4. 読みは辞書（CC-CEDICT。台湾の読みは Taiwan pr. 注記と TOCFL 詞語表も）で照合する。
+     辞書で読みが1つに決まる語は辞書の読みにそろえ、決まらないのに食い違うものは「要確認」として残す。
+  5. content/news-cn.txt・news-tw.txt の末尾に、出典 URL 付きで追記する。公開前に Pull Request で人が確認する。
 """
 import argparse
 import datetime
@@ -23,9 +24,9 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from build_data import HAN, ROOT, citation, load_cedict, norm_syl  # noqa: E402
+from build_data import HAN, ROOT, TW_PR, citation, load_cedict, load_tbcl, norm_syl, to_zhuyin  # noqa: E402
 
-NEWS = ROOT / "content/news.txt"
+NEWS = {"cn": ROOT / "content/news-cn.txt", "tw": ROOT / "content/news-tw.txt"}
 MODEL = "claude-sonnet-5-5"
 
 # 見出しと概要だけを使う。利用規約は各社のものを確認すること。
@@ -54,12 +55,16 @@ SYSTEM = """あなたは中国語学習サイトの例文作家です。日本�
   例:「聽說今年秋天有新的太空望遠鏡要升空。」のように、学習者が会話や日記で言いそうな文にする。
 - 政治・外交・両岸関係・領土・軍事・選挙・政治家、事件・事故・犯罪・災害・死・病気、個人の私生活に関わる話題は使わない。
   迷ったら使わない。使える話題がなければ items を空にしてよい。
-- 本文は繁体字（台湾の標準字形）。句読点は全角（，。？！、「」）。
+- 同じ内容の文を2通り書く。
+  zh_cn: 簡体字で、中国大陸の普通話の語彙・言い回し（例: 地铁、出租车、软件、视频、信息）。句読点は全角（，。？！、“”）。
+  zh_tw: 繁體字（台湾の標準字形）で、台湾の国語の語彙・言い回し（例: 捷運、計程車、軟體、影片、資訊）。句読点は全角（，。？！、「」）。
+  直訳の書き換えではなく、それぞれの地域の人が自然に言う文にする。
 - 本文にアラビア数字やローマ字を入れない。数は漢字で書き（例: 三十），外国の固有名詞や略語は中国語の言い方にするか避ける。
 - 一文だけ。初級は HSK1〜2級程度の語で15字以内、中級は HSK3〜4級程度で30字以内、上級は HSK5〜6級程度で45字以内。
 - 初級・中級・上級をそれぞれ1〜2件。1件ごとに、もとにした記事の id を source に入れる。
-- pinyin は大陸の標準音の数字ピンイン。漢字1字に1音節（句読点には付けない）。軽声は5、ü は v。
-  「一」は yi1、「不」は bu4 と変調前の本来の声調で書く。
+- pinyin_cn は zh_cn の、大陸の標準音（現代漢語詞典）の数字ピンイン。
+  pinyin_tw は zh_tw の、台湾の標準音（教育部國語辭典。例: 星期 xing1 qi2、垃圾 le4 se4）の数字ピンイン。
+  どちらも漢字1字に1音節（句読点には付けない）。軽声は5、ü は v。「一」は yi1、「不」は bu4 と変調前の本来の声調で書く。
 - ja は自然な日本語訳。"""
 
 SCHEMA = {
@@ -72,11 +77,13 @@ SCHEMA = {
                 "properties": {
                     "level": {"type": "string", "enum": ["初級", "中級", "上級"]},
                     "source": {"type": "integer"},
-                    "zh": {"type": "string"},
-                    "pinyin": {"type": "string"},
+                    "zh_cn": {"type": "string"},
+                    "pinyin_cn": {"type": "string"},
+                    "zh_tw": {"type": "string"},
+                    "pinyin_tw": {"type": "string"},
                     "ja": {"type": "string"},
                 },
-                "required": ["level", "source", "zh", "pinyin", "ja"],
+                "required": ["level", "source", "zh_cn", "pinyin_cn", "zh_tw", "pinyin_tw", "ja"],
                 "additionalProperties": False,
             },
         }
@@ -104,9 +111,8 @@ def fetch_feed(url):
 
 
 def used_links():
-    if not NEWS.exists():
-        return set()
-    return set(re.findall(r"https?://\S+", NEWS.read_text(encoding="utf-8")))
+    return {link for path in NEWS.values() if path.exists()
+            for link in re.findall(r"https?://\S+", path.read_text(encoding="utf-8"))}
 
 
 def candidates():
@@ -162,19 +168,49 @@ def loose_eq(a, b):
 
 
 class Checker:
+    """variant "cn" は簡体字・大陸の読み、"tw" は繁體字・台湾の読みで照合する。"""
+
     def __init__(self):
         self.words_t, _, _, self.readings = load_cedict()
-        self.trad_chars = {w for w in self.words_t if len(w) == 1}
+        self.words_s = {}
+        for trad, entries in self.words_t.items():
+            for simp, syls, _, proper in entries:
+                self.words_s.setdefault(simp, []).append((simp, syls, None, proper))
+        self.chars = {"cn": {w for w in self.words_s if len(w) == 1}, "tw": {w for w in self.words_t if len(w) == 1}}
+        # 台湾の読み: TOCFL 詞語表の注音（sources/ がなければ使わない）
+        self.tbcl = {}
+        try:
+            rev = {}
+            for syl in sorted({x for rs in self.readings.values() for x in rs}):
+                try:
+                    rev.setdefault(to_zhuyin(syl), syl)
+                except ValueError:
+                    pass
+            tbcl, _ = load_tbcl(rev)
+            for rows in tbcl.values():
+                for trad, tw in rows:
+                    self.tbcl.setdefault(trad, []).append(tw)
+        except OSError:
+            pass
 
-    def word_readings(self, w):
-        """固有名詞でない見出しの読みの一覧（重複なし）。"""
+    def word_readings(self, w, variant):
+        """固有名詞でない見出しの読みの一覧（重複なし）。台湾は台湾の読みに置き換える。"""
         out = []
+        if variant == "cn":
+            for _, syls, _, proper in self.words_s.get(w, []):
+                if not proper and syls not in out:
+                    out.append(syls)
+            return out
+        for tw in self.tbcl.get(w, []):
+            if tw not in out:
+                out.append(tw)
         for _, syls, _, proper in self.words_t.get(w, []):
-            if not proper and syls not in out:
-                out.append(syls)
+            tw = TW_PR.get((w, tuple(syls)), syls)
+            if not proper and tw not in out:
+                out.append(tw)
         return out
 
-    def check(self, zh, pinyin):
+    def check(self, zh, pinyin, variant):
         """(直した読み, 要確認の一覧)。読めない・数が合わないときは読みを None で返す。"""
         notes = []
         han = HAN.findall(zh)
@@ -187,15 +223,16 @@ class Checker:
         if len(han) != len(syls):
             return None, [f"漢字 {len(han)} 字に対して読みが {len(syls)} 音節"]
         syls = citation(zh, syls)
+        kind = "簡体字" if variant == "cn" else "繁體字"
         for ch in han:
-            if ch not in self.trad_chars:
-                notes.append(f"「{ch}」は繁体字の見出しにない（簡体字・異体字かも）")
+            if ch not in self.chars[variant]:
+                notes.append(f"「{ch}」は{kind}の見出しにない（字体が混ざっているかも）")
         # 最長一致で語に分け、語ごとに辞書の読みと照らす
         i = 0
         while i < len(han):
             for n in range(min(6, len(han) - i), 0, -1):
                 w = "".join(han[i:i + n])
-                cands = self.word_readings(w)
+                cands = self.word_readings(w, variant)
                 if cands or n == 1:
                     break
             got = syls[i:i + n]
@@ -206,6 +243,9 @@ class Checker:
                     pass
                 elif len(near) == 1:
                     syls[i:i + n] = near[0]
+                elif variant == "tw" and any([x[:-1] for x in c] == [x[:-1] for x in got] for c in cands):
+                    # 声調だけ違う: 台湾の標準音は大陸の辞書と声調が違うことが多いので、直さずに確認を促す
+                    notes.append(f"「{w}」を台湾音 {' '.join(got)} としている（辞書: {' / '.join(' '.join(c) for c in cands)}）")
                 elif len(cands) == 1:
                     notes.append(f"「{w}」を {' '.join(got)} → 辞書の {' '.join(cands[0])} に直した")
                     syls[i:i + n] = cands[0]
@@ -218,15 +258,23 @@ class Checker:
 
 
 # ---------- 書き出し ----------
-HEADER = """# 時事の例文（ニュースの話題をもとにしたオリジナル。scripts/generate_news.py が追記する）
-# 書式は texts.txt と同じで、4列目に話題の出典（元記事の URL）を書く:
-#   繁体字 | 数字ピンイン（大陸の読み） | 日本語訳 | 出典 URL
+HEADER = {
+    "cn": """# 時事の例文・簡体字（中国大陸の普通話。ニュースの話題をもとにしたオリジナル。scripts/generate_news.py が追記する）
+# 書式は texts-cn.txt と同じで、4列目に話題の出典（元記事の URL）を書く:
+#   簡体字 | 数字ピンイン（大陸の標準音） | 日本語訳 | 出典 URL
 # 記事の文章は写さず、見出しと概要の事実だけを使っている。公開前に Pull Request で確認すること。
 # 「# 要確認:」の行は読みの照合で気になった点。確認したら消してよい。
-"""
+""",
+    "tw": """# 時事の例文・繁體字（台湾の国語。ニュースの話題をもとにしたオリジナル。scripts/generate_news.py が追記する）
+# 書式は texts-tw.txt と同じで、4列目に話題の出典（元記事の URL）を書く:
+#   繁體字 | 数字ピンイン（台湾の標準音） | 日本語訳 | 出典 URL
+# 記事の文章は写さず、見出しと概要の事実だけを使っている。公開前に Pull Request で確認すること。
+# 「# 要確認:」の行は読みの照合で気になった点。確認したら消してよい。
+""",
+}
 
 
-def write_news(entries, today):
+def write_news(entries, today, variant):
     blocks = [f"\n# ---- {today} 自動生成 ----"]
     for level in ("初級", "中級", "上級"):
         rows = [e for e in entries if e["level"] == level]
@@ -236,15 +284,17 @@ def write_news(entries, today):
         for e in rows:
             blocks += [f"# 要確認: {n}" for n in e["notes"]]
             blocks.append(f"{e['zh']} | {' '.join(e['syls'])} | {e['ja']} | {e['link']}")
-    text = NEWS.read_text(encoding="utf-8") if NEWS.exists() else HEADER
-    NEWS.write_text(text.rstrip("\n") + "\n" + "\n".join(blocks) + "\n", encoding="utf-8")
+    path = NEWS[variant]
+    text = path.read_text(encoding="utf-8") if path.exists() else HEADER[variant]
+    path.write_text(text.rstrip("\n") + "\n" + "\n".join(blocks) + "\n", encoding="utf-8")
 
 
 def report(entries, dropped, today):
     lines = [f"{today} のニュースの話題から作った例文です（モデル: {MODEL}）。",
-             "マージする前に、中国語の自然さ・訳・読み・話題の適切さを確認してください。", ""]
+             "マージする前に、中国語の自然さ（簡体字は大陸の言い方、繁體字は台湾の言い方になっているか）・訳・読み・話題の適切さを確認してください。", ""]
     for e in entries:
-        lines.append(f"- **{e['level']}** {e['zh']}  \n  {' '.join(e['syls'])}  \n  {e['ja']}  \n  出典: [{e['title']}]({e['link']})")
+        label = "簡体字" if e["variant"] == "cn" else "繁體字"
+        lines.append(f"- **{e['level']}・{label}** {e['zh']}  \n  {' '.join(e['syls'])}  \n  {e['ja']}  \n  出典: [{e['title']}]({e['link']})")
         lines += [f"  - ⚠️ {n}" for n in e["notes"]]
     if dropped:
         lines += ["", "読みが合わず除いたもの:"]
@@ -269,17 +319,22 @@ def main():
     entries, dropped = [], []
     for it in result.get("items", []):
         src = by_id.get(it["source"])
-        zh = it["zh"].strip().replace("|", "｜")
-        if not src or not zh:
+        if not src:
             continue
-        syls, notes = checker.check(zh, it["pinyin"])
-        e = {"level": it["level"], "zh": zh, "ja": it["ja"].strip().replace("|", "｜"),
-             "link": src["link"], "title": src["title"], "syls": syls, "notes": notes}
-        (entries if syls else dropped).append(e)
+        for variant in ("cn", "tw"):
+            zh = it[f"zh_{variant}"].strip().replace("|", "｜")
+            if not zh:
+                continue
+            syls, notes = checker.check(zh, it[f"pinyin_{variant}"], variant)
+            e = {"level": it["level"], "variant": variant, "zh": zh, "ja": it["ja"].strip().replace("|", "｜"),
+                 "link": src["link"], "title": src["title"], "syls": syls, "notes": notes}
+            (entries if syls else dropped).append(e)
 
     today = datetime.date.today().isoformat()
-    if entries:
-        write_news(entries, today)
+    for variant in ("cn", "tw"):
+        rows = [e for e in entries if e["variant"] == variant]
+        if rows:
+            write_news(rows, today, variant)
     text = report(entries, dropped, today)
     print(text)
     if args.report:

@@ -13,8 +13,9 @@
 | `assets/js/phonetics.js` | ピンイン → 声調記号・注音・キー列の変換 |
 | `assets/js/records.js` | 練習記録（今は localStorage。アカウント対応時はここを差し替える） |
 | `assets/js/config.js` | AdSense の設定 |
-| `content/texts.txt` | 一文・長文の例文（繁体字で書く） |
-| `content/news.txt` | 時事の例文（ニュースの話題から自動生成し、PR で確認して入れる） |
+| `content/texts-cn.txt` | 簡体字の例文（中国大陸の普通話・大陸の発音） |
+| `content/texts-tw.txt` | 繁體字の例文（台湾の国語・台湾の発音） |
+| `content/news-cn.txt`, `content/news-tw.txt` | 時事の例文（ニュースの話題から自動生成し、PR で確認して入れる） |
 | `scripts/` | 公開データの取得と `data/` の生成 |
 | `data/` | サイトが読む単語・例文データ（生成物） |
 | `.github/workflows/news-texts.yml` | 時事の例文を毎日作って PR を出す |
@@ -34,7 +35,8 @@ sh scripts/fetch_sources.sh   # HSK・TOCFL・CC-CEDICT を sources/ にダウ�
 python3 scripts/build_data.py # data/ を生成。例文の読みの数が合わないとエラーで止まる
 ```
 
-例文を足すときは `content/texts.txt` に `繁体字 | 数字ピンイン | 日本語訳` の形で1行追加して、`build_data.py` を実行する。
+例文を足すときは、簡体字なら `content/texts-cn.txt`（大陸の言い方・大陸の発音）、繁體字なら `content/texts-tw.txt`（台湾の言い方・台湾の発音）に
+`本文 | 数字ピンイン | 日本語訳` の形で1行追加して、`build_data.py` を実行する。2つのファイルは別々の文章で、互いに変換はしない。
 
 ## 読みの誤りを直す
 
@@ -42,7 +44,7 @@ python3 scripts/build_data.py # data/ を生成。例文の読みの数が合わ
 Google フォームの設定が空なら GitHub の Issue 作成画面が開く。
 
 報告を受けて単語の読みを直すときは、`content/corrections.tsv` に `繁体語<TAB>大陸の読み<TAB>台湾の読み` を1行足して
-`python3 scripts/build_data.py` を実行する。例文の読みは `content/texts.txt` を直接直す。
+`python3 scripts/build_data.py` を実行する。例文の読みは `content/texts-cn.txt`・`content/texts-tw.txt` を直接直す。
 
 読みの方針: 簡体字は大陸の標準音、繁體字は台湾の標準音。「一」「不」は変調前の本来の声調。
 
@@ -60,8 +62,8 @@ Google フォームの設定が空なら GitHub の Issue 作成画面が開く�
 3. Claude（`claude-sonnet-5-5`）が、記事の文を写さずに事実だけを使ったオリジナルの一文（繁体字）と日本語訳を、
    初級・中級・上級で1〜2件ずつ書く。安全上の理由で断られたときはサーバー側の推奨モデルに切り替える（`fallbacks: "default"`）。
 4. 読みは CC-CEDICT と語の単位で照合する。辞書で読みが1つに決まる語は辞書の読みにそろえ、決まらないのに食い違うものは
-   `content/news.txt` に `# 要確認:` の行を残す。漢字と音節の数が合わないもの・数字やローマ字を含むものは捨てる。
-5. `content/news.txt` に `繁体字 | 数字ピンイン | 日本語訳 | 出典URL` の形で追記し、`build_data.py` で `data/` を作り直す。
+   `content/news-cn.txt`・`content/news-tw.txt` に `# 要確認:` の行を残す。漢字と音節の数が合わないもの・数字やローマ字を含むものは捨てる。
+5. `content/news-cn.txt`・`content/news-tw.txt` に `繁体字 | 数字ピンイン | 日本語訳 | 出典URL` の形で追記し、`build_data.py` で `data/` を作り直す。
    出典は練習画面に「話題の出典」として表示される。
 
 ### 最初の設定（1回だけ）
@@ -76,7 +78,7 @@ Google フォームの設定が空なら GitHub の Issue 作成画面が開く�
 ### PR の確認
 
 - PR の本文に、例文・読み・訳・出典の記事と「⚠️」の付いた要確認点が並ぶ。中国語の自然さ、話題が適切か、元記事の文章に似すぎていないかを見る。
-- 直すときは PR のブランチで `content/news.txt` を編集し、`python3 scripts/build_data.py` を実行して `data/` もコミットする。
+- 直すときは PR のブランチで `content/news-cn.txt`・`content/news-tw.txt` を編集し、`python3 scripts/build_data.py` を実行して `data/` もコミットする。
   `# 要確認:` の行は確認したら消してよい。使わない例文は行ごと消す。
 - 確認待ちの PR があるあいだは新しい PR を作らない（`data/` が衝突するため）。マージするか閉じると次の回から再開する。
 - PR の `data/` には、その日に取り直した HSK・TBCL・CC-CEDICT の更新が混ざることがある。

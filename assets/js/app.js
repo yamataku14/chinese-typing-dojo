@@ -27,16 +27,21 @@ async function fetchJSON(path) {
 }
 const loadTexts = () => fetchJSON("data/texts/all.json");
 
-// 例文は {s, t, p, ja, tw, d: 難易度, l: 長さ, hsk, tbcl, src: 時事の例文の出典}。単語と同じ配列の形にそろえる
+// 例文は {v: "cn"（簡体字・大陸の普通話）| "tw"（繁體字・台湾の国語）, x: 本文, p: 読み, ja, d: 難易度, l: 長さ,
+//          lv: 級（cn は HSK、tw は TOCFL 詞語表）, src: 時事の例文の出典}。
+// 簡体字と繁體字は別々の文章なので、字体に合うほうだけを出す。
+const textVariant = () => (S.script === "simp" ? "cn" : "tw");
+const examBasis = () => (S.script === "simp" ? "hsk" : "tbcl");
 function textMatches(o) {
-  if (o.l !== S.length) return false;
+  if (o.v !== textVariant() || o.l !== S.length) return false;
   if (S.textBasis === "difficulty") return o.d === S.difficulty;
-  return o[S.textBasis] === S.textLevel;
+  return o.lv === S.textLevel;
 }
 async function loadPool() {
   if (S.length === "word") return fetchJSON(`data/words/${S.source}-${S.level}.json`);
   const all = await loadTexts();
-  return all.filter(textMatches).map(o => Object.assign([o.s, o.t, o.p, o.ja, o.tw], { hsk: o.hsk, tbcl: o.tbcl, src: o.src }));
+  // 単語と同じ配列の形にそろえる（本文は字体どちらの欄にも入れる）
+  return all.filter(textMatches).map(o => Object.assign([o.x, o.x, o.p, o.ja], { lv: o.lv, basis: o.v === "cn" ? "hsk" : "tbcl", src: o.src }));
 }
 
 function sample(arr, n) {
@@ -58,7 +63,7 @@ function buildItem(row) {
     const target = S.input === "zhuyin" ? zhuyinKeys(base, tone) : S.input === "tone" ? base + tone : base;
     return { ch, base, tone, letters: toneMarkLetters(base, tone), zy, target };
   });
-  const level = row.hsk ? `${textLevelName("hsk", row.hsk)}・${textLevelName("tbcl", row.tbcl)}` : "";
+  const level = row.lv ? textLevelName(row.basis, row.lv) : "";
   return { text, meaning, cells, level, src: row.src };
 }
 
@@ -400,6 +405,12 @@ function syncControls() {
   sel.value = String(S.level);
   $("wordGroup").hidden = S.length !== "word";
   $("diffGroup").hidden = S.length === "word";
+  // 検定の級は、簡体字なら HSK、繁體字なら TOCFL だけを出す
+  if (S.textBasis !== "difficulty" && S.textBasis !== examBasis()) S.textBasis = examBasis();
+  for (const b of document.querySelectorAll('.seg[data-key="textBasis"] button')) {
+    b.hidden = b.dataset.v !== "difficulty" && b.dataset.v !== examBasis();
+    b.setAttribute("aria-pressed", String(b.dataset.v === S.textBasis));
+  }
   $("diffSeg").hidden = S.textBasis !== "difficulty";
   $("textLevelSel").hidden = S.textBasis === "difficulty";
   if (S.textBasis !== "difficulty") fillTextLevels();
@@ -422,7 +433,7 @@ async function fillTextLevels() {
   const all = await loadTexts().catch(() => []);
   const basis = S.textBasis, max = TEXT_LEVEL_MAX[basis] + 1;
   const counts = {};
-  for (const o of all) if (o.l === S.length) counts[o[basis]] = (counts[o[basis]] || 0) + 1;
+  for (const o of all) if (o.v === textVariant() && o.l === S.length) counts[o.lv] = (counts[o.lv] || 0) + 1;
   const sel = $("textLevelSel");
   sel.innerHTML = Array.from({ length: max }, (_, i) => i + 1)
     .map(lv => `<option value="${lv}" ${counts[lv] ? "" : "disabled"}>${textLevelName(basis, lv)}（${counts[lv] || 0}件）</option>`).join("");

@@ -8,7 +8,8 @@
   単語の意味は content/glossary-ja.tsv に日本語訳があればそれを、なければ CC-CEDICT の英語を使う。
   data/words/hsk-1.json … hsk-6.json     旧HSK 1〜6級
   data/words/tocfl-1.json … tocfl-7.json TBCL 詞語表 第1〜7級（TOCFLの基準。内部名は tocfl のまま）
-  data/texts/all.json  一文・長文（content/texts.txt と、時事の例文 content/news.txt）
+  data/texts/all.json  一文・長文。簡体字（大陸の普通話）は content/texts-cn.txt・news-cn.txt、
+                       繁體字（台湾の国語）は content/texts-tw.txt・news-tw.txt。互いに変換はしない
 """
 import json
 import re
@@ -388,65 +389,77 @@ LEVELS = {"初級": "beginner", "中級": "intermediate", "上級": "advanced", 
 LENGTHS = {"一文": "sentence", "長文": "passage"}
 
 
-TEXT_FILES = ["content/texts.txt", "content/news.txt"]
+# 簡体字（大陸の普通話）と繁體字（台湾の国語）は別々の文章として持つ。互いに変換はしない。
+TEXT_FILES = {
+    "cn": ["content/texts-cn.txt", "content/news-cn.txt"],
+    "tw": ["content/texts-tw.txt", "content/news-tw.txt"],
+}
 
 
-def text_lines():
-    """(ファイル名:行番号, 行) を順に返す。news.txt はなくてもよい。"""
-    for name in TEXT_FILES:
+def text_lines(variant):
+    """(ファイル名:行番号, 行) を順に返す。news-*.txt はなくてもよい。"""
+    for name in TEXT_FILES[variant]:
         path = ROOT / name
         if path.exists():
             for n, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
                 yield f"{path.name}:{n}", raw
 
 
-def build_texts(rd, char_rs, char_s, readings):
-    """content/texts.txt と content/news.txt を読む。書式:
+def tw_char_readings(tbcl):
+    """台湾の読みとして認める字ごとの読み: CC-CEDICT の Taiwan pr. 注記と TOCFL 詞語表の注音から。"""
+    out = defaultdict(set)
+    for (trad, _), tw in TW_PR.items():
+        for ch, syl in zip([c for c in trad if HAN.match(c)], tw):
+            out[ch].add(syl)
+    for rows in tbcl.values():
+        for trad, tw in rows:
+            for ch, syl in zip(trad, tw):
+                out[ch].add(syl)
+    return out
+
+
+def build_texts(variant, readings, extra=None):
+    """例文ファイルを読む。書式:
         ## 初級 一文
-        繁体字の本文 | 数字ピンイン（大陸の読み。漢字1字に1音節） | 日本語訳 [| 出典 URL]
-    台湾の読みは語の単位で自動で付ける。4列目の出典（時事の例文）は src として出力する。
-    返す例文は (配列, 出典) の組。
+        本文 | 数字ピンイン（漢字1字に1音節） | 日本語訳 [| 出典 URL]
+    variant "cn" は簡体字・大陸の標準音、"tw" は繁體字・台湾の標準音で書く。
+    返す例文は (本文, 読み, 訳, 出典) の組。
     """
     out = {v: {"sentence": [], "passage": []} for v in LEVELS.values()}
     level = length = None
     errors, warnings = [], []
-    for n, raw in text_lines():
+    for n, raw in text_lines(variant):
         line = raw.strip()
         if not line or line.startswith("#") and not line.startswith("##"):
             continue
         if line.startswith("##"):
-            lv, ln = line[2:].split()
+            lv, ln = line[2:].split()[:2]
             level, length = LEVELS[lv], LENGTHS[ln]
             continue
         cols = [x.strip() for x in line.split("|")]
         if len(cols) not in (3, 4):
             errors.append(f"{n}: 列の数が {len(cols)}（3 か 4 にする）")
             continue
-        trad, py, ja = cols[:3]
+        text, py, ja = cols[:3]
         src = cols[3] if len(cols) == 4 else None
         if src is not None and not re.fullmatch(r"https?://\S+", src):
             errors.append(f"{n}: 出典は http(s) の URL にする  {src}")
             continue
-        han = HAN.findall(trad)
+        han = HAN.findall(text)
         try:
             syls = [norm_syl(x) for x in py.split()]
         except ValueError as e:
             errors.append(f"{n}: 読みの書式 {e}")
             continue
         if len(han) != len(syls):
-            errors.append(f"{n}: 漢字 {len(han)} 字に対して読みが {len(syls)} 音節  {trad}")
+            errors.append(f"{n}: 漢字 {len(han)} 字に対して読みが {len(syls)} 音節  {text}")
             continue
-        syls = citation(trad, syls)
+        syls = citation(text, syls)
         for ch, syl in zip(han, syls):
-            rs = readings.get(ch)
+            rs = readings.get(ch, set()) | (extra.get(ch, set()) if extra else set())
             if rs and syl not in rs and syl[:-1] + "5" not in rs and not syl.endswith("5"):
                 warnings.append(f"{n}: {ch} を {syl} と読んでいる（辞書: {'/'.join(sorted(rs))}）")
-        simp = t2s_text(trad, syls, char_rs, char_s)
-        item = [simp, trad, " ".join(syls), ja]
-        tw = rd.text_tw(trad, syls)
-        if tw != syls:
-            item.append(" ".join(tw))
-        out[level][length].append((item, src))
+        out[level][length].append((text, " ".join(syls), ja, src))
     return out, errors, warnings
 
 
@@ -543,28 +556,33 @@ def main():
         write(OUT / f"words/tocfl-{lv}.json", items)
         manifest["tocfl"][lv] = len(items)
 
-    texts, errors, warnings = build_texts(rd, char_rs, char_s, readings)
-    hsk_vocab = vocab_levels({lv: build for lv, build in ((lv, [[r[0]] for r in rows]) for lv, rows in hsk.items())}, 0)
-    tbcl_vocab = vocab_levels({lv: [[t] for t, _ in rows] for lv, rows in tbcl.items()}, 0)
-    all_texts = []
-    for diff, d in texts.items():
-        for length, items in d.items():
-            for it, src in items:
-                obj = {"s": it[0], "t": it[1], "p": it[2], "ja": it[3], "d": diff, "l": length,
-                       "hsk": grade(it[0], hsk_vocab, 7), "tbcl": grade(it[1], tbcl_vocab, 8)}
-                if len(it) > 4:
-                    obj["tw"] = it[4]
-                if src:
-                    obj["src"] = src
-                all_texts.append(obj)
-        manifest["texts"][diff] = {k: len(v) for k, v in d.items()}
+    # 例文: 簡体字は旧HSKの語彙、繁體字は TOCFL 詞語表の語彙で級を判定する
+    vocab = {
+        "cn": (vocab_levels({lv: [[r[0]] for r in rows] for lv, rows in hsk.items()}, 0), 7),
+        "tw": (vocab_levels({lv: [[t] for t, _ in rows] for lv, rows in tbcl.items()}, 0), 8),
+    }
+    tw_extra = tw_char_readings(tbcl)
+    errors, warnings, all_texts = [], [], []
+    for variant in ("cn", "tw"):
+        texts, errs, warns = build_texts(variant, readings, tw_extra if variant == "tw" else None)
+        errors += errs
+        warnings += warns
+        vc, beyond = vocab[variant]
+        for diff, d in texts.items():
+            for length, items in d.items():
+                for text, py, ja, src in items:
+                    obj = {"v": variant, "x": text, "p": py, "ja": ja, "d": diff, "l": length, "lv": grade(text, vc, beyond)}
+                    if src:
+                        obj["src"] = src
+                    all_texts.append(obj)
+            manifest["texts"].setdefault(variant, {})[diff] = {k: len(v) for k, v in d.items()}
     write(OUT / "texts/all.json", all_texts)
     for old in (OUT / "texts").glob("*.json"):
         if old.name != "all.json":
             old.unlink()
     from collections import Counter
-    grid = Counter((o["l"], o["d"], o["hsk"], o["tbcl"]) for o in all_texts)
-    print("例文の級（長さ, 難易度, HSK, TBCL）:", sorted(grid.items()))
+    grid = Counter((o["v"], o["l"], o["d"], o["lv"]) for o in all_texts)
+    print("例文の級（字体, 長さ, 難易度, 級）:", sorted(grid.items()))
     write(OUT / "manifest.json", manifest)
 
     print(json.dumps(manifest, ensure_ascii=False))

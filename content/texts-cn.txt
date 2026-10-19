@@ -1,0 +1,120 @@
+# 簡体字の例文（中国大陸の普通話。このサイトのオリジナル）
+# 書式: 簡体字の本文 | 数字ピンイン（大陸の標準音。漢字1字に1音節、一・不は本来の声調） | 日本語訳
+# 語彙・言い回しは大陸のもの（地铁、出租车、人工智能、信息…）にする。
+
+
+## 初級 一文
+你好，我叫王明。 | ni3 hao3 wo3 jiao4 wang2 ming2 | こんにちは、王明といいます。
+我是日本人，你呢？ | wo3 shi4 ri4 ben3 ren2 ni3 ne5 | 私は日本人です。あなたは？
+今天天气很好。 | jin1 tian1 tian1 qi4 hen3 hao3 | 今日はいい天気です。
+你喜欢喝茶还是喝咖啡？ | ni3 xi3 huan5 he1 cha2 hai2 shi4 he1 ka1 fei1 | お茶とコーヒー、どちらが好きですか？
+这个多少钱？ | zhe4 ge4 duo1 shao3 qian2 | これはいくらですか？
+我每天早上七点起床。 | wo3 mei3 tian1 zao3 shang5 qi1 dian3 qi3 chuang2 | 毎朝7時に起きます。
+我们一起去吃饭吧。 | wo3 men5 yi1 qi3 qu4 chi1 fan4 ba5 | 一緒にご飯を食べに行きましょう。
+洗手间在哪里？ | xi3 shou3 jian1 zai4 na3 li3 | トイレはどこですか？
+我听不懂，请再说一次。 | wo3 ting1 bu4 dong3 qing3 zai4 shuo1 yi1 ci4 | 聞き取れません。もう一度言ってください。
+他是我的大学同学。 | ta1 shi4 wo3 de5 da4 xue2 tong2 xue2 | 彼は大学の同級生です。
+明天你有时间吗？ | ming2 tian1 ni3 you3 shi2 jian1 ma5 | 明日、時間はありますか？
+我的家在车站旁边。 | wo3 de5 jia1 zai4 che1 zhan4 pang2 bian1 | 私の家は駅のそばにあります。
+这家店的面很好吃。 | zhe4 jia1 dian4 de5 mian4 hen3 hao3 chi1 | この店の麺はとてもおいしいです。
+周末我想去看电影。 | zhou1 mo4 wo3 xiang3 qu4 kan4 dian4 ying3 | 週末は映画を見に行きたいです。
+姐姐在银行工作。 | jie3 jie5 zai4 yin2 hang2 gong1 zuo4 | 姉は銀行で働いています。
+外面下雨了，带把伞吧。 | wai4 mian4 xia4 yu3 le5 dai4 ba3 san3 ba5 | 外は雨が降ってきたから、傘を持って行きなよ。
+我学中文学了一年。 | wo3 xue2 zhong1 wen2 xue2 le5 yi1 nian2 | 中国語を1年勉強しました。
+你今天看起来很累。 | ni3 jin1 tian1 kan4 qi3 lai2 hen3 lei4 | 今日は疲れているように見えますね。
+请问，去车站怎么走？ | qing3 wen4 qu4 che1 zhan4 zen3 me5 zou3 | すみません、駅へはどう行けばいいですか？
+谢谢你的帮忙。 | xie4 xie5 ni3 de5 bang1 mang2 | 手伝ってくれてありがとう。
+
+## 初級 長文
+我叫田中，是日本人。我今年二十岁，是大学生。我在大学学中文，每个星期有三次中文课。我们的老师是北京人，她说话很慢，所以我听得懂。下课以后，我常常和同学一起去吃饭。 | wo3 jiao4 tian2 zhong1 shi4 ri4 ben3 ren2 wo3 jin1 nian2 er4 shi2 sui4 shi4 da4 xue2 sheng1 wo3 zai4 da4 xue2 xue2 zhong1 wen2 mei3 ge4 xing1 qi1 you3 san1 ci4 zhong1 wen2 ke4 wo3 men5 de5 lao3 shi1 shi4 bei3 jing1 ren2 ta1 shuo1 hua4 hen3 man4 suo3 yi3 wo3 ting1 de5 dong3 xia4 ke4 yi3 hou4 wo3 chang2 chang2 he2 tong2 xue2 yi1 qi3 qu4 chi1 fan4 | 私は田中といいます。日本人です。今年20歳で、大学生です。大学で中国語を勉強していて、中国語の授業が週に3回あります。先生は北京の人で、ゆっくり話してくれるので聞き取れます。授業の後は、よくクラスメートと一緒にご飯を食べに行きます。
+我的家有四个人：爸爸、妈妈、哥哥和我。爸爸是医生，每天都很忙。妈妈喜欢做菜，她做的菜非常好吃。哥哥住在东京，一个月回家一次。周末的时候，我们常常一起去公园散步。 | wo3 de5 jia1 you3 si4 ge4 ren2 ba4 ba5 ma1 ma5 ge1 ge5 he2 wo3 ba4 ba5 shi4 yi1 sheng1 mei3 tian1 dou1 hen3 mang2 ma1 ma5 xi3 huan5 zuo4 cai4 ta1 zuo4 de5 cai4 fei1 chang2 hao3 chi1 ge1 ge5 zhu4 zai4 dong1 jing1 yi1 ge4 yue4 hui2 jia1 yi1 ci4 zhou1 mo4 de5 shi2 hou5 wo3 men5 chang2 chang2 yi1 qi3 qu4 gong1 yuan2 san4 bu4 | 私の家は4人家族です。父、母、兄、そして私です。父は医者で、毎日とても忙しいです。母は料理が好きで、母の作る料理はとてもおいしいです。兄は東京に住んでいて、月に一度帰ってきます。週末には、よく家族で公園を散歩します。
+昨天是我的生日。朋友们给我买了一个大蛋糕，还送我一本书。晚上我们去了一家很有名的餐厅，吃了很多菜。大家一边吃一边聊天，都很开心。这是我最快乐的一天。 | zuo2 tian1 shi4 wo3 de5 sheng1 ri4 peng2 you5 men5 gei3 wo3 mai3 le5 yi1 ge4 da4 dan4 gao1 hai2 song4 wo3 yi1 ben3 shu1 wan3 shang5 wo3 men5 qu4 le5 yi1 jia1 hen3 you3 ming2 de5 can1 ting1 chi1 le5 hen3 duo1 cai4 da4 jia1 yi1 bian1 chi1 yi1 bian1 liao2 tian1 dou1 hen3 kai1 xin1 zhe4 shi4 wo3 zui4 kuai4 le4 de5 yi1 tian1 | 昨日は私の誕生日でした。友達が大きなケーキを買ってくれて、本も一冊プレゼントしてくれました。夜は有名なレストランに行って、料理をたくさん食べました。みんな食べながらおしゃべりして、とても楽しかったです。今までで一番幸せな一日でした。
+我住的地方离车站不远，走路只要十分钟。附近有超市、银行和医院，生活很方便。可是这里晚上有一点吵，因为路上车很多。我想明年搬到安静一点的地方。 | wo3 zhu4 de5 di4 fang1 li2 che1 zhan4 bu4 yuan3 zou3 lu4 zhi3 yao4 shi2 fen1 zhong1 fu4 jin4 you3 chao1 shi4 yin2 hang2 he2 yi1 yuan4 sheng1 huo2 hen3 fang1 bian4 ke3 shi4 zhe4 li3 wan3 shang5 you3 yi1 dian3 chao3 yin1 wei4 lu4 shang4 che1 hen3 duo1 wo3 xiang3 ming2 nian2 ban1 dao4 an1 jing4 yi1 dian3 de5 di4 fang1 | 私の住んでいる所は駅から遠くなく、歩いて10分しかかかりません。近くにスーパー、銀行、病院があって、生活はとても便利です。でも、ここは夜少しうるさいです。道路に車が多いからです。来年はもう少し静かな所に引っ越したいと思っています。
+我很喜欢中国的早餐。早上，路边有很多小店卖包子、油条和豆浆。东西都不贵，几块钱就能吃饱。我最喜欢的是小笼包，又香又好吃。下次你来上海，我带你去吃早餐吧。 | wo3 hen3 xi3 huan5 zhong1 guo2 de5 zao3 can1 zao3 shang5 lu4 bian1 you3 hen3 duo1 xiao3 dian4 mai4 bao1 zi5 you2 tiao2 he2 dou4 jiang1 dong1 xi5 dou1 bu4 gui4 ji3 kuai4 qian2 jiu4 neng2 chi1 bao3 wo3 zui4 xi3 huan5 de5 shi4 xiao3 long2 bao1 you4 xiang1 you4 hao3 chi1 xia4 ci4 ni3 lai2 shang4 hai3 wo3 dai4 ni3 qu4 chi1 zao3 can1 ba5 | 私は中国の朝ごはんが大好きです。朝になると、道ばたにたくさんの小さな店が出て、肉まんや揚げパン、豆乳を売っています。どれも安くて、数元でおなかいっぱいになります。一番好きなのは小籠包で、香りがよくておいしいです。今度上海に来たら、朝ごはんを食べに連れて行ってあげますね。
+
+## 中級 一文
+如果明天下雨，我们就改天再去。 | ru2 guo3 ming2 tian1 xia4 yu3 wo3 men5 jiu4 gai3 tian1 zai4 qu4 | 明日雨なら、別の日に行こう。
+他一边听音乐一边做作业。 | ta1 yi1 bian1 ting1 yin1 yue4 yi1 bian1 zuo4 zuo4 ye4 | 彼は音楽を聴きながら宿題をしている。
+这本小说比我想像的有意思多了。 | zhe4 ben3 xiao3 shuo1 bi3 wo3 xiang3 xiang4 de5 you3 yi4 si5 duo1 le5 | この小説は想像していたよりずっと面白い。
+虽然工作很累，但是我觉得很有意义。 | sui1 ran2 gong1 zuo4 hen3 lei4 dan4 shi4 wo3 jue2 de5 hen3 you3 yi4 yi4 | 仕事は大変だけれど、とてもやりがいを感じる。
+只要每天练习，你的发音一定会进步。 | zhi3 yao4 mei3 tian1 lian4 xi2 ni3 de5 fa1 yin1 yi1 ding4 hui4 jin4 bu4 | 毎日練習しさえすれば、発音はきっと上達する。
+我把护照忘在酒店了，得回去拿。 | wo3 ba3 hu4 zhao4 wang4 zai4 jiu3 dian4 le5 dei3 hui2 qu4 na2 | パスポートをホテルに忘れたので、取りに戻らないと。
+这次考试比上次难得多。 | zhe4 ci4 kao3 shi4 bi3 shang4 ci4 nan2 de5 duo1 | 今回の試験は前回よりずっと難しい。
+你最好提前订票，不然可能买不到。 | ni3 zui4 hao3 ti2 qian2 ding4 piao4 bu4 ran2 ke3 neng2 mai3 bu4 dao4 | 早めにチケットを予約したほうがいい。でないと買えないかもしれない。
+听说那家咖啡店的蛋糕特别有名。 | ting1 shuo1 na4 jia1 ka1 fei1 dian4 de5 dan4 gao1 te4 bie2 you3 ming2 | あのカフェのケーキは特に有名らしい。
+他除了会说中文以外，还会说韩语。 | ta1 chu2 le5 hui4 shuo1 zhong1 wen2 yi3 wai4 hai2 hui4 shuo1 han2 yu3 | 彼は中国語のほかに韓国語も話せる。
+我们应该早点出发，免得遇到堵车。 | wo3 men5 ying1 gai1 zao3 dian3 chu1 fa1 mian3 de5 yu4 dao4 du3 che1 | 渋滞に巻き込まれないよう、早めに出発すべきだ。
+这件事你最好先跟父母商量一下。 | zhe4 jian4 shi4 ni3 zui4 hao3 xian1 gen1 fu4 mu3 shang1 liang5 yi1 xia4 | このことは、まずご両親に相談したほうがいい。
+越是着急，越容易出错。 | yue4 shi4 zhao2 ji2 yue4 rong2 yi4 chu1 cuo4 | 焦れば焦るほど、ミスをしやすい。
+搬家以后，我上班的时间少了一半。 | ban1 jia1 yi3 hou4 wo3 shang4 ban1 de5 shi2 jian1 shao3 le5 yi1 ban4 | 引っ越してから、通勤時間が半分になった。
+她对这个城市的历史非常了解。 | ta1 dui4 zhe4 ge4 cheng2 shi4 de5 li4 shi3 fei1 chang2 liao3 jie3 | 彼女はこの街の歴史にとても詳しい。
+为了健康，我决定每天走一万步。 | wei4 le5 jian4 kang1 wo3 jue2 ding4 mei3 tian1 zou3 yi1 wan4 bu4 | 健康のために、毎日1万歩歩くことにした。
+会议改到下午三点，请大家准时参加。 | hui4 yi4 gai3 dao4 xia4 wu3 san1 dian3 qing3 da4 jia1 zhun3 shi2 can1 jia1 | 会議は午後3時に変更になりました。皆さん時間どおりに参加してください。
+这道菜看起来简单，做起来却不容易。 | zhe4 dao4 cai4 kan4 qi3 lai2 jian3 dan1 zuo4 qi3 lai2 que4 bu4 rong2 yi4 | この料理は簡単そうに見えて、作ってみると意外と難しい。
+我一到家就收到了你的微信。 | wo3 yi1 dao4 jia1 jiu4 shou1 dao4 le5 ni3 de5 wei1 xin4 | 家に着いてすぐ、あなたからのWeChatのメッセージを受け取った。
+不管遇到什么困难，他都不放弃。 | bu4 guan3 yu4 dao4 shen2 me5 kun4 nan2 ta1 dou1 bu4 fang4 qi4 | どんな困難にぶつかっても、彼はあきらめない。
+
+## 中級 長文
+现在越来越多的人用手机付钱。不管是在便利店买东西，还是坐公交车，只要拿出手机扫一下就可以了。这样很方便，不用带很多现金。不过，也有人担心个人信息的安全问题。另外，有些老人不太会用手机，对他们来说，还是现金比较习惯。 | xian4 zai4 yue4 lai2 yue4 duo1 de5 ren2 yong4 shou3 ji1 fu4 qian2 bu4 guan3 shi4 zai4 bian4 li4 dian4 mai3 dong1 xi5 hai2 shi4 zuo4 gong1 jiao1 che1 zhi3 yao4 na2 chu1 shou3 ji1 sao3 yi1 xia4 jiu4 ke3 yi3 le5 zhe4 yang4 hen3 fang1 bian4 bu4 yong4 dai4 hen3 duo1 xian4 jin1 bu4 guo4 ye3 you3 ren2 dan1 xin1 ge4 ren2 xin4 xi1 de5 an1 quan2 wen4 ti2 ling4 wai4 you3 xie1 lao3 ren2 bu4 tai4 hui4 yong4 shou3 ji1 dui4 ta1 men5 lai2 shuo1 hai2 shi4 xian4 jin1 bi3 jiao4 xi2 guan4 | 最近はスマートフォンで支払いをする人がどんどん増えている。コンビニで買い物をするときも、バスに乗るときも、スマホを出してスキャンするだけで済む。とても便利で、現金をたくさん持ち歩く必要がない。ただ、個人情報の安全を心配する人もいる。また、スマホの操作に慣れていないお年寄りもいて、そうした人たちにとってはやはり現金のほうがなじみがある。
+上个月我第一次一个人去旅行。出发以前，我有点紧张，担心迷路或者发生什么意外。可是到了以后，我发现当地人都很热情，问路的时候大家都很愿意帮忙。这次旅行让我变得更有自信，我打算明年再去别的国家看看。 | shang4 ge4 yue4 wo3 di4 yi1 ci4 yi1 ge4 ren2 qu4 lv3 xing2 chu1 fa1 yi3 qian2 wo3 you3 dian3 jin3 zhang1 dan1 xin1 mi2 lu4 huo4 zhe3 fa1 sheng1 shen2 me5 yi4 wai4 ke3 shi4 dao4 le5 yi3 hou4 wo3 fa1 xian4 dang1 di4 ren2 dou1 hen3 re4 qing2 wen4 lu4 de5 shi2 hou5 da4 jia1 dou1 hen3 yuan4 yi4 bang1 mang2 zhe4 ci4 lv3 xing2 rang4 wo3 bian4 de5 geng4 you3 zi4 xin4 wo3 da3 suan4 ming2 nian2 zai4 qu4 bie2 de5 guo2 jia1 kan4 kan5 | 先月、初めて一人旅をした。出発前は少し緊張していて、道に迷ったり何かトラブルが起きたりしないか心配だった。でも着いてみると、地元の人たちはとても親切で、道を尋ねるとみんな快く助けてくれた。この旅で自信がついた。来年はまた別の国に行ってみるつもりだ。
+很多人觉得学外语最难的是开口说话。其实，说错并不可怕，重要的是敢说。我刚开始学中文的时候，常常因为声调不对而被朋友笑，但是我没有放弃。慢慢地，我的发音越来越标准，现在已经可以用中文跟别人聊天了。 | hen3 duo1 ren2 jue2 de5 xue2 wai4 yu3 zui4 nan2 de5 shi4 kai1 kou3 shuo1 hua4 qi2 shi2 shuo1 cuo4 bing4 bu4 ke3 pa4 zhong4 yao4 de5 shi4 gan3 shuo1 wo3 gang1 kai1 shi3 xue2 zhong1 wen2 de5 shi2 hou5 chang2 chang2 yin1 wei4 sheng1 diao4 bu4 dui4 er2 bei4 peng2 you5 xiao4 dan4 shi4 wo3 mei2 you3 fang4 qi4 man4 man4 de5 wo3 de5 fa1 yin1 yue4 lai2 yue4 biao1 zhun3 xian4 zai4 yi3 jing1 ke3 yi3 yong4 zhong1 wen2 gen1 bie2 ren2 liao2 tian1 le5 | 外国語を学ぶうえで一番難しいのは口に出して話すことだ、と思う人は多い。実は、間違えるのは怖いことではない。大切なのは思い切って話すことだ。中国語を学び始めたころ、声調が違っていて友達によく笑われたが、あきらめなかった。少しずつ発音が正確になり、今では中国語で人とおしゃべりできるようになった。
+北京的地铁非常方便，几乎每个重要的地方都有站。进站的时候要过安检，所以人多的时候得排一会儿队。早晚高峰时间车上人很多，但是大家都会排队上车。如果你来北京旅游，坐地铁是最好的选择。 | bei3 jing1 de5 di4 tie3 fei1 chang2 fang1 bian4 ji1 hu1 mei3 ge4 zhong4 yao4 de5 di4 fang1 dou1 you3 zhan4 jin4 zhan4 de5 shi2 hou5 yao4 guo4 an1 jian3 suo3 yi3 ren2 duo1 de5 shi2 hou5 dei3 pai2 yi1 hui4 r5 dui4 zao3 wan3 gao1 feng1 shi2 jian1 che1 shang4 ren2 hen3 duo1 dan4 shi4 da4 jia1 dou1 hui4 pai2 dui4 shang4 che1 ru2 guo3 ni3 lai2 bei3 jing1 lv3 you2 zuo4 di4 tie3 shi4 zui4 hao3 de5 xuan3 ze2 | 北京の地下鉄はとても便利で、主な場所にはほとんど駅がある。駅に入るときは手荷物検査があるので、混んでいると少し並ばなければならない。朝夕のラッシュ時は車内がとても混むが、みんなきちんと並んで乗車する。北京を旅行するなら、地下鉄が一番のおすすめだ。
+最近我开始在家里种菜。一开始我什么都不懂，种的西红柿常常长不大。后来我上网查了很多资料，也请教了有经验的邻居，才知道原来是阳光不够。现在我的阳台上已经长出了红红的西红柿，吃起来特别甜。 | zui4 jin4 wo3 kai1 shi3 zai4 jia1 li3 zhong4 cai4 yi1 kai1 shi3 wo3 shen2 me5 dou1 bu4 dong3 zhong4 de5 xi1 hong2 shi4 chang2 chang2 zhang3 bu4 da4 hou4 lai2 wo3 shang4 wang3 cha2 le5 hen3 duo1 zi1 liao4 ye3 qing3 jiao4 le5 you3 jing1 yan4 de5 lin2 ju1 cai2 zhi1 dao4 yuan2 lai2 shi4 yang2 guang1 bu4 gou4 xian4 zai4 wo3 de5 yang2 tai2 shang4 yi3 jing1 zhang3 chu1 le5 hong2 hong2 de5 xi1 hong2 shi4 chi1 qi3 lai2 te4 bie2 tian2 | 最近、家で野菜を育て始めた。最初は何もわからず、植えたトマトがなかなか大きくならなかった。そこでネットでいろいろ調べ、経験のある近所の人にも教えてもらって、ようやく日当たりが足りなかったのだとわかった。今ではベランダに真っ赤なトマトが実り、食べると格別に甘い。
+
+## 上級 一文
+随着科技的发展，人们的生活方式发生了巨大的变化。 | sui2 zhe5 ke1 ji4 de5 fa1 zhan3 ren2 men5 de5 sheng1 huo2 fang1 shi4 fa1 sheng1 le5 ju4 da4 de5 bian4 hua4 | 科学技術の発展に伴い、人々の生活様式は大きく変化した。
+这项政策的目的在于减轻年轻家庭的经济负担。 | zhe4 xiang4 zheng4 ce4 de5 mu4 di4 zai4 yu2 jian3 qing1 nian2 qing1 jia1 ting2 de5 jing1 ji4 fu4 dan1 | この政策の目的は、若い家庭の経済的負担を軽くすることにある。
+他之所以成功，是因为从来不轻易放弃。 | ta1 zhi1 suo3 yi3 cheng2 gong1 shi4 yin1 wei4 cong2 lai2 bu4 qing1 yi4 fang4 qi4 | 彼が成功したのは、決して簡単にあきらめなかったからだ。
+专家指出，长时间使用手机可能对视力造成影响。 | zhuan1 jia1 zhi3 chu1 chang2 shi2 jian1 shi3 yong4 shou3 ji1 ke3 neng2 dui4 shi4 li4 zao4 cheng2 ying3 xiang3 | 専門家によれば、長時間のスマートフォン使用は視力に影響を及ぼすおそれがある。
+与其抱怨环境，不如想办法改变自己。 | yu3 qi2 bao4 yuan4 huan2 jing4 bu4 ru2 xiang3 ban4 fa3 gai3 bian4 zi4 ji3 | 環境に不満を言うより、自分を変える方法を考えたほうがいい。
+面对激烈的竞争，企业必须不断创新。 | mian4 dui4 ji1 lie4 de5 jing4 zheng1 qi3 ye4 bi4 xu1 bu4 duan4 chuang4 xin1 | 激しい競争に直面し、企業は絶えず革新し続けなければならない。
+这部电影深刻地反映了当时的社会问题。 | zhe4 bu4 dian4 ying3 shen1 ke4 de5 fan3 ying4 le5 dang1 shi2 de5 she4 hui4 wen4 ti2 | この映画は当時の社会問題を深く映し出している。
+尽管困难重重，研究团队仍然完成了实验。 | jin3 guan3 kun4 nan2 chong2 chong2 yan2 jiu1 tuan2 dui4 reng2 ran2 wan2 cheng2 le5 shi2 yan4 | 数々の困難にもかかわらず、研究チームは実験をやり遂げた。
+人口老化已经成为许多国家共同面临的挑战。 | ren2 kou3 lao3 hua4 yi3 jing1 cheng2 wei2 xu3 duo1 guo2 jia1 gong4 tong2 mian4 lin2 de5 tiao3 zhan4 | 人口の高齢化は、多くの国が共通して直面する課題となっている。
+他的发言引起了在场观众的强烈反应。 | ta1 de5 fa1 yan2 yin3 qi3 le5 zai4 chang3 guan1 zhong4 de5 qiang2 lie4 fan3 ying4 | 彼の発言は会場の聴衆から強い反応を引き起こした。
+我们不能只看眼前的利益，而忽略长远的影响。 | wo3 men5 bu4 neng2 zhi3 kan4 yan3 qian2 de5 li4 yi4 er2 hu1 lve4 chang2 yuan3 de5 ying3 xiang3 | 目先の利益だけを見て、長期的な影響を見落としてはならない。
+这座古城保存了大量珍贵的历史建筑。 | zhe4 zuo4 gu3 cheng2 bao3 cun2 le5 da4 liang4 zhen1 gui4 de5 li4 shi3 jian4 zhu4 | この古都には貴重な歴史的建造物が数多く残されている。
+经过反复讨论，双方终于达成了协议。 | jing1 guo4 fan3 fu4 tao3 lun4 shuang1 fang1 zhong1 yu2 da2 cheng2 le5 xie2 yi4 | 議論を重ねた末、双方はついに合意に達した。
+阅读不仅能增长知识，还能培养独立思考的能力。 | yue4 du2 bu4 jin3 neng2 zeng1 zhang3 zhi1 shi5 hai2 neng2 pei2 yang3 du2 li4 si1 kao3 de5 neng2 li4 | 読書は知識を増やすだけでなく、自分で考える力も養う。
+由于天气恶劣，所有航班都被迫取消。 | you2 yu2 tian1 qi4 e4 lie4 suo3 you3 hang2 ban1 dou1 bei4 po4 qu3 xiao1 | 悪天候のため、すべての便が欠航を余儀なくされた。
+这种现象在年轻人当中相当普遍。 | zhe4 zhong3 xian4 xiang4 zai4 nian2 qing1 ren2 dang1 zhong1 xiang1 dang1 pu3 bian4 | こうした現象は若者の間でかなり一般的だ。
+他毫不犹豫地接受了这个艰巨的任务。 | ta1 hao2 bu4 you2 yu4 de5 jie1 shou4 le5 zhe4 ge4 jian1 ju4 de5 ren4 wu4 | 彼は少しもためらわずにこの困難な任務を引き受けた。
+环境保护需要政府、企业和个人共同努力。 | huan2 jing4 bao3 hu4 xu1 yao4 zheng4 fu3 qi3 ye4 he2 ge4 ren2 gong4 tong2 nu3 li4 | 環境保護には、政府・企業・個人が力を合わせることが必要だ。
+这篇文章的观点虽然新颖，但论证不够充分。 | zhe4 pian1 wen2 zhang1 de5 guan1 dian3 sui1 ran2 xin1 ying3 dan4 lun4 zheng4 bu4 gou4 chong1 fen4 | この文章の観点は斬新だが、論証が十分ではない。
+在全球化的背景下，跨文化沟通显得越来越重要。 | zai4 quan2 qiu2 hua4 de5 bei4 jing3 xia4 kua4 wen2 hua4 gou1 tong1 xian3 de5 yue4 lai2 yue4 zhong4 yao4 | グローバル化を背景に、異文化間のコミュニケーションはますます重要になっている。
+
+## 上級 長文
+近年来，远程办公逐渐成为一种新的工作模式。对员工而言，不必每天通勤，可以节省大量时间，也能更灵活地安排生活。然而，远程办公也带来了一些问题，例如同事之间缺乏面对面的交流，容易产生孤立感。因此，如何在效率与人际关系之间取得平衡，成为企业必须思考的课题。 | jin4 nian2 lai2 yuan3 cheng2 ban4 gong1 zhu2 jian4 cheng2 wei2 yi1 zhong3 xin1 de5 gong1 zuo4 mo2 shi4 dui4 yuan2 gong1 er2 yan2 bu4 bi4 mei3 tian1 tong1 qin2 ke3 yi3 jie2 sheng3 da4 liang4 shi2 jian1 ye3 neng2 geng4 ling2 huo2 de5 an1 pai2 sheng1 huo2 ran2 er2 yuan3 cheng2 ban4 gong1 ye3 dai4 lai2 le5 yi1 xie1 wen4 ti2 li4 ru2 tong2 shi4 zhi1 jian1 que1 fa2 mian4 dui4 mian4 de5 jiao1 liu2 rong2 yi4 chan3 sheng1 gu1 li4 gan3 yin1 ci3 ru2 he2 zai4 xiao4 lv4 yu3 ren2 ji4 guan1 xi4 zhi1 jian1 qu3 de2 ping2 heng2 cheng2 wei2 qi3 ye4 bi4 xu1 si1 kao3 de5 ke4 ti2 | 近年、リモートワークが新しい働き方として徐々に広まっている。社員にとっては毎日通勤する必要がなく、多くの時間を節約でき、生活もより柔軟に組み立てられる。しかし、リモートワークには問題もある。たとえば同僚と顔を合わせて交流する機会が少なく、孤立感を抱きやすい。そのため、効率と人間関係のバランスをどう取るかが、企業にとって考えるべき課題となっている。
+中国的外卖服务非常发达，在大城市里，用手机点餐以后，最快三十分钟就能送到家门口。除了饭菜以外，水果、药品和日用品也都可以通过外卖平台购买，外卖几乎成了城市生活的一部分。有人认为，这种便利的生活方式反映了中国社会对效率的重视，但也有人担心外卖骑手的工作压力过大。 | zhong1 guo2 de5 wai4 mai4 fu2 wu4 fei1 chang2 fa1 da2 zai4 da4 cheng2 shi4 li3 yong4 shou3 ji1 dian3 can1 yi3 hou4 zui4 kuai4 san1 shi2 fen1 zhong1 jiu4 neng2 song4 dao4 jia1 men2 kou3 chu2 le5 fan4 cai4 yi3 wai4 shui3 guo3 yao4 pin3 he2 ri4 yong4 pin3 ye3 dou1 ke3 yi3 tong1 guo4 wai4 mai4 ping2 tai2 gou4 mai3 wai4 mai4 ji1 hu1 cheng2 le5 cheng2 shi4 sheng1 huo2 de5 yi1 bu4 fen5 you3 ren2 ren4 wei2 zhe4 zhong3 bian4 li4 de5 sheng1 huo2 fang1 shi4 fan3 ying4 le5 zhong1 guo2 she4 hui4 dui4 xiao4 lv4 de5 zhong4 shi4 dan4 ye3 you3 ren2 dan1 xin1 wai4 mai4 qi2 shou3 de5 gong1 zuo4 ya1 li4 guo4 da4 | 中国のフードデリバリーはとても発達していて、大都市ではスマートフォンで注文すると、早ければ30分で玄関先まで届く。料理だけでなく、果物や薬、日用品もデリバリーのプラットフォームで買えるようになり、デリバリーはほとんど都市生活の一部になっている。こうした便利な暮らし方は効率を重んじる中国社会を映しているという見方がある一方で、配達員の仕事の負担が大きすぎることを心配する声もある。
+睡眠对健康的重要性不容忽视。研究显示，长期睡眠不足不仅会降低注意力和记忆力，还可能增加罹患心脏病和糖尿病的风险。专家建议成年人每天应睡七到八个小时，并且尽量在固定的时间上床。睡前避免使用手机或电脑，也有助于提高睡眠质量。 | shui4 mian2 dui4 jian4 kang1 de5 zhong4 yao4 xing4 bu4 rong2 hu1 shi4 yan2 jiu1 xian3 shi4 chang2 qi1 shui4 mian2 bu4 zu2 bu4 jin3 hui4 jiang4 di1 zhu4 yi4 li4 he2 ji4 yi4 li4 hai2 ke3 neng2 zeng1 jia1 li2 huan4 xin1 zang4 bing4 he2 tang2 niao4 bing4 de5 feng1 xian3 zhuan1 jia1 jian4 yi4 cheng2 nian2 ren2 mei3 tian1 ying1 shui4 qi1 dao4 ba1 ge4 xiao3 shi2 bing4 qie3 jin4 liang4 zai4 gu4 ding4 de5 shi2 jian1 shang4 chuang2 shui4 qian2 bi4 mian3 shi3 yong4 shou3 ji1 huo4 dian4 nao3 ye3 you3 zhu4 yu2 ti2 gao1 shui4 mian2 zhi4 liang4 | 睡眠が健康にとって重要であることは見過ごせない。研究によれば、慢性的な睡眠不足は注意力や記憶力を低下させるだけでなく、心臓病や糖尿病にかかるリスクを高める可能性もある。専門家は、成人は毎日7〜8時間眠り、できるだけ決まった時間に床につくよう勧めている。寝る前にスマートフォンやパソコンを使わないことも、睡眠の質を高めるのに役立つ。
+随着游客人数不断增加，一些热门景点开始面临“过度旅游”的问题。大量游客不仅造成交通拥挤和垃圾增加，也影响了当地居民的日常生活。为了解决这个问题，部分城市开始限制每天的入场人数，或向游客收取额外的费用。如何在发展旅游业与保护环境之间找到平衡，是各地政府共同的难题。 | sui2 zhe5 you2 ke4 ren2 shu4 bu4 duan4 zeng1 jia1 yi1 xie1 re4 men2 jing3 dian3 kai1 shi3 mian4 lin2 guo4 du4 lv3 you2 de5 wen4 ti2 da4 liang4 you2 ke4 bu4 jin3 zao4 cheng2 jiao1 tong1 yong1 ji3 he2 la1 ji1 zeng1 jia1 ye3 ying3 xiang3 le5 dang1 di4 ju1 min2 de5 ri4 chang2 sheng1 huo2 wei4 le5 jie3 jue2 zhe4 ge4 wen4 ti2 bu4 fen4 cheng2 shi4 kai1 shi3 xian4 zhi4 mei3 tian1 de5 ru4 chang3 ren2 shu4 huo4 xiang4 you2 ke4 shou1 qu3 e2 wai4 de5 fei4 yong4 ru2 he2 zai4 fa1 zhan3 lv3 you2 ye4 yu3 bao3 hu4 huan2 jing4 zhi1 jian1 zhao3 dao4 ping2 heng2 shi4 ge4 di4 zheng4 fu3 gong4 tong2 de5 nan2 ti2 | 観光客の増加に伴い、一部の人気観光地は「オーバーツーリズム」の問題に直面し始めている。大量の観光客は交通渋滞やごみの増加を招くだけでなく、地元住民の日常生活にも影響を及ぼしている。この問題を解決するため、一部の都市では1日の入場者数を制限したり、観光客から追加料金を徴収したりし始めた。観光の発展と環境保護のバランスをどう取るかは、各地の行政に共通する難題である。
+人工智能的快速发展，正在改变许多行业的工作方式。从自动翻译到医疗诊断，人工智能已经能够完成过去只有人类才能做的事。不少人因此担心自己的工作会被取代。然而，也有学者指出，新技术在淘汰部分职业的同时，也会创造新的就业机会，关键在于人们是否愿意持续学习。 | ren2 gong1 zhi4 neng2 de5 kuai4 su4 fa1 zhan3 zheng4 zai4 gai3 bian4 xu3 duo1 hang2 ye4 de5 gong1 zuo4 fang1 shi4 cong2 zi4 dong4 fan1 yi4 dao4 yi1 liao2 zhen3 duan4 ren2 gong1 zhi4 neng2 yi3 jing1 neng2 gou4 wan2 cheng2 guo4 qu4 zhi3 you3 ren2 lei4 cai2 neng2 zuo4 de5 shi4 bu4 shao3 ren2 yin1 ci3 dan1 xin1 zi4 ji3 de5 gong1 zuo4 hui4 bei4 qu3 dai4 ran2 er2 ye3 you3 xue2 zhe3 zhi3 chu1 xin1 ji4 shu4 zai4 tao2 tai4 bu4 fen4 zhi2 ye4 de5 tong2 shi2 ye3 hui4 chuang4 zao4 xin1 de5 jiu4 ye4 ji1 hui4 guan1 jian4 zai4 yu2 ren2 men5 shi4 fou3 yuan4 yi4 chi2 xu4 xue2 xi2 | 人工知能の急速な発展は、多くの業界の働き方を変えつつある。自動翻訳から医療診断まで、人工知能はかつて人間にしかできなかったことをこなせるようになった。そのため、自分の仕事が奪われるのではないかと心配する人も少なくない。しかし、新しい技術は一部の職業を淘汰する一方で新たな雇用も生み出す、と指摘する研究者もいる。鍵となるのは、人々が学び続ける意志を持てるかどうかである。
+
+## 超級 一文
+本公司定于十月二十日召开年度股东大会，请各位股东准时出席。 | ben3 gong1 si1 ding4 yu2 shi2 yue4 er4 shi2 ri4 zhao4 kai1 nian2 du4 gu3 dong1 da4 hui4 qing3 ge4 wei4 gu3 dong1 zhun3 shi2 chu1 xi2 | 当社は10月20日に定時株主総会を開催いたします。株主の皆様は定刻にご出席ください。
+鉴于疫情趋缓，本校自即日起恢复线下教学。 | jian4 yu2 yi4 qing2 qu1 huan3 ben3 xiao4 zi4 ji2 ri4 qi3 hui1 fu4 xian4 xia4 jiao4 xue2 | 感染状況が落ち着いてきたことを踏まえ、本校は本日より対面授業を再開する。
+逾期未缴纳费用者，视为自动放弃资格。 | yu2 qi1 wei4 jiao3 na4 fei4 yong4 zhe3 shi4 wei2 zi4 dong4 fang4 qi4 zi1 ge2 | 期限までに費用を納付しない者は、資格を自動的に放棄したものとみなす。
+此举旨在促进区域经济协调发展。 | ci3 ju3 zhi3 zai4 cu4 jin4 qu1 yu4 jing1 ji4 xie2 tiao2 fa1 zhan3 | この措置は、地域経済の調和のとれた発展を促すことを目的とする。
+经研究决定，同意该项目立项。 | jing1 yan2 jiu1 jue2 ding4 tong2 yi4 gai1 xiang4 mu4 li4 xiang4 | 検討の結果、当該プロジェクトの立ち上げを承認することとした。
+学而不思则罔，思而不学则殆。 | xue2 er2 bu4 si1 ze2 wang3 si1 er2 bu4 xue2 ze2 dai4 | 学びて思わざれば則ち罔し、思いて学ばざれば則ち殆し。（『論語』）
+知之为知之，不知为不知，是知也。 | zhi1 zhi1 wei2 zhi1 zhi1 bu4 zhi1 wei2 bu4 zhi1 shi4 zhi1 ye3 | 知るを知ると為し、知らざるを知らずと為す、是れ知るなり。（『論語』）
+千里之行，始于足下。 | qian1 li3 zhi1 xing2 shi3 yu2 zu2 xia4 | 千里の行も足下より始まる。（『老子』）
+因业务调整需要，特此公告。 | yin1 ye4 wu4 tiao2 zheng3 xu1 yao4 te4 ci3 gong1 gao4 | 業務調整の必要により、ここに公告する。
+鉴于预算有限，相关计划暂缓实施。 | jian4 yu2 yu4 suan4 you3 xian4 xiang1 guan1 ji4 hua4 zan4 huan3 shi2 shi1 | 予算に限りがあるため、関連計画の実施は当面見合わせる。
+请各单位按时报送材料，确保工作顺利开展。 | qing3 ge4 dan1 wei4 an4 shi2 bao4 song4 cai2 liao4 que4 bao3 gong1 zuo4 shun4 li4 kai1 zhan3 | 各部署は期限どおりに資料を提出し、業務が円滑に進むようにしてください。
+该研究显示，二者之间并无显著相关。 | gai1 yan2 jiu1 xian3 shi4 er4 zhe3 zhi1 jian1 bing4 wu2 xian3 zhu4 xiang1 guan1 | 当該研究によれば、両者の間に有意な相関は認められない。
+历史之演进，固非一人一时之力所能左右。 | li4 shi3 zhi1 yan3 jin4 gu4 fei1 yi1 ren2 yi1 shi2 zhi1 li4 suo3 neng2 zuo3 you4 | 歴史の歩みは、もとより一人や一時の力で左右できるものではない。
+本办法未尽事宜，按照国家有关规定执行。 | ben3 ban4 fa3 wei4 jin4 shi4 yi2 an4 zhao4 guo2 jia1 you3 guan1 gui1 ding4 zhi2 xing2 | 本規則に定めのない事項は、国の関係規定に従って処理する。
+古人云：“读万卷书，行万里路。” | gu3 ren2 yun2 du2 wan4 juan4 shu1 xing2 wan4 li3 lu4 | 古人いわく「万巻の書を読み、万里の道を行く」。
+其言虽简，其义甚深。 | qi2 yan2 sui1 jian3 qi2 yi4 shen4 shen1 | その言葉は簡潔だが、その意味は非常に深い。
+本办法自发布之日起施行。 | ben3 ban4 fa3 zi4 fa1 bu4 zhi1 ri4 qi3 shi1 xing2 | 本規則は公布の日から施行する。
+为维护公共安全，本区域内禁止燃放烟花爆竹。 | wei4 wei2 hu4 gong1 gong4 an1 quan2 ben3 qu1 yu4 nei4 jin4 zhi3 ran2 fang4 yan1 hua1 bao4 zhu2 | 公共の安全を守るため、本区域内での花火・爆竹の使用を禁止する。
+综上所述，本研究之假设大致获得支持。 | zong1 shang4 suo3 shu4 ben3 yan2 jiu1 zhi1 jia3 she4 da4 zhi4 huo4 de2 zhi1 chi2 | 以上をまとめると、本研究の仮説はおおむね支持された。
+人无远虑，必有近忧。 | ren2 wu2 yuan3 lv4 bi4 you3 jin4 you1 | 人遠き慮り無ければ、必ず近き憂い有り。（『論語』）
+
+## 超級 長文
+关于大楼停电的通知：因年度设备检修需要，本大楼将暂停供电。一、停电时间为本月十五日上午八时至下午五时。二、停电期间电梯停止运行，请各位业主提前做好准备。三、如有疑问，请联系物业服务中心。特此通知。 | guan1 yu2 da4 lou2 ting2 dian4 de5 tong1 zhi1 yin1 nian2 du4 she4 bei4 jian3 xiu1 xu1 yao4 ben3 da4 lou2 jiang1 zan4 ting2 gong1 dian4 yi1 ting2 dian4 shi2 jian1 wei2 ben3 yue4 shi2 wu3 ri4 shang4 wu3 ba1 shi2 zhi4 xia4 wu3 wu3 shi2 er4 ting2 dian4 qi1 jian1 dian4 ti1 ting2 zhi3 yun4 xing2 qing3 ge4 wei4 ye4 zhu3 ti2 qian2 zuo4 hao3 zhun3 bei4 san1 ru2 you3 yi2 wen4 qing3 lian2 xi4 wu4 ye4 fu2 wu4 zhong1 xin1 te4 ci3 tong1 zhi1 | 停電のお知らせ：年次設備点検のため、本ビルは一時停電いたします。一、停電時間は今月15日午前8時から午後5時までです。二、停電中はエレベーターが停止しますので、居住者の皆様はあらかじめご準備ください。三、ご不明の点は管理サービスセンターまでお問い合わせください。以上、お知らせいたします。
+本研究旨在探讨社交媒体使用时间与青少年心理健康之间的关系。研究对象为北京市三所初中的学生，共计四百二十名。结果显示，每日使用时间超过三小时者，其焦虑程度显著高于使用时间较短者。但由于本研究采用横断面设计，尚无法推断因果关系，有待后续研究进一步验证。 | ben3 yan2 jiu1 zhi3 zai4 tan4 tao3 she4 jiao1 mei2 ti3 shi3 yong4 shi2 jian1 yu3 qing1 shao4 nian2 xin1 li3 jian4 kang1 zhi1 jian1 de5 guan1 xi5 yan2 jiu1 dui4 xiang4 wei2 bei3 jing1 shi4 san1 suo3 chu1 zhong1 de5 xue2 sheng5 gong4 ji4 si4 bai3 er4 shi2 ming2 jie2 guo3 xian3 shi4 mei3 ri4 shi3 yong4 shi2 jian1 chao1 guo4 san1 xiao3 shi2 zhe3 qi2 jiao1 lv4 cheng2 du4 xian3 zhu4 gao1 yu2 shi3 yong4 shi2 jian1 jiao4 duan3 zhe3 dan4 you2 yu2 ben3 yan2 jiu1 cai3 yong4 heng2 duan4 mian4 she4 ji4 shang4 wu2 fa3 tui1 duan4 yin1 guo3 guan1 xi4 you3 dai4 hou4 xu4 yan2 jiu1 jin4 yi1 bu4 yan4 zheng4 | 本研究は、SNSの利用時間と青少年のメンタルヘルスとの関係を検討することを目的とする。対象は北京市の中学校3校の生徒、計420名である。結果、1日の利用時間が3時間を超える者は、利用時間が短い者に比べて不安の程度が有意に高かった。ただし本研究は横断研究であるため因果関係までは推論できず、今後の研究によるさらなる検証が待たれる。
+读书之要，不在多而在精。古人读书，往往一书反复诵读，至于烂熟于心，方能融会贯通。今人信息唾手可得，然多浅尝即止，所获者不过片段之知。是故读书之道，宜择其要者而深究之，切勿贪多务得。 | du2 shu1 zhi1 yao4 bu4 zai4 duo1 er2 zai4 jing1 gu3 ren2 du2 shu1 wang3 wang3 yi1 shu1 fan3 fu4 song4 du2 zhi4 yu2 lan4 shu2 yu2 xin1 fang1 neng2 rong2 hui4 guan4 tong1 jin1 ren2 xin4 xi1 tuo4 shou3 ke3 de2 ran2 duo1 qian3 chang2 ji2 zhi3 suo3 huo4 zhe3 bu4 guo4 pian4 duan4 zhi1 zhi1 shi4 gu4 du2 shu1 zhi1 dao4 yi2 ze2 qi2 yao4 zhe3 er2 shen1 jiu1 zhi1 qie4 wu4 tan1 duo1 wu4 de2 | 読書の要は、量ではなく精にある。昔の人は一冊を何度も繰り返し読み、すっかり身についてはじめて全体を融通無碍に理解できた。今の人は情報をたやすく手に入れられるが、多くは少しかじっただけでやめてしまい、得られるのは断片的な知識にすぎない。ゆえに読書の道は、要となるものを選んで深く究めるべきであり、決して多くを欲張ってはならない。
+甲乙双方本着平等自愿、诚实信用的原则，就本合同的履行达成如下协议：乙方应自合同签订之日起三十日内交付标的物；如有延迟，每逾期一日，应按合同总价的千分之一向甲方支付违约金。违约金总额以合同总价的百分之十为上限。 | jia3 yi3 shuang1 fang1 ben3 zhe5 ping2 deng3 zi4 yuan4 cheng2 shi2 xin4 yong4 de5 yuan2 ze2 jiu4 ben3 he2 tong5 de5 lv3 xing2 da2 cheng2 ru2 xia4 xie2 yi4 yi3 fang1 ying1 zi4 he2 tong5 qian1 ding4 zhi1 ri4 qi3 san1 shi2 ri4 nei4 jiao1 fu4 biao1 di4 wu4 ru2 you3 yan2 chi2 mei3 yu2 qi1 yi1 ri4 ying1 an4 he2 tong5 zong3 jia4 de5 qian1 fen1 zhi1 yi1 xiang4 jia3 fang1 zhi1 fu4 wei2 yue1 jin1 wei2 yue1 jin1 zong3 e2 yi3 he2 tong5 zong3 jia4 de5 bai3 fen1 zhi1 shi2 wei2 shang4 xian4 | 甲乙双方は平等・自由意思および信義誠実の原則に基づき、本契約の履行について次のとおり合意する。乙は契約締結の日から30日以内に目的物を引き渡すものとする。遅延した場合は、1日を超えるごとに契約総額の1000分の1を違約金として甲に支払う。違約金の総額は契約総額の100分の10を上限とする。
+值此建校一百周年之际，我谨代表全体师生，向历任校长和广大校友致以最诚挚的感谢。百年来，学校秉承“求是”校训，培养了大批优秀人才。展望未来，我们将继往开来，以开放的胸怀迎接新时代的挑战，推动学校各项事业不断发展。 | zhi2 ci3 jian4 xiao4 yi1 bai3 zhou1 nian2 zhi1 ji4 wo3 jin3 dai4 biao3 quan2 ti3 shi1 sheng1 xiang4 li4 ren4 xiao4 zhang3 he2 guang3 da4 xiao4 you3 zhi4 yi3 zui4 cheng2 zhi4 de5 gan3 xie4 bai3 nian2 lai2 xue2 xiao4 bing3 cheng2 qiu2 shi4 xiao4 xun4 pei2 yang3 le5 da4 pi1 you1 xiu4 ren2 cai2 zhan3 wang4 wei4 lai2 wo3 men5 jiang1 ji4 wang3 kai1 lai2 yi3 kai1 fang4 de5 xiong1 huai2 ying2 jie1 xin1 shi2 dai4 de5 tiao3 zhan4 tui1 dong4 xue2 xiao4 ge4 xiang4 shi4 ye4 bu4 duan4 fa1 zhan3 | 創立百周年にあたり、全教職員と学生を代表して、歴代校長ならびに多くの卒業生の皆様に心より感謝申し上げます。この百年、本校は「求是」の校訓を守り、数多くの優れた人材を育ててまいりました。未来を見据え、私たちは先人の業績を受け継いで発展させ、開かれた心で新しい時代の挑戦に臨み、本校のあらゆる事業の発展に努めてまいります。

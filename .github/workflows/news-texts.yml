@@ -54,7 +54,7 @@ jobs:
       - name: Pull Request を作る
         if: steps.pending.outputs.count == '0'
         run: |
-          if git diff --quiet -- content/news.txt; then
+          if git diff --quiet -- content/news-cn.txt content/news-tw.txt && [ -z "$(git ls-files --others --exclude-standard content/news-cn.txt content/news-tw.txt)" ]; then
             echo "追加する例文がなかった"
             exit 0
           fi
@@ -62,7 +62,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
-          git add content/news.txt data/
+          git add content/news-cn.txt content/news-tw.txt data/
           git commit -m "時事の例文を追加（$(date -u +%Y-%m-%d)・要確認）"
           git push origin "$branch"
           gh pr create --base main --head "$branch" \
