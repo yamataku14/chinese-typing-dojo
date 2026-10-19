@@ -1,5 +1,5 @@
 // AdSense を config.js の設定どおりに読み込む。client が空なら何もしない。
-import { ADS } from "./config.js?v=202610190848";
+import { ADS } from "./config.js?v=202610190854";
 
 if (ADS.client) {
   const s = document.createElement("script");

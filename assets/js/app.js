@@ -1,9 +1,9 @@
-import { splitSyllable, toneMarkLetters, zhuyinParts, zhuyinKeys, zhuyinText, KEYBOARD_ROWS, KEY_TO_ZHUYIN } from "./phonetics.js?v=202610190848";
-import { Records, settingKey } from "./records.js?v=202610190848";
-import { renderRecords } from "./records-view.js?v=202610190848";
-import { LEVELS, TEXT_LEVEL_MAX, describe, fmtTime, textLevelName } from "./labels.js?v=202610190848";
-import { renderReport } from "./report.js?v=202610190848";
-import { VERSION } from "./version.js?v=202610190848";
+import { splitSyllable, toneMarkLetters, zhuyinParts, zhuyinKeys, zhuyinText, KEYBOARD_ROWS, KEY_TO_ZHUYIN } from "./phonetics.js?v=202610190854";
+import { Records, settingKey } from "./records.js?v=202610190854";
+import { renderRecords } from "./records-view.js?v=202610190854";
+import { LEVELS, TEXT_LEVEL_MAX, describe, fmtTime, textLevelName } from "./labels.js?v=202610190854";
+import { renderReport } from "./report.js?v=202610190854";
+import { VERSION } from "./version.js?v=202610190854";
 
 const HAN = /[㐀-鿿]/;
 const ROUND = { word: 20, sentence: 5, passage: 1 };
@@ -123,6 +123,7 @@ async function newRound() {
   const order = pickOrder(pool);
   R = {
     settings, items: order.slice(0, ROUND[S.length]).map(buildItem),
+    pool,                                   // この条件の問題すべて
     queue: order.slice(ROUND[S.length]),   // 「別の文にする」で差し替える候補
     qi: 0, ci: 0, pos: 0, keys: 0, misses: 0, chars: 0, start: null, end: null, weak: {},
   };
@@ -324,6 +325,11 @@ function finish() {
 // ---------- 別の問題にする ----------
 function skipItem() {
   if (!R || R.end) return;
+  if (!R.queue.length) {
+    // 候補を使い切ったら、このラウンドに出ていない問題を、出してから時間がたった順にもう一度並べる
+    const inRound = new Set(R.items.map(it => it.text));
+    R.queue = pickOrder(R.pool).filter(r => !inRound.has(rowText(r)));
+  }
   const next = R.queue.shift();
   if (!next) {
     focusInput();

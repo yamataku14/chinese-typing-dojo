@@ -1,6 +1,6 @@
 // 誤りの報告。静的サイトなので自前では受け取らず、
 // Google フォーム（設定があれば）か GitHub の Issue 作成画面を、内容を入れた状態で開く。
-import { REPORT } from "./config.js?v=202610190848";
+import { REPORT } from "./config.js?v=202610190854";
 
 const KINDS = ["読み・声調", "漢字・字体", "意味・訳", "その他"];
 
